@@ -4,9 +4,10 @@ Welcome to the repository for the Golf Chip Scoring Game. This project is design
 
 ## Prerequisites
 
-Before you begin, ensure you have the following hardware and software ready:
-
-- Windows machine with Visual Studio 2022 Community installed.
+Before you begin, ensure you have the following hardware and software ready
+- Windows machine with
+	- [SquareLine Studio 1.4 ](https://squareline.io/downloads#lastRelease).
+	- [Visual Studio Community 2022](https://visualstudio.microsoft.com/vs/community/).
 - Raspberry Pi 4.
 - 9.3inch 1600x600 LCD screen ([Waveshare](https://www.waveshare.com/wiki/9.3inch_1600x600_LCD)).
 
@@ -39,10 +40,28 @@ Before you begin, ensure you have the following hardware and software ready:
    - Click on 'CHOOSE OS' and select ‘Use custom’ to specify the OS image.
    - Download the Raspberry Pi OS image directly from [here](https://downloads.raspberrypi.com/raspios_oldstable_arm64/images/raspios_oldstable_arm64-2024-03-12/2024-03-12-raspios-bullseye-arm64.img.xz). Ensure the image is compatible with Raspberry Pi 4.
    - Select the downloaded image and write it to your SD card.
+   - Before writing the image, click on the gear icon to access the advanced settings:
+     - Set the hostname of your Raspberry Pi.
+     - Enable SSH and select "Use password authentication".
+     - Configure your WiFi by entering the network name (SSID) and password.
+	- Additionally, enable VNC for remote desktop access:
+     - In the Raspberry Pi Imager’s advanced settings, enable VNC.
+     - Ensure your Raspberry Pi is connected to the same network as your Windows machine.
 
-2. **Set Up the Display:**
-   - Follow the hardware connection guides on the [Waveshare wiki](https://www.waveshare.com/wiki/9.3inch_1600x600_LCD) to connect your 9.3inch LCD to the Raspberry Pi.
-   - Ensure all connections are secure and the display is configured to work with the Pi correctly.
+	## Accessing Raspberry Pi via VNC from a Windows Machine
+	
+	1. **Install VNC Viewer on Windows:**
+	   - Download and install VNC Viewer from [RealVNC's website](https://www.realvnc.com/en/connect/download/viewer/).
+	   
+	2. **Connect to Your Raspberry Pi:**
+	   - Open VNC Viewer on your Windows machine.
+	   - Enter the IP address or hostname of your Raspberry Pi and press 'Enter'.
+	   - When prompted, enter the username and password you configured for your Raspberry Pi.
+	   - You should now be connected and able to interact with the Raspberry Pi desktop environment remotely.
+	
+	2. **Set Up the Display:**
+	   - Follow the hardware connection guides on the [Waveshare wiki](https://www.waveshare.com/wiki/9.3inch_1600x600_LCD) to connect your 9.3inch LCD to the Raspberry Pi.
+	   - Ensure all connections are secure and the display is configured to work with the Pi correctly.
 
 ## Building and Running the User Interface
 
