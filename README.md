@@ -16,14 +16,19 @@ Before you begin, ensure you have the following hardware and software ready:
 
 1. **Install ARM GNU Toolchain:**
    - Download the ARM GNU Toolchain from [ARM developer website](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads).
-   - Direct link to download: [arm-gnu-toolchain-13.2.rel1-mingw-w64-i686-arm-none-eabi.exe](https://developer.arm.com/-/media/Files/downloads/gnu/13.2.rel1/binrel/arm-gnu-toolchain-13.2.rel1-mingw-w64-i686-arm-none-eabi.exe?rev=07af46c1f7574a77969b0f764a1255f0&hash=E5598DC9AB1C892D26C25B6158FFA65C) (Note: This link may change, always check for the latest version on the ARM developer website).
+   - Direct link to download: [arm-gnu-toolchain-13.2.rel1-mingw-w64-i686-arm-none-eabi.exe](https://developer.arm.com/-/media/Files/downloads/gnu/13.2.rel1/binrel/arm-gnu-toolchain-13.2.rel1-mingw-w64-i686-arm-none-eabi.exe?rev=07af46c1f7574a77969b0f764a1255f0&hash=E5598DC9AB1C892D26C25B6158FFA65C).
    - Install the downloaded executable.
 
-2. **Add Toolchain to Environment Variables:**
+2. **Install Additional GCC ARM Toolchain:**
+   - Download the GCC ARM Toolchain named gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu from [this link](https://developer.arm.com/downloads/-/gnu-a).
+   - Extract the tar.xz file to your preferred directory.
+
+3. **Add Toolchains to Environment Variables:**
    - Search for ‘Environment Variables’ in Windows Search and select “Edit the system environment variables”.
    - In the System Properties window, click on the "Environment Variables" button.
    - Under System Variables, find and select 'Path', then click on 'Edit'.
    - Click 'New' and add the path to the folder where you installed the ARM GNU Toolchain.
+   - Add another 'New' entry and include the path to the folder where you extracted the GCC ARM Toolchain.
    - Click 'OK' to close all dialogs.
 
 ### On Raspberry Pi
@@ -32,21 +37,38 @@ Before you begin, ensure you have the following hardware and software ready:
    - Download the Raspberry Pi Imager from [Raspberry Pi OS website](https://www.raspberrypi.com/software/).
    - Install and open the Raspberry Pi Imager.
    - Click on 'CHOOSE OS' and select ‘Use custom’ to specify the OS image.
-   - Download the Raspberry Pi OS (Legacy, 64-bit) from [here](https://www.raspberrypi.com/software/operating-systems/). Ensure the image is compatible with Raspberry Pi 4.
+   - Download the Raspberry Pi OS image directly from [here](https://downloads.raspberrypi.com/raspios_oldstable_arm64/images/raspios_oldstable_arm64-2024-03-12/2024-03-12-raspios-bullseye-arm64.img.xz). Ensure the image is compatible with Raspberry Pi 4.
    - Select the downloaded image and write it to your SD card.
 
 2. **Set Up the Display:**
    - Follow the hardware connection guides on the [Waveshare wiki](https://www.waveshare.com/wiki/9.3inch_1600x600_LCD) to connect your 9.3inch LCD to the Raspberry Pi.
    - Ensure all connections are secure and the display is configured to work with the Pi correctly.
 
-## Building and Running the Game
+## Building and Running the User Interface
 
-Provide steps to compile and run the game on both the development machine and the Raspberry Pi.
+1. **Exporting from Square Studio:**
+   - After designing your screens in Square Studio, export the project to the template folder.
+   - Export the user interface to the Square Studio output folder.
+
+2. **Building the UI with Visual Studio:**
+   - Open Visual Studio 2022 and select 'Open Folder'.
+   - Navigate to the Square Studio output folder.
+   - From the top menu, choose 'Build All'.
+   - Once the build completes without errors, in the File Explorer panel, right-click on the project and select 'Open Folder in File Explorer'.
+   - Navigate to the 'out' folder, then copy the contents of 'x64-Debug' to a flash drive.
+
+3. **Running the UI on Raspberry Pi:**
+   - Connect the flash drive to the Raspberry Pi.
+   - Copy the 'x64-Debug' folder to the desktop of the Pi.
+   - Open a terminal on the Pi and write the following commands:
+     ```
+     cd Desktop/x64-Debug
+     chmod +x Squa<tab key for autocomplete>  # It will complete to Square_project
+     ./Squa<tab key for autocomplete>  # Hit tab again then enter
+     ```
+   - To run the application in full screen, press `ALT + F11` on a keyboard connected to the Pi.
 
 ## Contributing
 
-Contributions are welcome. Please read `CONTRIBUTING.md` for details on our code of conduct, and the process for submitting pull requests to us.
+All copyrights reserved to Nicholas Gums 
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
