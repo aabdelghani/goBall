@@ -76,16 +76,54 @@ Before you begin, ensure you have the following hardware and software ready
    - Once the build completes without errors, in the File Explorer panel, right-click on the project and select 'Open Folder in File Explorer'.
    - Navigate to the 'out' folder, then copy the contents of 'x64-Debug' to a flash drive.
 
+## Running the UI on Raspberry Pi
+
+1. **Exporting from Square Studio:**
+   - After designing your screens in Square Studio, export the project to the template folder.
+   - Export the user interface to the Square Studio output folder.
+
+2. **Building the UI with Visual Studio:**
+   - Open Visual Studio 2022 and select 'Open Folder'.
+   - Navigate to the Square Studio output folder.
+   - From the top menu, choose 'Build All'.
+   - Once the build completes without errors, in the File Explorer panel, right-click on the project and select 'Open Folder in File Explorer'.
+   - Navigate to the 'out' folder, then copy the contents of 'x64-Debug' to a flash drive.
+
 3. **Running the UI on Raspberry Pi:**
    - Connect the flash drive to the Raspberry Pi.
    - Copy the 'x64-Debug' folder to the desktop of the Pi.
    - Open a terminal on the Pi and write the following commands:
      ```
      cd Desktop/x64-Debug
-     chmod +x Squa<tab key for autocomplete>  # It will complete to Square_project
+     chmod +x Squa<tab key for autocomplete>  # It will complete to SquareLine_Project
      ./Squa<tab key for autocomplete>  # Hit tab again then enter
      ```
    - To run the application in full screen, press `ALT + F11` on a keyboard connected to the Pi.
+
+### Consider Using a Desktop Autostart Method
+Using the autostart configuration of your desktop environment can be a better alternative for GUI applications:
+
+1. **Create a desktop entry:**
+   - For the LXDE environment on Raspbian, you can create an autostart file in the `~/.config/autostart/` directory.
+     ```bash
+     mkdir -p /home/pi/.config/autostart
+     nano /home/pi/.config/autostart/squareline.desktop
+     ```
+   - Add the following content:
+     ```ini
+     [Desktop Entry]
+     Type=Application
+     Name=SquareLine Project
+     Exec=/home/q/Desktop/x64-Debug/SquareLine_Project
+     ```
+   - Make sure the file path and permissions are correctly set for this to work.
+
+2. **Reboot and Test:**
+   - After making these changes, reboot your Raspberry Pi:
+     ```bash
+     sudo reboot
+     ```
+   - Check if the UI appears after the system has restarted. These steps should cover common scenarios where a GUI application does not display when started from `rc.local`. If it still doesn't show up, consider checking the logs (`/var/log/syslog` or Xorg logs) for any error messages related to GUI startup.
 
 ## Contributing
 
