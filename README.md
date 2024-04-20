@@ -103,6 +103,7 @@ Before you begin, ensure you have the following hardware and software ready
 ### Consider Using a Desktop Autostart Method
 Using the autostart configuration of your desktop environment can be a better alternative for GUI applications:
 
+
 1. **Create a desktop entry:**
    - For the LXDE environment on Raspbian, you can create an autostart file in the `~/.config/autostart/` directory.
      ```bash
@@ -117,6 +118,84 @@ Using the autostart configuration of your desktop environment can be a better al
      Exec=/home/q/Desktop/x64-Debug/SquareLine_Project
      ```
    - Make sure the file path and permissions are correctly set for this to work.
+
+### Setting Up Auto-Start for a Script with Logging
+
+To have your script start automatically when you log into your desktop environment and redirect its output to a log file for monitoring, you'll need to create a `.desktop` file in the autostart directory and set up logging within the script. Here’s how to do it:
+
+#### Step 1: Prepare the Script
+
+- **Add logging to your script:** Modify your script to redirect both stdout (standard output) and stderr (standard error) to a log file. Here's an example of how you can do it:
+
+  ```bash
+  #!/bin/bash
+
+  # Log file path
+  LOGFILE="$HOME/.fullscreen_toggle_log.txt"
+
+  exec > >(tee -a "$LOGFILE") 2>&1
+
+  # Flag to check if fullscreen has been toggled
+  fullscreen_toggled=0
+
+  while true; do
+      if pgrep -f "./SquareLine_Project" > /dev/null; then
+          echo "[$(date)] Application running, checking for window..."
+          WID=$(xdotool search --onlyvisible --name "TFT Simulator" 2>/dev/null)
+          if [ ! -z "$WID" ] && [ "$fullscreen_toggled" -eq 0 ]; then
+              echo "[$(date)] Window found, activating and sending ALT+F11..."
+              xdotool windowactivate $WID
+              xdotool key alt+F11
+              fullscreen_toggled=1
+          elif [ -z "$WID" ]; then
+              echo "[$(date)] Window not found."
+          fi
+      else
+          echo "[$(date)] Application not running. Resetting fullscreen toggle..."
+          fullscreen_toggled=0
+          sleep 4
+      fi
+      sleep 4
+  done
+  ```
+
+- **Ensure the script is executable:**
+  ```bash
+  chmod +x /path/to/your/script.sh
+  ```
+
+#### Step 2: Create the `.desktop` File in the Autostart Directory
+
+- **Navigate to the autostart directory:**
+  ```bash
+  cd ~/.config/autostart/
+  ```
+
+- **Create a new `.desktop` file:**
+  ```bash
+  nano fullscreen_toggle.desktop
+  ```
+
+- **Add the following content to the `.desktop` file:**
+  ```ini
+  [Desktop Entry]
+  Type=Application
+  Name=Fullscreen Toggle
+  Exec=/path/to/your/script.sh
+  X-GNOME-Autostart-enabled=true
+  ```
+
+- **Save and close the editor.**
+
+#### Step 3: Test the Setup
+
+- **Reboot your computer or log out and then back in to test if the script starts automatically and check the log file to ensure it's capturing the output:**
+  ```bash
+  cat ~/.fullscreen_toggle_log.txt
+  ```
+
+This setup will make sure your script runs every time you start your session and keeps a log of its operations, which can be extremely helpful for debugging and monitoring the script’s behavior. Make sure the paths are correctly specified in both the script and the `.desktop` file.
+
 
 2. **Reboot and Test:**
    - After making these changes, reboot your Raspberry Pi:
