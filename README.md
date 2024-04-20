@@ -106,8 +106,8 @@ Using the autostart configuration of your desktop environment can be a better al
 1. **Create a desktop entry:**
    - For the LXDE environment on Raspbian, you can create an autostart file in the `~/.config/autostart/` directory.
      ```bash
-     mkdir -p /home/pi/.config/autostart
-     nano /home/pi/.config/autostart/squareline.desktop
+     sudo mkdir -p /home/pi/.config/autostart
+     sudo nano /home/pi/.config/autostart/squareline.desktop
      ```
    - Add the following content:
      ```ini
