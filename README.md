@@ -37,14 +37,14 @@ Before you begin, ensure you have the following hardware and software ready
 1. **Prepare Raspberry Pi OS:**
    - Download the Raspberry Pi Imager from [Raspberry Pi OS website](https://www.raspberrypi.com/software/).
    - Install and open the Raspberry Pi Imager.
-   - Click on 'CHOOSE OS' and select ‘Use custom’ to specify the OS image.
    - Download the Raspberry Pi OS image directly from [here](https://downloads.raspberrypi.com/raspios_oldstable_arm64/images/raspios_oldstable_arm64-2024-03-12/2024-03-12-raspios-bullseye-arm64.img.xz). Ensure the image is compatible with Raspberry Pi 4.
+   - Click on 'CHOOSE OS' and select ‘Use custom’ to specify the OS image.
    - Select the downloaded image and write it to your SD card.
    - Before writing the image, click on the gear icon to access the advanced settings:
      - Set the hostname of your Raspberry Pi.
      - Enable SSH and select "Use password authentication".
      - Configure your WiFi by entering the network name (SSID) and password.
-	- Additionally, enable VNC for remote desktop access:
+   - Additionally, enable VNC for remote desktop access:
      - In the Raspberry Pi Imager’s advanced settings, enable VNC.
      - Ensure your Raspberry Pi is connected to the same network as your Windows machine.
 
