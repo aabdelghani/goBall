@@ -8,6 +8,15 @@ Before you begin, ensure you have the following hardware and software ready
 - Windows machine with
 	- [SquareLine Studio 1.4 ](https://squareline.io/downloads#lastRelease).
 	- [Visual Studio Community 2022](https://visualstudio.microsoft.com/vs/community/).
+ 		- From the Visual studio Installer you can pick the following 
+			1. Python Development 
+			2. Desktop development with C+++
+   			3. Linux and embedded development with c++
+      			4. from Indiviual component you can pick the following
+         			a. Embedded and IoT Tools
+            			b. C++ Cmake tools for linux
+            			c. IntelliCode
+            			d. Remote File Explorer for Linux 	    
 - Raspberry Pi 4.
 - 9.3inch 1600x600 LCD screen ([Waveshare](https://www.waveshare.com/wiki/9.3inch_1600x600_LCD)).
 
