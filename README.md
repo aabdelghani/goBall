@@ -30,7 +30,7 @@ Before you begin, ensure you have the following hardware and software ready
    - Install the downloaded executable.
 
 2. **Install Additional GCC ARM Toolchain:**
-   - Download the GCC ARM Toolchain named gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu from [this link](https://developer.arm.com/downloads/-/gnu-a).
+   - Download the GCC ARM Toolchain named gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu.tar.xz from [this page](https://developer.arm.com/downloads/-/gnu-a)., or [this link](https://developer.arm.com/-/media/Files/downloads/gnu-a/10.3-2021.07/binrel/gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu.tar.xz?rev=06b6c36e428c48fda4b6d907f17308be&hash=5C6B156A536294706E14D40D8110CA03A086D63C) to download it directly. 
    - Extract the tar.xz file to your preferred directory.
 
 3. **Add Toolchains to Environment Variables:**
