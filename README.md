@@ -38,7 +38,8 @@ Before you begin, ensure you have the following hardware and software ready
    - In the System Properties window, click on the "Environment Variables" button.
    - Under System Variables, find and select 'Path', then click on 'Edit'.
    - Click 'New' and add the path to the folder where you installed the ARM GNU Toolchain.
-   - Add another 'New' entry and include the path to the folder where you extracted the GCC ARM Toolchain.
+   - Add another 'New' entry and include the path for example in my case it was "C:\gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu\bin" and "C:\gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu\aarch64-none-linux-gnu\bin"
+    to the folder where you extracted the GCC ARM Toolchain. also add  C:\gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu\aarch64-none-linux-gnu\bin to user variables path as well
    - Click 'OK' to close all dialogs.
 
 ### On Raspberry Pi
