@@ -217,4 +217,6 @@ This setup will make sure your script runs every time you start your session and
 ## Contributing
 
 All copyrights reserved to Nicholas Gums 
+## RaspberryPi 5 -> changing the resolution 
+WAYLAND_DISPLAY="wayland-0" wlr-randr --output HDMI-A-1 --custom-mode 2560x720@60Hz
 
