@@ -1,0 +1,90 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\fishe\\OneDrive\\Desktop\\Squareline Ahmed\\SquareLine_Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fishe\\OneDrive\\Desktop\\Squareline Ahmed\\SquareLine_Project\\ui\\ui_events.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\ui_events.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fishe\\OneDrive\\Desktop\\Squareline Ahmed\\SquareLine_Project\\ui\\screens\\ui_SP1P9HGScreen.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\screens\\ui_SP1P9HGScreen.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fishe\\OneDrive\\Desktop\\Squareline Ahmed\\SquareLine_Project\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fishe\\OneDrive\\Desktop\\Squareline Ahmed\\SquareLine_Project\\ui\\ui_events.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ui\\ui_events.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "main.c",
+              "DocumentMoniker": "C:\\Users\\fishe\\OneDrive\\Desktop\\Squareline Ahmed\\SquareLine_Project\\main.c",
+              "RelativeDocumentMoniker": "main.c",
+              "ToolTip": "C:\\Users\\fishe\\OneDrive\\Desktop\\Squareline Ahmed\\SquareLine_Project\\main.c",
+              "RelativeToolTip": "main.c",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAFYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-12-27T22:31:33.105Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ui_SP1P9HGScreen.c",
+              "DocumentMoniker": "C:\\Users\\fishe\\OneDrive\\Desktop\\Squareline Ahmed\\SquareLine_Project\\ui\\screens\\ui_SP1P9HGScreen.c",
+              "RelativeDocumentMoniker": "ui\\screens\\ui_SP1P9HGScreen.c",
+              "ToolTip": "C:\\Users\\fishe\\OneDrive\\Desktop\\Squareline Ahmed\\SquareLine_Project\\ui\\screens\\ui_SP1P9HGScreen.c",
+              "RelativeToolTip": "ui\\screens\\ui_SP1P9HGScreen.c",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAEwAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-12-27T22:47:18.562Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ui_events.c",
+              "DocumentMoniker": "C:\\Users\\fishe\\OneDrive\\Desktop\\Squareline Ahmed\\SquareLine_Project\\ui\\ui_events.c",
+              "RelativeDocumentMoniker": "ui\\ui_events.c",
+              "ToolTip": "C:\\Users\\fishe\\OneDrive\\Desktop\\Squareline Ahmed\\SquareLine_Project\\ui\\ui_events.c",
+              "RelativeToolTip": "ui\\ui_events.c",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2024-12-27T22:26:02.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ui_events.h",
+              "DocumentMoniker": "C:\\Users\\fishe\\OneDrive\\Desktop\\Squareline Ahmed\\SquareLine_Project\\ui\\ui_events.h",
+              "RelativeDocumentMoniker": "ui\\ui_events.h",
+              "ToolTip": "C:\\Users\\fishe\\OneDrive\\Desktop\\Squareline Ahmed\\SquareLine_Project\\ui\\ui_events.h",
+              "RelativeToolTip": "ui\\ui_events.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-12-27T22:25:59.796Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

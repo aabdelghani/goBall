@@ -1,0 +1,55 @@
+{
+	"kind" : "toolchains",
+	"toolchains" : 
+	[
+		{
+			"compiler" : 
+			{
+				"id" : "GNU",
+				"implicit" : 
+				{
+					"includeDirectories" : 
+					[
+						"C:/gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu/lib/gcc/aarch64-none-linux-gnu/10.3.1/include",
+						"C:/gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu/lib/gcc/aarch64-none-linux-gnu/10.3.1/include-fixed",
+						"C:/gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu/aarch64-none-linux-gnu/include",
+						"C:/gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/usr/include"
+					],
+					"linkDirectories" : 
+					[
+						"C:/gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu/lib/gcc/aarch64-none-linux-gnu/10.3.1",
+						"C:/gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu/lib/gcc",
+						"C:/gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu/aarch64-none-linux-gnu/lib64",
+						"C:/gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/lib64",
+						"C:/gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/usr/lib64",
+						"C:/gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu/aarch64-none-linux-gnu/lib",
+						"C:/gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/lib",
+						"C:/gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/usr/lib"
+					],
+					"linkFrameworkDirectories" : [],
+					"linkLibraries" : 
+					[
+						"gcc",
+						"gcc_s",
+						"c",
+						"gcc",
+						"gcc_s"
+					]
+				},
+				"path" : "C:/gcc-arm-10.3-2021.07-mingw-w64-i686-aarch64-none-linux-gnu/bin/aarch64-none-linux-gnu-gcc.exe",
+				"version" : "10.3.1"
+			},
+			"language" : "C",
+			"sourceFileExtensions" : 
+			[
+				"c",
+				"m"
+			]
+		}
+	],
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}
