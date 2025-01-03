@@ -1,3 +1,0 @@
-/home/pi/Desktop/SquareLine_ProjectLogicImplementation/build/CMakeFiles/rebuild_cache.dir
-/home/pi/Desktop/SquareLine_ProjectLogicImplementation/build/CMakeFiles/edit_cache.dir
-/home/pi/Desktop/SquareLine_ProjectLogicImplementation/build/CMakeFiles/SquareLine_Project.dir
