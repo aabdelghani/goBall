@@ -26,7 +26,14 @@ show_cursor() {
     fi
 }
 
+# Function to set custom display mode
+set_display_mode() {
+    WAYLAND_DISPLAY="wayland-0" wlr-randr --output HDMI-A-1 --custom-mode 2560x720@60Hz
+}
+
+# Main loop
 while true; do
+    set_display_mode  # Set the custom display mode
     # Check if the application is running
     if pgrep -f "./SquareLine_Project" > /dev/null; then
         echo "[$(date)] Application running, checking for window..."
