@@ -214,10 +214,6 @@ void sensor_callback(void) {
 
                 if (player->current_hole > MAX_HOLES) {
                     printf("All players have completed the game.\n");
-                    for (int i = 0; i < 4; i++) {
-                        pinMode(sensor_pins[i], INPUT);
-                        pullUpDnControl(sensor_pins[i], PUD_DOWN);
-                    }
                     update_flag = 1;
                 }
             }
