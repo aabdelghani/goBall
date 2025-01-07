@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/fishe/OneDrive/Desktop/Squareline Ahmed/SquareLine_Project
+# Install script for directory: C:/Users/fishe/OneDrive/Desktop/WorkingTrialGoBallAhmed - UI Exported/Exported/SquareLine_Project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/SquareLine_Project")
+  set(CMAKE_INSTALL_PREFIX "C:/Users/fishe/OneDrive/Desktop/WorkingTrialGoBallAhmed - UI Exported/Exported/SquareLine_Project/out/install/x64-Debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "")
+    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/fishe/OneDrive/Desktop/Squareline Ahmed/SquareLine_Project/out/build/x64-Debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/fishe/OneDrive/Desktop/WorkingTrialGoBallAhmed - UI Exported/Exported/SquareLine_Project/out/build/x64-Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

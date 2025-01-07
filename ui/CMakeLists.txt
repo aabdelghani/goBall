@@ -50,8 +50,7 @@ SET(SOURCES components/ui_comp_ball_count_.c
     ui.c
     components/ui_comp_hook.c
     ui_helpers.c
-    ui_events.c
-    images/ui_img_venice_18th_2047x720_png.c
+    images/ui_img_venice_18th_2560x720_png.c
     images/ui_img_studio_go_ball_logo_150x137_png.c
     images/ui_img_go_ball_350x319_png.c
     images/ui_img_studio_go_ball_logo_200x182_png.c
@@ -67,7 +66,7 @@ SET(SOURCES components/ui_comp_ball_count_.c
     images/ui_img_go_ball_390x374_png.c
     images/ui_img_studio_go_ball_logo_100x193_png.c
     images/ui_img_venice_18th_1600x600_png.c
-    images/ui_img_venice_18th_2560x1170_png.c
-    images/ui_img_venice_18th_2560x720_png.c)
+    images/ui_img_venice_18th_2047x720_png.c
+    images/ui_img_venice_18th_2560x1170_png.c)
 
 add_library(ui ${SOURCES})

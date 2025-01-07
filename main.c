@@ -1,4 +1,3 @@
-
 /**
  * @file main
  *
@@ -8,11 +7,9 @@
  *      INCLUDES
  *********************/
 #define _DEFAULT_SOURCE /* needed for usleep() */
+#include <stdlib.h>
 #include <unistd.h>
-#define SDL_MAIN_HANDLED /*To fix SDL's "undefined reference to WinMain" issue*/
-#include <SDL2/SDL.h>
 #include "lvgl/lvgl.h"
-#include "lv_drivers/sdl/sdl.h"
 #include "ui/ui.h"
 #include <wiringPi.h>
 #include <time.h>
@@ -20,7 +17,7 @@
 /*********************
  *      DEFINES
  *********************/
-#define DEBOUNCE_TIME 3  // Time to prevent multiple sensor readings
+#define DEBOUNCE_TIME 2  // Time to prevent multiple sensor readings
 #define NUM_PLAYERS 1
 #define MAX_HOLES 8
 #define SENSORS_PER_TURN 2
@@ -31,7 +28,7 @@
 /**********************
  *  STATIC PROTOTYPES
  **********************/
-static void hal_init(void);
+static lv_display_t * hal_init(int32_t w, int32_t h);
 
 /**********************
  *  STATIC VARIABLES
@@ -58,7 +55,10 @@ static void hal_init(void);
  **********************/
 int update_flag = 0;
  // Define sensor pins
-int sensor_pins[] = {19, 26, 20, 21};
+ // 26 -> #1
+ // 19 -> #2
+ // 20 -> #4
+int sensor_pins[] = {17, 26, 27, 23};
 
 Player players[NUM_PLAYERS];
 int current_player_index = 0;
@@ -229,8 +229,8 @@ int main(int argc, char **argv)
   /*Initialize LVGL*/
   lv_init();
 
-  /*Initialize the HAL (display, input devices, tick) for LVGL*/
-  hal_init();
+  /*Initialize the display, and the input devices*/
+  hal_init( 2560, 720 );
 
   ui_init();
   wiringPiSetupGpio();
@@ -251,9 +251,10 @@ int main(int argc, char **argv)
        * It could be done in a timer interrupt or an OS task too.*/
       lv_timer_handler();
 
-      usleep(5 * 1000);
+      usleep(5* 1000);
   }
 
+  lv_deinit();
   return 0;
 }
 
@@ -262,31 +263,33 @@ int main(int argc, char **argv)
  **********************/
 
 /**
- * Initialize the Hardware Abstraction Layer (HAL) for LVGL
+ * Initialize the Hardware Abstraction Layer (HAL) for the LVGL graphics
+ * library
  */
-static void hal_init(void)
+static lv_display_t * hal_init(int32_t w, int32_t h)
 {
-  /* Use the 'monitor' driver which creates window on PC's monitor to simulate a display*/
-  sdl_init();
+  lv_group_set_default(lv_group_create());
 
-  /*Create a display buffer*/
-  static lv_color_t buf[SDL_HOR_RES * SDL_VER_RES];
-  static lv_disp_draw_buf_t disp_draw_buf;
-  lv_disp_draw_buf_init(&disp_draw_buf, buf, NULL, SDL_HOR_RES * SDL_VER_RES);
+  lv_display_t * disp = lv_sdl_window_create(w, h);
 
-  /*Create a display*/
-  static lv_disp_drv_t disp_drv;
-  lv_disp_drv_init(&disp_drv); /*Basic initialization*/
-  disp_drv.draw_buf = &disp_draw_buf;
-  disp_drv.flush_cb = sdl_display_flush;
-  disp_drv.hor_res = SDL_HOR_RES;
-  disp_drv.ver_res = SDL_VER_RES;
-  lv_disp_drv_register(&disp_drv);
+  lv_indev_t * mouse = lv_sdl_mouse_create();
+  lv_indev_set_group(mouse, lv_group_get_default());
+  lv_indev_set_display(mouse, disp);
+  lv_display_set_default(disp);
 
-  /* Add a mouse as input device */
-  static lv_indev_drv_t indev_drv;
-  lv_indev_drv_init(&indev_drv); /*Basic initialization*/
-  indev_drv.type = LV_INDEV_TYPE_POINTER;
-  indev_drv.read_cb = sdl_mouse_read;
-  lv_indev_drv_register(&indev_drv);
+  //LV_IMAGE_DECLARE(mouse_cursor_icon); /*Declare the image file.*/
+  //lv_obj_t * cursor_obj;
+  //cursor_obj = lv_image_create(lv_screen_active()); /*Create an image object for the cursor */
+  //lv_image_set_src(cursor_obj, &mouse_cursor_icon);           /*Set the image source*/
+  //lv_indev_set_cursor(mouse, cursor_obj);             /*Connect the image  object to the driver*/
+
+  lv_indev_t * mousewheel = lv_sdl_mousewheel_create();
+  lv_indev_set_display(mousewheel, disp);
+
+  lv_indev_t * keyboard = lv_sdl_keyboard_create();
+  lv_indev_set_display(keyboard, disp);
+  lv_indev_set_group(keyboard, lv_group_get_default());
+
+  return disp;
 }
+
