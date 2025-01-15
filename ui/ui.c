@@ -2046,52 +2046,97 @@ const lv_image_dsc_t * ui_imgset_venice_18th_2560x[2] = {&ui_img_venice_18th_256
 ///////////////////// ANIMATIONS ////////////////////
 
 ///////////////////// FUNCTIONS ////////////////////
+void set_num_players(int new_num_players) {
+    if (new_num_players < 1 || new_num_players > MAX_PLAYERS) {
+        printf("Invalid number of players. Please select between 1 and %d.\n", MAX_PLAYERS);
+        return;
+    }
+    num_players = new_num_players;
+    printf("Number of players set to: %d\n", num_players);
+}
 
 void reset_scores(void) {
     // Reset all players' data
-    for (int i = 0; i < NUM_PLAYERS; i++) {
+    for (int i = 0; i < MAX_PLAYERS; i++) {
         players[i].score = 0;
         players[i].current_hole = 0;
         players[i].detection_count = 0;
+        final_scores[i] = 0;
+
+        // Reset score arrays
+        for (int j = 0; j < 9; j++) {
+            individual_scores[i][j] = 0;
+            prev_scores[i][j] = 0;
+        }
     }
-        //Score
-    lv_label_set_text(ui_SP1P9HGSPSPText, "0");
-    //Holes
-    lv_label_set_text(ui_SP1P9HGSHCPText, "0");
-    //Balls
-    lv_label_set_text(ui_SP1P9HGSBCPText, "0");
-    
-    // Resetting score card UI
-    lv_label_set_text(ui_SP1P9HScPS1Text, "0");
-    lv_label_set_text(ui_SP1P9HScPS2Text, "0");
-    lv_label_set_text(ui_SP1P9HScPS3Text, "0");
-    lv_label_set_text(ui_SP1P9HScPS4Text, "0");
-    lv_label_set_text(ui_SP1P9HScPS5Text, "0");
-    lv_label_set_text(ui_SP1P9HScPS6Text, "0");
-    lv_label_set_text(ui_SP1P9HScPS7Text, "0");
-    lv_label_set_text(ui_SP1P9HScPS8Text, "0");
-    lv_label_set_text(ui_SP1P9HScPS9Text, "0");
-    lv_label_set_text(ui_SP1P9HScPSFText, "0");
-    //Reseetting Actual values in memory 
-    final_score = 0;
-    for(int i = 0; i < 10; i++)
-    {
-        individual_scores[i] = 0;
-        prev_scores[i] = 0;
+
+    // Reset scorecard UI
+    if (num_players == 1) {
+        // Single-player UI reset
+        lv_label_set_text(ui_SP1P9HGSPSPText, "0"); // Score
+        lv_label_set_text(ui_SP1P9HGSHCPText, "0"); // Holes
+        lv_label_set_text(ui_SP1P9HGSBCPText, "0"); // Balls
+
+        // Resetting score card UI
+        lv_label_set_text(ui_SP1P9HScPS1Text, "0");
+        lv_label_set_text(ui_SP1P9HScPS2Text, "0");
+        lv_label_set_text(ui_SP1P9HScPS3Text, "0");
+        lv_label_set_text(ui_SP1P9HScPS4Text, "0");
+        lv_label_set_text(ui_SP1P9HScPS5Text, "0");
+        lv_label_set_text(ui_SP1P9HScPS6Text, "0");
+        lv_label_set_text(ui_SP1P9HScPS7Text, "0");
+        lv_label_set_text(ui_SP1P9HScPS8Text, "0");
+        lv_label_set_text(ui_SP1P9HScPS9Text, "0");
+        
+        lv_label_set_text(ui_SP1P9HScPSFText, "0"); // Final score
+    } else if (num_players == 2) {
+        // Two-player UI reset
+        lv_label_set_text(ui_SP2P9HGSP1SPText, "0"); // Player 1 Score
+        lv_label_set_text(ui_SP2P9HGSP2SPText, "0"); // Player 2 Score
+        lv_label_set_text(ui_SP2P9HGSHCPText, "0");  // Holes
+        lv_label_set_text(ui_SP2P9HGSBCPText, "0");  // Balls
+
+            // Resetting score card UI
+        lv_label_set_text(ui_SP2P9HScP1S1Text, "0");
+        lv_label_set_text(ui_SP2P9HScP1S2Text, "0");
+        lv_label_set_text(ui_SP2P9HScP1S3Text, "0");
+        lv_label_set_text(ui_SP2P9HScP1S4Text, "0");
+        lv_label_set_text(ui_SP2P9HScP1S5Text, "0");
+        lv_label_set_text(ui_SP2P9HScP1S6Text, "0");
+        lv_label_set_text(ui_SP2P9HScP1S7Text, "0");
+        lv_label_set_text(ui_SP2P9HScP1S8Text, "0");
+        lv_label_set_text(ui_SP2P9HScP1S9Text, "0");
+        
+        lv_label_set_text(ui_SP2P9HScP2S1Text, "0");
+        lv_label_set_text(ui_SP2P9HScP2S2Text, "0");
+        lv_label_set_text(ui_SP2P9HScP2S3Text, "0");
+        lv_label_set_text(ui_SP2P9HScP2S4Text, "0");
+        lv_label_set_text(ui_SP2P9HScP2S5Text, "0");
+        lv_label_set_text(ui_SP2P9HScP2S6Text, "0");
+        lv_label_set_text(ui_SP2P9HScP2S7Text, "0");
+        lv_label_set_text(ui_SP2P9HScP2S8Text, "0");
+        lv_label_set_text(ui_SP2P9HScP2S9Text, "0");
+        
+        lv_label_set_text(ui_SP2P9HScP1SFText, "0"); // Player 1 Final score
+        lv_label_set_text(ui_SP2P9HScP2SFText, "0"); // Player 2 Final score
     }
+
     // Reset global variables
     current_player_index = 0;
     update_flag = 0;
-/*
+
+    /*
     // Reinitialize sensor pins
     for (int i = 0; i < 4; i++) {
         last_activation_times[i] = 0;
         pinMode(sensor_pins[i], INPUT);
         pullUpDnControl(sensor_pins[i], PUD_DOWN);
-    }*/
+    }
+    */
 
     printf("Scores and game state have been reset.\n");
 }
+
 void ui_event_HSSPButton(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
@@ -2301,6 +2346,13 @@ void ui_event_MPPSBBText(lv_event_t * e)
         _ui_screen_delete(&ui_MPPSScreen);
     }
 }
+// ui_event_SP1PHS9HButton
+/*
+ * Stroke play
+ * 1 player
+ * Hole Select
+ * 9 Hole Button itself
+ */
 
 void ui_event_SP1PHS9HButton(lv_event_t * e)
 {
@@ -2311,8 +2363,16 @@ void ui_event_SP1PHS9HButton(lv_event_t * e)
         _ui_screen_delete(&ui_SP1PHSScreen);
         //added line to reset the scores - case: where sensors keep reading in the background, making sure everything is = 0 -
         reset_scores();
+        set_num_players(1);
     }
 }
+// ui_event_SP1PHS9HBText
+/*
+ * Stroke play
+ * 1 player
+ * Hole Select
+ * 9 Hole Button Text
+ */
 
 void ui_event_SP1PHS9HBText(lv_event_t * e)
 {
@@ -2323,6 +2383,7 @@ void ui_event_SP1PHS9HBText(lv_event_t * e)
         _ui_screen_delete(&ui_SP1PHSScreen);
         //added line to reset the scores - case: where sensors keep reading in the background, making sure everything is = 0 -
         reset_scores();
+        set_num_players(1); 
     }
 }
 
@@ -2366,6 +2427,14 @@ void ui_event_SP1PHSBBText(lv_event_t * e)
     }
 }
 
+// ui_event_SP2PHS9HButton
+/*
+ * Stroke play
+ * 2 player
+ * Hole Select
+ * 9 Hole Button
+ */
+
 void ui_event_SP2PHS9HButton(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
@@ -2373,9 +2442,19 @@ void ui_event_SP2PHS9HButton(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SP2P9HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP2P9HGScreen_screen_init);
         _ui_screen_delete(&ui_SP2PHSScreen);
+        //added line to reset the scores - case: where sensors keep reading in the background, making sure everything is = 0 -
+        reset_scores();
+        set_num_players(2); 
     }
 }
 
+// ui_event_SP2PHS9HBText
+/*
+ * Stroke play
+ * 2 player
+ * Hole Select
+ * 9 Hole Button Text
+ */
 void ui_event_SP2PHS9HBText(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
@@ -2383,6 +2462,9 @@ void ui_event_SP2PHS9HBText(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SP2P9HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP2P9HGScreen_screen_init);
         _ui_screen_delete(&ui_SP2PHSScreen);
+        //added line to reset the scores - case: where sensors keep reading in the background, making sure everything is = 0 -
+        reset_scores();
+        set_num_players(2); 
     }
 }
 
@@ -2573,7 +2655,13 @@ void ui_event_SP1P9HGSSCBText(lv_event_t * e)
         _ui_screen_change(&ui_SP1P9HScorecard, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP1P9HScorecard_screen_init);
     }
 }
-
+// ui_event_SP1P9HGSMMButton
+/*
+ * Stroke play
+ * 1 player
+ * Hole Select
+ * 9 Hole Game Screen Main Menu Button
+ */
 void ui_event_SP1P9HGSMMButton(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
@@ -2581,10 +2669,17 @@ void ui_event_SP1P9HGSMMButton(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
         _ui_screen_delete(&ui_SP1P9HGScreen);
-            reset_scores();
+        reset_scores();
     }
 }
 
+// ui_event_SP1P9HGSMMBText
+/*
+ * Stroke play
+ * 1 player
+ * Hole Select
+ * 9 Hole Game Screen Main Menu Button Text
+ */
 void ui_event_SP1P9HGSMMBText(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
@@ -2651,7 +2746,13 @@ void ui_event_SP2P9HGSSCBText(lv_event_t * e)
         _ui_screen_change(&ui_SP2P9HScorecard, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP2P9HScorecard_screen_init);
     }
 }
-
+// ui_event_SP2P9HGSMMButton
+/*
+ * Stroke play
+ * 2 player
+ * Hole Select
+ * 9 Hole Game Screen Main Menu Button
+ */
 void ui_event_SP2P9HGSMMButton(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
@@ -2659,9 +2760,16 @@ void ui_event_SP2P9HGSMMButton(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
         _ui_screen_delete(&ui_SP2P9HGScreen);
+        reset_scores();
     }
 }
-
+// ui_event_SP2P9HGSMMBText
+/*
+ * Stroke play
+ * 2 player
+ * Hole Select
+ * 9 Hole Game Screen Main Menu Button Text
+ */
 void ui_event_SP2P9HGSMMBText(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
@@ -2669,6 +2777,7 @@ void ui_event_SP2P9HGSMMBText(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
         _ui_screen_delete(&ui_SP2P9HGScreen);
+        reset_scores();
     }
 }
 

@@ -22,7 +22,7 @@ extern "C" {
 #include <stdio.h>
 #include <wiringPi.h>
 // Shared variables
-#define NUM_PLAYERS 1
+#define MAX_PLAYERS 4
 #define MAX_HOLES 8
 #define SENSORS_PER_TURN 2
 
@@ -36,13 +36,13 @@ typedef struct {
 // Declare shared variables
 extern int update_flag;
 extern int sensor_pins[4];
-extern Player players[NUM_PLAYERS];
+extern Player players[MAX_PLAYERS];
 extern int current_player_index;
 extern time_t last_activation_times[4];
-
-extern int prev_scores[9]; // Array to store previous cumulative scores for each hole
-extern int individual_scores[9]; // Array to store individual scores for each hole
-extern int final_score;      // Variable to store the total cumulative score
+extern int num_players; // Default to 1 player
+extern int prev_scores[MAX_PLAYERS][9];       // Previous cumulative scores for each hole for each player
+extern int individual_scores[MAX_PLAYERS][9]; // Individual scores for each hole for each player
+extern int final_scores[MAX_PLAYERS];         // Final cumulative scores for each player
 // SCREEN: ui_HScreen
 void ui_HScreen_screen_init(void);
 extern lv_obj_t * ui_HScreen;
