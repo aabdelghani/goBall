@@ -83,6 +83,21 @@ void cleanup_gpio(void) {
     printf("GPIO pins have been reset and released.\n");
 }
 
+void check_all_players_completed(void) {
+    int all_players_completed = 1;
+    for (int i = 0; i < num_players; i++) {
+        if (players[i].current_hole <= MAX_HOLES) {
+            all_players_completed = 0;
+            break;
+        }
+    }
+    if (all_players_completed) {
+        printf("All players have completed the game.\n");
+        update_flag = 1;
+    }
+}
+
+
 void update_scoreCard(int player_index, int cumulative_score, int current_hole) {
     // Check current_hole bounds
     if (current_hole < 0 || current_hole >= 9) {
@@ -355,10 +370,8 @@ void sensor_callback(void) {
                 player->detection_count = 0;
                 current_player_index = (current_player_index + 1) % num_players;
 
-                if (player->current_hole > MAX_HOLES) {
-                    printf("All players have completed the game.\n");
-                    update_flag = 1;
-                }
+                //check if all players have finished their turns
+                check_all_players_completed();
             }
         }
     }
