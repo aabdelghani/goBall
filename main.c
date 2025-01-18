@@ -58,7 +58,7 @@ char update_flag = 0;
  // 26 -> #1
  // 19 -> #2
  // 20 -> #4
-char sensor_pins[] = {17, 26, 27, 23};
+char sensor_pins[] = {17, 26, 27, 24};
 
 Player players[MAX_PLAYERS];
 char current_player_index = 0;

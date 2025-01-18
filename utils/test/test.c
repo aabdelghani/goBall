@@ -10,7 +10,7 @@
 #define SENSORS_PER_TURN 2
 
 // Define sensor pins
-int sensor_pins[] = {19, 26, 20, 21};
+char sensor_pins[] = {17, 26, 27, 24};
 
 // Player data
 typedef struct {
