@@ -392,6 +392,176 @@ void update_scoreCard(int player_index, int cumulative_score, int current_hole) 
                         break;
                 }
             }
+        } else if (num_players == 4) {
+            if (player_index == 0) {
+                switch (current_hole) {
+                    case 0:
+                        printf("Updating Player 1's UI for Hole 1 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP1S1Text, "%d", individual_score);
+                        break;
+                    case 1:
+                        printf("Updating Player 1's UI for Hole 2 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP1S2Text, "%d", individual_score);
+                        break;
+                    case 2:
+                        printf("Updating Player 1's UI for Hole 3 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP1S3Text, "%d", individual_score);
+                        break;
+                    case 3:
+                        printf("Updating Player 1's UI for Hole 4 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP1S4Text, "%d", individual_score);
+                        break;
+                    case 4:
+                        printf("Updating Player 1's UI for Hole 5 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP1S5Text, "%d", individual_score);
+                        break;
+                    case 5:
+                        printf("Updating Player 1's UI for Hole 6 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP1S6Text, "%d", individual_score);
+                        break;
+                    case 6:
+                        printf("Updating Player 1's UI for Hole 7 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP1S7Text, "%d", individual_score);
+                        break;
+                    case 7:
+                        printf("Updating Player 1's UI for Hole 8 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP1S8Text, "%d", individual_score);
+                        break;
+                    case 8:
+                        printf("Updating Player 1's UI for Hole 9 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP1S9Text, "%d", individual_score);
+                        break;
+                        default:
+                            printf("Invalid hole number: %d\n", current_hole);
+                            break;
+                }
+            } else if (player_index == 1) {
+                switch (current_hole) {
+                    case 0:
+                        printf("Updating Player 2's UI for Hole 1 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP2S1Text, "%d", individual_score);
+                        break;
+                    case 1:
+                        printf("Updating Player 2's UI for Hole 2 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP2S2Text, "%d", individual_score);
+                        break;
+                    case 2:
+                        printf("Updating Player 2's UI for Hole 3 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP2S3Text, "%d", individual_score);
+                        break;
+                    case 3:
+                        printf("Updating Player 2's UI for Hole 4 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP2S4Text, "%d", individual_score);
+                        break;
+                    case 4:
+                        printf("Updating Player 2's UI for Hole 5 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP2S5Text, "%d", individual_score);
+                        break;
+                    case 5:
+                        printf("Updating Player 2's UI for Hole 6 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP2S6Text, "%d", individual_score);
+                        break;
+                    case 6:
+                        printf("Updating Player 2's UI for Hole 7 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP2S7Text, "%d", individual_score);
+                        break;
+                    case 7:
+                        printf("Updating Player 2's UI for Hole 8 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP2S8Text, "%d", individual_score);
+                        break;
+                    case 8:
+                        printf("Updating Player 2's UI for Hole 9 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP2S9Text, "%d", individual_score);
+                        break;
+                    default:
+                        printf("Invalid hole number: %d\n", current_hole);
+                        break;
+                }
+            } else if (player_index == 2) {
+                switch (current_hole) {
+                    case 0:
+                        printf("Updating Player 3's UI for Hole 1 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP3S1Text, "%d", individual_score);
+                        break;
+                    case 1:
+                        printf("Updating Player 3's UI for Hole 2 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP3S2Text, "%d", individual_score);
+                        break;
+                    case 2:
+                        printf("Updating Player 3's UI for Hole 3 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP3S3Text, "%d", individual_score);
+                        break;
+                    case 3:
+                        printf("Updating Player 3's UI for Hole 4 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP3S4Text, "%d", individual_score);
+                        break;
+                    case 4:
+                        printf("Updating Player 3's UI for Hole 5 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP3S5Text, "%d", individual_score);
+                        break;
+                    case 5:
+                        printf("Updating Player 3's UI for Hole 6 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP3S6Text, "%d", individual_score);
+                        break;
+                    case 6:
+                        printf("Updating Player 3's UI for Hole 7 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP3S7Text, "%d", individual_score);
+                        break;
+                    case 7:
+                        printf("Updating Player 3's UI for Hole 8 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP3S8Text, "%d", individual_score);
+                        break;
+                    case 8:
+                        printf("Updating Player 3's UI for Hole 9 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP3S9Text, "%d", individual_score);
+                        break;
+                    default:
+                        printf("Invalid hole number: %d\n", current_hole);
+                        break;
+                }
+            } else if (player_index == 3) {
+                switch (current_hole) {
+                    case 0:
+                        printf("Updating Player 4's UI for Hole 1 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP4S1Text, "%d", individual_score);
+                        break;
+                    case 1:
+                        printf("Updating Player 4's UI for Hole 2 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP4S2Text, "%d", individual_score);
+                        break;
+                    case 2:
+                        printf("Updating Player 4's UI for Hole 3 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP4S3Text, "%d", individual_score);
+                        break;
+                    case 3:
+                        printf("Updating Player 4's UI for Hole 4 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP4S4Text, "%d", individual_score);
+                        break;
+                    case 4:
+                        printf("Updating Player 4's UI for Hole 5 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP4S5Text, "%d", individual_score);
+                        break;
+                    case 5:
+                        printf("Updating Player 4's UI for Hole 6 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP4S6Text, "%d", individual_score);
+                        break;
+                    case 6:
+                        printf("Updating Player 4's UI for Hole 7 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP4S7Text, "%d", individual_score);
+                        break;
+                    case 7:
+                        printf("Updating Player 4's UI for Hole 8 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP4S8Text, "%d", individual_score);
+                        break;
+                    case 8:
+                        printf("Updating Player 4's UI for Hole 9 with Individual Score: %d\n", individual_score);
+                        lv_label_set_text_fmt(ui_SP4P9HScP4S9Text, "%d", individual_score);
+                        break;
+                    default:
+                        printf("Invalid hole number: %d\n", current_hole);
+                        break;
+                }
+            }
         }
 
         // Calculate the final score for this player
@@ -414,13 +584,23 @@ void update_scoreCard(int player_index, int cumulative_score, int current_hole) 
             } else if (player_index == 1) {
                 lv_label_set_text_fmt(ui_SP2P9HScP2SFText, "%d", final_scores[player_index]);
             }
-        }else if (num_players == 3) {
+        } else if (num_players == 3) {
             if (player_index == 0) {
                 lv_label_set_text_fmt(ui_SP3P9HScP1SFText, "%d", final_scores[player_index]);
             } else if (player_index == 1) {
                 lv_label_set_text_fmt(ui_SP3P9HScP2SFText, "%d", final_scores[player_index]);
             } else if (player_index == 2) {
                 lv_label_set_text_fmt(ui_SP3P9HScP3SFText, "%d", final_scores[player_index]);
+            }
+        } else if (num_players == 4) {
+            if (player_index == 0) {
+                lv_label_set_text_fmt(ui_SP4P9HScP1SFText, "%d", final_scores[player_index]);
+            } else if (player_index == 1) {
+                lv_label_set_text_fmt(ui_SP4P9HScP2SFText, "%d", final_scores[player_index]);
+            } else if (player_index == 2) {
+                lv_label_set_text_fmt(ui_SP4P9HScP3SFText, "%d", final_scores[player_index]);
+            } else if (player_index == 3) {
+                lv_label_set_text_fmt(ui_SP4P9HScP4SFText, "%d", final_scores[player_index]);
             }
         }
     }
@@ -464,8 +644,8 @@ void update_label_text(int player_index, int current_hole, int score, int detect
             printf("Updated ui_SP2P9HGSHCPText with Current Hole %d\n", current_hole + 1);
             lv_label_set_text_fmt(ui_SP2P9HGSBCPText, "%d", detection_count);
             printf("Updated ui_SP2P9HGSBCPText with Detection Count %d\n", detection_count);
-            }
-        } else if (num_players == 3) {
+        }
+    } else if (num_players == 3) {
             printf("Three Player Mode\n");
             // Three-player labels
             if (player_index == 0) {
@@ -501,6 +681,54 @@ void update_label_text(int player_index, int current_hole, int score, int detect
                 printf("Updated ui_SP3P9HGSHCPText with Current Hole %d\n", current_hole + 1);
                 lv_label_set_text_fmt(ui_SP3P9HGSBCPText, "%d", detection_count);
                 printf("Updated ui_SP3P9HGSBCPText with Detection Count %d\n", detection_count);
+            }
+    } else if (num_players == 4) {
+            printf("Four Player Mode\n");
+            // Four-player labels
+            if (player_index == 0) {
+                // Update Player 1's label
+                printf("Updating Player 1's label\n");
+                lv_label_set_text_fmt(ui_SP4P9HGSP1SText, "Player %d", player_index + 1);
+                printf("Updated ui_SP4P9HGSP1SText with Player %d\n", player_index + 1);
+                lv_label_set_text_fmt(ui_SP4P9HGSP1SPText, "%d", score);
+                printf("Updated ui_SP4P9HGSP1SPText with Score %d\n", score);
+                lv_label_set_text_fmt(ui_SP4P9HGSHCPText, "%d", current_hole + 1);
+                printf("Updated ui_SP4P9HGSHCPText with Current Hole %d\n", current_hole + 1);
+                lv_label_set_text_fmt(ui_SP4P9HGSBCPText, "%d", detection_count);
+                printf("Updated ui_SP4P9HGSBCPText with Detection Count %d\n", detection_count);
+            } else if (player_index == 1) {
+                // Update Player 2's label
+                printf("Updating Player 2's label\n");
+                lv_label_set_text_fmt(ui_SP4P9HGSP2SText, "Player %d", player_index + 1);
+                printf("Updated ui_SP4P9HGSP2SText with Player %d\n", player_index + 1);
+                lv_label_set_text_fmt(ui_SP4P9HGSP2SPText, "%d", score);
+                printf("Updated ui_SP4P9HGSP2SPText with Score %d\n", score);
+                lv_label_set_text_fmt(ui_SP4P9HGSHCPText, "%d", current_hole + 1);
+                printf("Updated ui_SP4P9HGSHCPText with Current Hole %d\n", current_hole + 1);
+                lv_label_set_text_fmt(ui_SP4P9HGSBCPText, "%d", detection_count);
+                printf("Updated ui_SP4P9HGSBCPText with Detection Count %d\n", detection_count);
+            } else if (player_index == 2) {
+                // Update Player 3's label
+                printf("Updating Player 3's label\n");
+                lv_label_set_text_fmt(ui_SP4P9HGSP3SText, "Player %d", player_index + 1);
+                printf("Updated ui_SP4P9HGSP3SText with Player %d\n", player_index + 1);
+                lv_label_set_text_fmt(ui_SP4P9HGSP3SPText, "%d", score);
+                printf("Updated ui_SP4P9HGSP3SPText with Score %d\n", score);
+                lv_label_set_text_fmt(ui_SP4P9HGSHCPText, "%d", current_hole + 1);
+                printf("Updated ui_SP4P9HGSHCPText with Current Hole %d\n", current_hole + 1);
+                lv_label_set_text_fmt(ui_SP4P9HGSBCPText, "%d", detection_count);
+                printf("Updated ui_SP4P9HGSBCPText with Detection Count %d\n", detection_count);
+            } else if (player_index == 3) {
+                // Update Player 4's label
+                printf("Updating Player 4's label\n");
+                lv_label_set_text_fmt(ui_SP4P9HGSP4SText, "Player %d", player_index + 1);
+                printf("Updated ui_SP4P9HGSP4SText with Player %d\n", player_index + 1);
+                lv_label_set_text_fmt(ui_SP4P9HGSP4SPText, "%d", score);
+                printf("Updated ui_SP4P9HGSP4SText with Score %d\n", score);
+                lv_label_set_text_fmt(ui_SP4P9HGSHCPText, "%d", current_hole + 1);
+                printf("Updated ui_SP4P9HGSP4SText with Current Hole %d\n", current_hole + 1);
+                lv_label_set_text_fmt(ui_SP4P9HGSBCPText, "%d", detection_count);
+                printf("Updated ui_SP4P9HGSP4SText with Detection Count %d\n", detection_count);
             }
     }
 }

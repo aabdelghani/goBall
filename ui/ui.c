@@ -2126,16 +2126,15 @@ void reset_scores(void) {
         
         lv_label_set_text(ui_SP2P9HScP1SFText, "0"); // Player 1 Final score
         lv_label_set_text(ui_SP2P9HScP2SFText, "0"); // Player 2 Final score
-    }else if (num_players == 3)
-    {   
-                // Two-player UI reset
+    } else if (num_players == 3){   
+        // Three-player UI reset
         lv_label_set_text(ui_SP3P9HGSP1SPText, "0"); // Player 1 Score
         lv_label_set_text(ui_SP3P9HGSP2SPText, "0"); // Player 2 Score
         lv_label_set_text(ui_SP3P9HGSP3SPText, "0"); // Player 3 Score
         lv_label_set_text(ui_SP3P9HGSHCPText, "0");  // Holes
         lv_label_set_text(ui_SP3P9HGSBCPText, "0");  // Balls
 
-            // Resetting score card UI
+         // Resetting score card UI
         lv_label_set_text(ui_SP3P9HScP1S1Text, "0");
         lv_label_set_text(ui_SP3P9HScP1S2Text, "0");
         lv_label_set_text(ui_SP3P9HScP1S3Text, "0");
@@ -2169,7 +2168,63 @@ void reset_scores(void) {
         lv_label_set_text(ui_SP3P9HScP1SFText, "0"); // Player 1 Final score
         lv_label_set_text(ui_SP3P9HScP2SFText, "0"); // Player 2 Final score
         lv_label_set_text(ui_SP3P9HScP3SFText, "0"); // Player 3 Final score
+    } else if (num_players == 4){   
+        // Three-player UI reset
+        lv_label_set_text(ui_SP4P9HGSP1SPText, "0"); // Player 1 Score
+        lv_label_set_text(ui_SP4P9HGSP2SPText, "0"); // Player 2 Score
+        lv_label_set_text(ui_SP4P9HGSP3SPText, "0"); // Player 3 Score
+        lv_label_set_text(ui_SP4P9HGSP4SPText, "0"); // Player 4 Score
+        lv_label_set_text(ui_SP4P9HGSHCPText, "0");  // Holes
+        lv_label_set_text(ui_SP4P9HGSBCPText, "0");  // Balls
+
+         // Resetting score card UI
+        lv_label_set_text(ui_SP4P9HScP1S1Text, "0");
+        lv_label_set_text(ui_SP4P9HScP1S2Text, "0");
+        lv_label_set_text(ui_SP4P9HScP1S3Text, "0");
+        lv_label_set_text(ui_SP4P9HScP1S4Text, "0");
+        lv_label_set_text(ui_SP4P9HScP1S5Text, "0");
+        lv_label_set_text(ui_SP4P9HScP1S6Text, "0");
+        lv_label_set_text(ui_SP4P9HScP1S7Text, "0");
+        lv_label_set_text(ui_SP4P9HScP1S8Text, "0");
+        lv_label_set_text(ui_SP4P9HScP1S9Text, "0");
+        
+        lv_label_set_text(ui_SP4P9HScP2S1Text, "0");
+        lv_label_set_text(ui_SP4P9HScP2S2Text, "0");
+        lv_label_set_text(ui_SP4P9HScP2S3Text, "0");
+        lv_label_set_text(ui_SP4P9HScP2S4Text, "0");
+        lv_label_set_text(ui_SP4P9HScP2S5Text, "0");
+        lv_label_set_text(ui_SP4P9HScP2S6Text, "0");
+        lv_label_set_text(ui_SP4P9HScP2S7Text, "0");
+        lv_label_set_text(ui_SP4P9HScP2S8Text, "0");
+        lv_label_set_text(ui_SP4P9HScP2S9Text, "0");
+        
+        lv_label_set_text(ui_SP4P9HScP3S1Text, "0");
+        lv_label_set_text(ui_SP4P9HScP3S2Text, "0");
+        lv_label_set_text(ui_SP4P9HScP3S3Text, "0");
+        lv_label_set_text(ui_SP4P9HScP3S4Text, "0");
+        lv_label_set_text(ui_SP4P9HScP3S5Text, "0");
+        lv_label_set_text(ui_SP4P9HScP3S6Text, "0");
+        lv_label_set_text(ui_SP4P9HScP3S7Text, "0");
+        lv_label_set_text(ui_SP4P9HScP3S8Text, "0");
+        lv_label_set_text(ui_SP4P9HScP3S9Text, "0");
+ 
+        lv_label_set_text(ui_SP4P9HScP4S1Text, "0");
+        lv_label_set_text(ui_SP4P9HScP4S2Text, "0");
+        lv_label_set_text(ui_SP4P9HScP4S3Text, "0");
+        lv_label_set_text(ui_SP4P9HScP4S4Text, "0");
+        lv_label_set_text(ui_SP4P9HScP4S5Text, "0");
+        lv_label_set_text(ui_SP4P9HScP4S6Text, "0");
+        lv_label_set_text(ui_SP4P9HScP4S7Text, "0");
+        lv_label_set_text(ui_SP4P9HScP4S8Text, "0");
+        lv_label_set_text(ui_SP4P9HScP4S9Text, "0");
+
+        lv_label_set_text(ui_SP4P9HScP1SFText, "0"); // Player 1 Final score
+        lv_label_set_text(ui_SP4P9HScP2SFText, "0"); // Player 2 Final score
+        lv_label_set_text(ui_SP4P9HScP3SFText, "0"); // Player 3 Final score
+        lv_label_set_text(ui_SP4P9HScP4SFText, "0"); // Player 3 Final score
+
     } 
+
 
     // Reset global variables
     current_player_index = 0;
@@ -2591,7 +2646,7 @@ void ui_event_SP3PHS9HBText(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SP3P9HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP3P9HGScreen_screen_init);
         _ui_screen_delete(&ui_SP3PHSScreen);
-                //added line to reset the scores - case: where sensors keep reading in the background, making sure everything is = 0 -
+        //added line to reset the scores - case: where sensors keep reading in the background, making sure everything is = 0 -
         reset_scores();
         set_num_players(3); 
     }
@@ -2644,6 +2699,9 @@ void ui_event_SP4PHS9HButton(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SP4P9HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP4P9HGScreen_screen_init);
         _ui_screen_delete(&ui_SP4PHSScreen);
+         //added line to reset the scores - case: where sensors keep reading in the background, making sure everything is = 0 -
+        reset_scores();
+        set_num_players(4); 
     }
 }
 
@@ -2654,6 +2712,9 @@ void ui_event_SP4PHS9HBText(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SP4P9HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP4P9HGScreen_screen_init);
         _ui_screen_delete(&ui_SP4PHSScreen);
+         //added line to reset the scores - case: where sensors keep reading in the background, making sure everything is = 0 -
+        reset_scores();
+        set_num_players(4); 
     }
 }
 
@@ -2973,6 +3034,7 @@ void ui_event_SP4P9HGSMMButton(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
         _ui_screen_delete(&ui_SP4P9HGScreen);
+         reset_scores();
     }
 }
 
@@ -2983,6 +3045,7 @@ void ui_event_SP4P9HGSMMBText(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
         _ui_screen_delete(&ui_SP4P9HGScreen);
+        reset_scores();	
     }
 }
 
