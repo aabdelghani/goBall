@@ -2053,6 +2053,13 @@ void set_num_players(int new_num_players) {
     }
     num_players = new_num_players;
     printf("Number of players set to: %d\n", num_players);
+    for (int i = 0; i < num_players; i++) {
+        final_scores[i] = 0;
+    for (int j = 0; j < MAX_HOLES; j++) {
+        individual_scores[i][j] = 0;
+    }
+}
+
 }
 
 void reset_scores(void) {

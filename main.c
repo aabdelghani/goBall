@@ -53,17 +53,17 @@ static lv_display_t * hal_init(int32_t w, int32_t h);
 /**********************
  *      VARIABLES
  **********************/
-int update_flag = 0;
+char update_flag = 0;
  // Define sensor pins
  // 26 -> #1
  // 19 -> #2
  // 20 -> #4
-int sensor_pins[] = {17, 26, 27, 23};
+char sensor_pins[] = {17, 26, 27, 23};
 
 Player players[MAX_PLAYERS];
-int current_player_index = 0;
+char current_player_index = 0;
 time_t last_activation_times[4];
-int num_players = 1; // Default to 1 player
+char num_players = 1; // Default to 1 player
 /**********************
  *  STATIC PROTOTYPES
  **********************/
@@ -71,9 +71,17 @@ int num_players = 1; // Default to 1 player
 /**********************
  *   GLOBAL FUNCTIONS
  **********************/
-int prev_scores[MAX_PLAYERS][9] = {0};      // Previous cumulative scores for each hole for all players
-int individual_scores[MAX_PLAYERS][9] = {0}; // Individual scores for each hole for all players
-int final_scores[MAX_PLAYERS] = {0};         // Final cumulative scores for all players
+char prev_scores[MAX_PLAYERS][9] = {0};      // Previous cumulative scores for each hole for all players
+char individual_scores[MAX_PLAYERS][10] = {0}; // Individual scores for each hole for all players
+char final_scores[MAX_PLAYERS] = {0};         // Final cumulative scores for all players
+
+void cleanup_gpio(void) {
+    for (int i = 0; i < 4; i++) {
+        pinMode(sensor_pins[i], INPUT); // Set as input
+        pullUpDnControl(sensor_pins[i], PUD_DOWN); // Disable pull-up/down resistors
+    }
+    printf("GPIO pins have been reset and released.\n");
+}
 
 void update_scoreCard(int player_index, int cumulative_score, int current_hole) {
     // Check current_hole bounds
@@ -361,6 +369,9 @@ int main(int argc, char **argv)
   (void)argc; /*Unused*/
   (void)argv; /*Unused*/
 
+  // Register the cleanup function
+  atexit(cleanup_gpio);
+    
   /*Initialize LVGL*/
   lv_init();
 

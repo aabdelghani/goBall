@@ -28,21 +28,21 @@ extern "C" {
 
 // Define the Player structure before using it
 typedef struct {
-    int score;
-    int current_hole;
-    int detection_count;
+    char score;
+    char current_hole;
+    char detection_count;
 } Player;
 
 // Declare shared variables
-extern int update_flag;
-extern int sensor_pins[4];
+extern char update_flag;
+extern char sensor_pins[4];
 extern Player players[MAX_PLAYERS];
-extern int current_player_index;
+extern char current_player_index;
 extern time_t last_activation_times[4];
-extern int num_players; // Default to 1 player
-extern int prev_scores[MAX_PLAYERS][9];       // Previous cumulative scores for each hole for each player
-extern int individual_scores[MAX_PLAYERS][9]; // Individual scores for each hole for each player
-extern int final_scores[MAX_PLAYERS];         // Final cumulative scores for each player
+extern char num_players; // Default to 1 player
+extern char prev_scores[MAX_PLAYERS][9];       // Previous cumulative scores for each hole for each player
+extern char individual_scores[MAX_PLAYERS][10]; // Individual scores for each hole for each player
+extern char final_scores[MAX_PLAYERS];         // Final cumulative scores for each player
 // SCREEN: ui_HScreen
 void ui_HScreen_screen_init(void);
 extern lv_obj_t * ui_HScreen;
