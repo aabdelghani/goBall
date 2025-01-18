@@ -1,2 +1,5 @@
 build
 Patches
+utils/test/twoPlayerFinalScoreCalc
+utils/test/twotest
+
