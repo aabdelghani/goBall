@@ -2046,16 +2046,16 @@ const lv_image_dsc_t * ui_imgset_venice_18th_2560x[2] = {&ui_img_venice_18th_256
 ///////////////////// ANIMATIONS ////////////////////
 
 ///////////////////// FUNCTIONS ////////////////////
-void set_num_players(int new_num_players) {
+void set_num_players(uint8_t new_num_players) {
     if (new_num_players < 1 || new_num_players > MAX_PLAYERS) {
         printf("Invalid number of players. Please select between 1 and %d.\n", MAX_PLAYERS);
         return;
     }
     num_players = new_num_players;
     printf("Number of players set to: %d\n", num_players);
-    for (int i = 0; i < num_players; i++) {
+    for (uint8_t i = 0; i < num_players; i++) {
         final_scores[i] = 0;
-    for (int j = 0; j < MAX_HOLES; j++) {
+    for (uint8_t j = 0; j < MAX_HOLES; j++) {
         individual_scores[i][j] = 0;
     }
 }
@@ -2064,14 +2064,14 @@ void set_num_players(int new_num_players) {
 
 void reset_scores(void) {
     // Reset all players' data
-    for (int i = 0; i < MAX_PLAYERS; i++) {
+    for (uint8_t i = 0; i < MAX_PLAYERS; i++) {
         players[i].score = 0;
         players[i].current_hole = 0;
         players[i].detection_count = 0;
         final_scores[i] = 0;
 
         // Reset score arrays
-        for (int j = 0; j < 9; j++) {
+        for (uint8_t j = 0; j < 9; j++) {
             individual_scores[i][j] = 0;
             prev_scores[i][j] = 0;
         }

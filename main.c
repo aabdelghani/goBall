@@ -14,6 +14,7 @@
 #include <wiringPi.h>
 #include <time.h>
 #include <unistd.h>
+#include <stdint.h>
 /*********************
  *      DEFINES
  *********************/
@@ -53,17 +54,17 @@ static lv_display_t * hal_init(int32_t w, int32_t h);
 /**********************
  *      VARIABLES
  **********************/
-char update_flag = 0;
+uint8_t update_flag = 0;
  // Define sensor pins
  // 26 -> #1
  // 19 -> #2
  // 20 -> #4
-char sensor_pins[] = {17, 26, 27, 24};
+uint8_t sensor_pins[] = {17, 26, 27, 24};
 
 Player players[MAX_PLAYERS];
-char current_player_index = 0;
+uint8_t current_player_index = 0;
 time_t last_activation_times[4];
-char num_players = 1; // Default to 1 player
+uint8_t num_players = 1; // Default to 1 player
 /**********************
  *  STATIC PROTOTYPES
  **********************/
@@ -71,12 +72,12 @@ char num_players = 1; // Default to 1 player
 /**********************
  *   GLOBAL FUNCTIONS
  **********************/
-char prev_scores[MAX_PLAYERS][9] = {0};      // Previous cumulative scores for each hole for all players
-char individual_scores[MAX_PLAYERS][10] = {0}; // Individual scores for each hole for all players
-char final_scores[MAX_PLAYERS] = {0};         // Final cumulative scores for all players
+uint8_t prev_scores[MAX_PLAYERS][9] = {0};      // Previous cumulative scores for each hole for all players
+uint8_t individual_scores[MAX_PLAYERS][10] = {0}; // Individual scores for each hole for all players
+uint8_t final_scores[MAX_PLAYERS] = {0};         // Final cumulative scores for all players
 
 void cleanup_gpio(void) {
-    for (int i = 0; i < 4; i++) {
+    for (uint8_t i = 0; i < 4; i++) {
         pinMode(sensor_pins[i], INPUT); // Set as input
         pullUpDnControl(sensor_pins[i], PUD_DOWN); // Disable pull-up/down resistors
     }
@@ -84,8 +85,8 @@ void cleanup_gpio(void) {
 }
 
 void check_all_players_completed(void) {
-    int all_players_completed = 1;
-    for (int i = 0; i < num_players; i++) {
+    uint8_t all_players_completed = 1;
+    for (uint8_t i = 0; i < num_players; i++) {
         if (players[i].current_hole <= MAX_HOLES) {
             all_players_completed = 0;
             break;
@@ -105,7 +106,7 @@ void update_scoreCard(int player_index, int cumulative_score, int current_hole) 
     }
     // Calculate the individual score for the current hole
     printf("Calculating the individual score for the current hole...\n");
-    int individual_score;
+    uint8_t individual_score;
     if (current_hole == 0) {
         // For the first hole, the previous score is 0
         printf("For the first hole, the previous score is 0\n");
@@ -568,7 +569,7 @@ void update_scoreCard(int player_index, int cumulative_score, int current_hole) 
         final_scores[player_index] = 0;
         printf("Resetting Final Score !!! Player %d Final Score: %d\n", player_index + 1, final_scores[player_index]);
     
-        for (int i = 0; i < 9; i++) {
+        for (uint8_t i = 0; i < 9; i++) {
             printf("Final Score for iteration %d - Player %d Final Score: %d\nIndividual scores at player_index %d and iteration %d is: %d\n", 
                                             i, player_index + 1, final_scores[player_index], player_index, i, individual_scores[player_index][i]);
             final_scores[player_index] += individual_scores[player_index][i];
@@ -605,7 +606,7 @@ void update_scoreCard(int player_index, int cumulative_score, int current_hole) 
         }
     }
 
-void update_label_text(int player_index, int current_hole, int score, int detection_count) {
+void update_label_text(uint8_t player_index, uint8_t current_hole, uint16_t score, uint8_t detection_count) {
     printf("Updating labels for Player %d, Hole %d, Score: %d, Detection Count: %d\n", player_index + 1, current_hole + 1, score, detection_count);
 
     if (num_players == 1) {
@@ -735,9 +736,9 @@ void update_label_text(int player_index, int current_hole, int score, int detect
 
 void sensor_callback(void) {
     time_t current_time = time(NULL);
-    int pin = 0;
+    uint8_t pin = 0;
 
-    for (int i = 0; i < 4; i++) {
+    for (uint8_t i = 0; i < 4; i++) {
         if (digitalRead(sensor_pins[i]) == LOW) {
             pin = sensor_pins[i];
             break;
@@ -792,14 +793,14 @@ int main(int argc, char **argv)
 
   ui_init();
   wiringPiSetupGpio();
-  for (int i = 0; i < 4; i++) {
+  for (uint8_t i = 0; i < 4; i++) {
       pinMode(sensor_pins[i], INPUT);
       pullUpDnControl(sensor_pins[i], PUD_DOWN);
       last_activation_times[i] = 0;
   }
 
   // Setup sensor interrupts
-  for (int i = 0; i < 4; i++) {
+  for (uint8_t i = 0; i < 4; i++) {
       wiringPiISR(sensor_pins[i], INT_EDGE_FALLING, &sensor_callback);
   }
 
@@ -809,7 +810,7 @@ int main(int argc, char **argv)
        * It could be done in a timer interrupt or an OS task too.*/
       lv_timer_handler();
 
-      usleep(5* 1000);
+      usleep(20* 1000);
   }
 
   lv_deinit();
