@@ -25,6 +25,7 @@
 /**********************
  *      TYPEDEFS
  **********************/
+static lv_style_t style_light_blue;
 
 /**********************
  *  STATIC PROTOTYPES
@@ -608,9 +609,13 @@ void update_scoreCard(int player_index, int cumulative_score, int current_hole) 
 
 void update_label_text(uint8_t player_index, uint8_t current_hole, uint16_t score, uint8_t detection_count) {
     printf("Updating labels for Player %d, Hole %d, Score: %d, Detection Count: %d\n", player_index + 1, current_hole + 1, score, detection_count);
-
     if (num_players == 1) {
         // Single-player labels
+                // Single-player labels
+        //lv_obj_clear_state(ui_SP1P9HGSPSPText, LV_STATE_FOCUSED);
+        lv_obj_set_style_bg_color(ui_SP1P9HGSPSPanel, lv_color_hex(0x3A2CE9), LV_PART_MAIN | LV_STATE_DEFAULT);
+
+
         printf("Updating UI for Single Player Mode - Player %d\n", player_index + 1);
         lv_label_set_text_fmt(ui_SP1P9HGSPSText, "Player %d", player_index + 1);
         printf("Updated ui_SP1P9HGSPSText with Player %d\n", player_index + 1);
@@ -623,8 +628,24 @@ void update_label_text(uint8_t player_index, uint8_t current_hole, uint16_t scor
     } else if (num_players == 2) {
         printf("Two Player Mode\n");
         // Two-player labels
+        if(detection_count == 1 || detection_count == 0){
+            lv_obj_set_style_bg_color(ui_SP2P9HGSP1SPanel, lv_color_hex(0x3A2CE9), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(ui_SP2P9HGSP2SPanel, lv_color_hex(0x5AB66A), LV_PART_MAIN | LV_STATE_DEFAULT);
+                    printf("Updated ui_SP2P9HGSBCPText with Detection Count %d\n", detection_count);
+
+        }
+       if(detection_count == 2){
+            // Update Player 2's label and highlight it
+            lv_obj_set_style_bg_color(ui_SP2P9HGSP1SPanel, lv_color_hex(0x5AB66A), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(ui_SP2P9HGSP2SPanel, lv_color_hex(0x3A2CE9), LV_PART_MAIN | LV_STATE_DEFAULT);
+            printf("Updated ui_SP2P9HGSBCPText with Detection Count %d\n", detection_count);
+
+        }
         if (player_index == 0) {
             // Update Player 1's label
+            // Update Player 1's label and highlight it
+
+            
             printf("Updating Player 1's label\n");
             lv_label_set_text_fmt(ui_SP2P9HGSP1SText, "Player %d", player_index + 1);
             printf("Updated ui_SP2P9HGSP1SText with Player %d\n", player_index + 1);
@@ -637,6 +658,7 @@ void update_label_text(uint8_t player_index, uint8_t current_hole, uint16_t scor
         } else if (player_index == 1) {
             // Update Player 2's label
             printf("Updating Player 2's label\n");
+
             lv_label_set_text_fmt(ui_SP2P9HGSP2SText, "Player %d", player_index + 1);
             printf("Updated ui_SP2P9HGSP2SText with Player %d\n", player_index + 1);
             lv_label_set_text_fmt(ui_SP2P9HGSP2SPText, "%d", score);
@@ -645,7 +667,7 @@ void update_label_text(uint8_t player_index, uint8_t current_hole, uint16_t scor
             printf("Updated ui_SP2P9HGSHCPText with Current Hole %d\n", current_hole + 1);
             lv_label_set_text_fmt(ui_SP2P9HGSBCPText, "%d", detection_count);
             printf("Updated ui_SP2P9HGSBCPText with Detection Count %d\n", detection_count);
-        }
+        } 
     } else if (num_players == 3) {
             printf("Three Player Mode\n");
             // Three-player labels
@@ -791,7 +813,7 @@ int main(int argc, char **argv)
   /*Initialize the display, and the input devices*/
   hal_init( 2560, 720 );
 
-  ui_init();
+  ui_init(); 
   wiringPiSetupGpio();
   for (uint8_t i = 0; i < 4; i++) {
       pinMode(sensor_pins[i], INPUT);
