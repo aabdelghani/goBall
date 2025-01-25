@@ -832,7 +832,7 @@ int main(int argc, char **argv)
        * It could be done in a timer interrupt or an OS task too.*/
       lv_timer_handler();
 
-      usleep(20* 1000);
+      usleep(25* 1000);
   }
 
   lv_deinit();

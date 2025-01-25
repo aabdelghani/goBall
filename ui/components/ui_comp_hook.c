@@ -3,16 +3,3 @@
 // LVGL version: 9.1.0
 // Project name: Go Ball Raspbery PI
 
-#include "../ui.h"
-
-void ui_comp_Ball_Count__create_hook(lv_obj_t * comp)
-{
-}
-
-void ui_comp_Hole_Count_create_hook(lv_obj_t * comp)
-{
-}
-
-void ui_comp_Player_Score_create_hook(lv_obj_t * comp)
-{
-}

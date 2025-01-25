@@ -13,8 +13,6 @@ extern "C" {
 #include "lvgl/lvgl.h"
 
 #include "ui_helpers.h"
-#include "components/ui_comp.h"
-#include "components/ui_comp_hook.h"
 #include "ui_events.h"
 #include "ui_theme_manager.h"
 #include "ui_themes.h"
@@ -57,9 +55,11 @@ void ui_event_HSMPButton(lv_event_t * e);
 extern lv_obj_t * ui_HSMPButton;
 void ui_event_HSMPBText(lv_event_t * e);
 extern lv_obj_t * ui_HSMPBText;
-extern lv_obj_t * ui_HSQVQPButton;
+void ui_event_HSQPButton(lv_event_t * e);
+extern lv_obj_t * ui_HSQPButton;
 void ui_event_HSQPBText(lv_event_t * e);
 extern lv_obj_t * ui_HSQPBText;
+extern lv_obj_t * ui_HSVQPButton;
 extern lv_obj_t * ui_HSVQPBText;
 // CUSTOM VARIABLES
 
@@ -67,6 +67,12 @@ extern lv_obj_t * ui_HSVQPBText;
 void ui_SPPSScreen_screen_init(void);
 extern lv_obj_t * ui_SPPSScreen;
 extern lv_obj_t * ui_SPPSSLogo;
+extern lv_obj_t * ui_SPPSFormat;
+extern lv_obj_t * ui_SPPSFText;
+void ui_event_SPPSBButton(lv_event_t * e);
+extern lv_obj_t * ui_SPPSBButton;
+void ui_event_SPPSBBText(lv_event_t * e);
+extern lv_obj_t * ui_SPPSBBText;
 void ui_event_SPPS1PButton(lv_event_t * e);
 extern lv_obj_t * ui_SPPS1PButton;
 void ui_event_SPPS1PBText(lv_event_t * e);
@@ -83,12 +89,6 @@ void ui_event_SPPS4PButton(lv_event_t * e);
 extern lv_obj_t * ui_SPPS4PButton;
 void ui_event_SPPS4PBText(lv_event_t * e);
 extern lv_obj_t * ui_SPPS4PBText;
-void ui_event_SPPSBButton(lv_event_t * e);
-extern lv_obj_t * ui_SPPSBButton;
-void ui_event_SPPSBBText(lv_event_t * e);
-extern lv_obj_t * ui_SPPSBBText;
-extern lv_obj_t * ui_SPPSFormat;
-extern lv_obj_t * ui_SPPSFText;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_MPPSScreen
@@ -114,6 +114,13 @@ extern lv_obj_t * ui_MPPSSLogo;
 // SCREEN: ui_SP1PHSScreen
 void ui_SP1PHSScreen_screen_init(void);
 extern lv_obj_t * ui_SP1PHSScreen;
+extern lv_obj_t * ui_SP1PHSSLogo;
+extern lv_obj_t * ui_SP1PHSF;
+extern lv_obj_t * ui_SP1PHSFText;
+void ui_event_SP1PHSBB(lv_event_t * e);
+extern lv_obj_t * ui_SP1PHSBB;
+void ui_event_SP1PHSBBText(lv_event_t * e);
+extern lv_obj_t * ui_SP1PHSBBText;
 void ui_event_SP1PHS9HButton(lv_event_t * e);
 extern lv_obj_t * ui_SP1PHS9HButton;
 void ui_event_SP1PHS9HBText(lv_event_t * e);
@@ -122,18 +129,18 @@ void ui_event_SP1PHS18HButton(lv_event_t * e);
 extern lv_obj_t * ui_SP1PHS18HButton;
 void ui_event_SP1PHS18HBText(lv_event_t * e);
 extern lv_obj_t * ui_SP1PHS18HBText;
-extern lv_obj_t * ui_SP1PHSF;
-extern lv_obj_t * ui_SP1PHSFText;
-void ui_event_SP1PHSBB(lv_event_t * e);
-extern lv_obj_t * ui_SP1PHSBB;
-void ui_event_SP1PHSBBText(lv_event_t * e);
-extern lv_obj_t * ui_SP1PHSBBText;
-extern lv_obj_t * ui_SP1PHSSLogo;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SP2PHSScreen
 void ui_SP2PHSScreen_screen_init(void);
 extern lv_obj_t * ui_SP2PHSScreen;
+extern lv_obj_t * ui_SP2PHSSLogo;
+extern lv_obj_t * ui_SP2PHSF;
+extern lv_obj_t * ui_SP2PHSFText;
+void ui_event_SP2PHSBButton(lv_event_t * e);
+extern lv_obj_t * ui_SP2PHSBButton;
+void ui_event_SP2PHSBBText(lv_event_t * e);
+extern lv_obj_t * ui_SP2PHSBBText;
 void ui_event_SP2PHS9HButton(lv_event_t * e);
 extern lv_obj_t * ui_SP2PHS9HButton;
 void ui_event_SP2PHS9HBText(lv_event_t * e);
@@ -142,18 +149,18 @@ void ui_event_SP2PHS18HButton(lv_event_t * e);
 extern lv_obj_t * ui_SP2PHS18HButton;
 void ui_event_SP2PHS18HBText(lv_event_t * e);
 extern lv_obj_t * ui_SP2PHS18HBText;
-extern lv_obj_t * ui_SP2PHSF;
-extern lv_obj_t * ui_SP2PHSFText;
-void ui_event_SP2PHSBButton(lv_event_t * e);
-extern lv_obj_t * ui_SP2PHSBButton;
-void ui_event_SP2PHSBBText(lv_event_t * e);
-extern lv_obj_t * ui_SP2PHSBBText;
-extern lv_obj_t * ui_SP2PHSSLogo;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SP3PHSScreen
 void ui_SP3PHSScreen_screen_init(void);
 extern lv_obj_t * ui_SP3PHSScreen;
+extern lv_obj_t * ui_SP3PHSSLogo;
+extern lv_obj_t * ui_SP3PHSF;
+extern lv_obj_t * ui_SP3PHSFText;
+void ui_event_SP3PHSBButton(lv_event_t * e);
+extern lv_obj_t * ui_SP3PHSBButton;
+void ui_event_SP3PHSBBText(lv_event_t * e);
+extern lv_obj_t * ui_SP3PHSBBText;
 void ui_event_SP3PHS9HButton(lv_event_t * e);
 extern lv_obj_t * ui_SP3PHS9HButton;
 void ui_event_SP3PHS9HBText(lv_event_t * e);
@@ -162,19 +169,18 @@ void ui_event_SP3PHS18HButton(lv_event_t * e);
 extern lv_obj_t * ui_SP3PHS18HButton;
 void ui_event_SP3PHS18HBText(lv_event_t * e);
 extern lv_obj_t * ui_SP3PHS18HBText;
-extern lv_obj_t * ui_SP3PHSF;
-extern lv_obj_t * ui_SP3PHSFText;
-void ui_event_SP3PHSBButton(lv_event_t * e);
-extern lv_obj_t * ui_SP3PHSBButton;
-void ui_event_SP3PHSBBText(lv_event_t * e);
-extern lv_obj_t * ui_SP3PHSBBText;
-extern lv_obj_t * ui_SP3PHSSLogo;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SP4PHSScreen
 void ui_SP4PHSScreen_screen_init(void);
 extern lv_obj_t * ui_SP4PHSScreen;
 extern lv_obj_t * ui_SP4PHSSLogo;
+extern lv_obj_t * ui_SP4PHSF;
+extern lv_obj_t * ui_SP4PHSFText;
+void ui_event_SP4PHSBButton(lv_event_t * e);
+extern lv_obj_t * ui_SP4PHSBButton;
+void ui_event_SP4PHSBBText(lv_event_t * e);
+extern lv_obj_t * ui_SP4PHSBBText;
 void ui_event_SP4PHS9HButton(lv_event_t * e);
 extern lv_obj_t * ui_SP4PHS9HButton;
 void ui_event_SP4PHS9HBText(lv_event_t * e);
@@ -183,58 +189,46 @@ void ui_event_SP4PHS18HButton(lv_event_t * e);
 extern lv_obj_t * ui_SP4PHS18HButton;
 void ui_event_SP4PHS18HBText(lv_event_t * e);
 extern lv_obj_t * ui_SP4PHS18HBText;
-extern lv_obj_t * ui_SP4PHSF;
-extern lv_obj_t * ui_SP4PHSFText;
-void ui_event_SP4PHSBButton(lv_event_t * e);
-extern lv_obj_t * ui_SP4PHSBButton;
-void ui_event_SP4PHSBBText(lv_event_t * e);
-extern lv_obj_t * ui_SP4PHSBBText;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SP1P9HGScreen
 void ui_SP1P9HGScreen_screen_init(void);
 extern lv_obj_t * ui_SP1P9HGScreen;
 extern lv_obj_t * ui_SP1P9HGSLogo;
-extern lv_obj_t * ui_SP1P9HGSPScoreboard;
-extern lv_obj_t * ui_SP1P9HGSPSText;
-extern lv_obj_t * ui_SP1P9HGSPSPanel;
-void ui_event_SP1P9HGSPSPText(lv_event_t * e);
-extern lv_obj_t * ui_SP1P9HGSPSPText;
-extern lv_obj_t * ui_SP1P9HGSHCounter;
-extern lv_obj_t * ui_SP1P9HGSHCText;
-extern lv_obj_t * ui_SP1P9HGSHCPanel;
-extern lv_obj_t * ui_SP1P9HGSHCPText;
 extern lv_obj_t * ui_SP1P9HGSBCounter;
 extern lv_obj_t * ui_SP1P9HGSBCText;
 extern lv_obj_t * ui_SP1P9HGSBCPanel;
 extern lv_obj_t * ui_SP1P9HGSBCPText;
-void ui_event_SP1P9HGSSCButton(lv_event_t * e);
-extern lv_obj_t * ui_SP1P9HGSSCButton;
-void ui_event_SP1P9HGSSCBText(lv_event_t * e);
-extern lv_obj_t * ui_SP1P9HGSSCBText;
+extern lv_obj_t * ui_SP1P9HGSHCounter;
+extern lv_obj_t * ui_SP1P9HGSHCText;
+extern lv_obj_t * ui_SP1P9HGSHCPanel;
+extern lv_obj_t * ui_SP1P9HGSHCPText;
 void ui_event_SP1P9HGSMMButton(lv_event_t * e);
 extern lv_obj_t * ui_SP1P9HGSMMButton;
 void ui_event_SP1P9HGSMMBText(lv_event_t * e);
 extern lv_obj_t * ui_SP1P9HGSMMBText;
-extern lv_obj_t * ui_SP1P9HGSFormat;
-extern lv_obj_t * ui_SP1P9HGSFText;
-extern lv_obj_t * ui_SP1P9HGSHFormat;
-extern lv_obj_t * ui_SP1P9HGSHFText;
+void ui_event_SP1P9HGSSCButton(lv_event_t * e);
+extern lv_obj_t * ui_SP1P9HGSSCButton;
+void ui_event_SP1P9HGSSCBText(lv_event_t * e);
+extern lv_obj_t * ui_SP1P9HGSSCBText;
+extern lv_obj_t * ui_SP1P9HGSPScoreboard;
+extern lv_obj_t * ui_SP1P9HGSPSText;
+extern lv_obj_t * ui_SP1P9HGSPSPanel;
+extern lv_obj_t * ui_SP1P9HGSPSPText;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SP1P9HScorecard
 void ui_SP1P9HScorecard_screen_init(void);
 extern lv_obj_t * ui_SP1P9HScorecard;
 extern lv_obj_t * ui_SP1P9HScLogo;
-void ui_event_SP1P9HScBButton(lv_event_t * e);
-extern lv_obj_t * ui_SP1P9HScBButton;
-void ui_event_SP1P9HScBBText(lv_event_t * e);
-extern lv_obj_t * ui_SP1P9HScBBText;
-void void_SP1P9HScore_reset();
 void ui_event_SP1P9HScMMButton(lv_event_t * e);
 extern lv_obj_t * ui_SP1P9HScMMButton;
 void ui_event_SP1P9HScMMBText(lv_event_t * e);
 extern lv_obj_t * ui_SP1P9HScMMBText;
+void ui_event_SP1P9HScBButton(lv_event_t * e);
+extern lv_obj_t * ui_SP1P9HScBButton;
+void ui_event_SP1P9HScBBText(lv_event_t * e);
+extern lv_obj_t * ui_SP1P9HScBBText;
 extern lv_obj_t * ui_SP19HPScPText;
 extern lv_obj_t * ui_SP1P9HScHText;
 extern lv_obj_t * ui_SP1P9HScHText1;
@@ -273,14 +267,6 @@ extern lv_obj_t * ui_SP1P9HScPSFText;
 void ui_SP2P9HGScreen_screen_init(void);
 extern lv_obj_t * ui_SP2P9HGScreen;
 extern lv_obj_t * ui_SP2P9HGSLogo;
-extern lv_obj_t * ui_SP2P9HGSP1Scoreboard;
-extern lv_obj_t * ui_SP2P9HGSP1SText;
-extern lv_obj_t * ui_SP2P9HGSP1SPanel;
-extern lv_obj_t * ui_SP2P9HGSP1SPText;
-extern lv_obj_t * ui_SP2P9HGSBCounter;
-extern lv_obj_t * ui_SP2P9HGSBCText;
-extern lv_obj_t * ui_SP2P9HGSBCPanel;
-extern lv_obj_t * ui_SP2P9HGSBCPText;
 void ui_event_SP2P9HGSSCButton(lv_event_t * e);
 extern lv_obj_t * ui_SP2P9HGSSCButton;
 void ui_event_SP2P9HGSSCBText(lv_event_t * e);
@@ -289,16 +275,22 @@ void ui_event_SP2P9HGSMMButton(lv_event_t * e);
 extern lv_obj_t * ui_SP2P9HGSMMButton;
 void ui_event_SP2P9HGSMMBText(lv_event_t * e);
 extern lv_obj_t * ui_SP2P9HGSMMBText;
-extern lv_obj_t * ui_SP2P9HGSP2Scoreboard;
-extern lv_obj_t * ui_SP2P9HGSP2SText;
-extern lv_obj_t * ui_SP2P9HGSP2SPanel;
-extern lv_obj_t * ui_SP2P9HGSP2SPText;
+extern lv_obj_t * ui_SP2P9HGSBCounter;
+extern lv_obj_t * ui_SP2P9HGSBCText;
+extern lv_obj_t * ui_SP2P9HGSBCPanel;
+extern lv_obj_t * ui_SP2P9HGSBCPText;
 extern lv_obj_t * ui_SP2P9HGSHCounter;
 extern lv_obj_t * ui_SP2P9HGSHCText;
 extern lv_obj_t * ui_SP2P9HGSHCPanel;
 extern lv_obj_t * ui_SP2P9HGSHCPText;
-extern lv_obj_t * ui_SP2P9HGSHFormat;
-extern lv_obj_t * ui_SP2P9HGSHFText;
+extern lv_obj_t * ui_SP2P9HGSP1Scoreboard;
+extern lv_obj_t * ui_SP2P9HGSP1SText;
+extern lv_obj_t * ui_SP2P9HGSP1SPanel;
+extern lv_obj_t * ui_SP2P9HGSP1SPText;
+extern lv_obj_t * ui_SP2P9HGSP2Scoreboard;
+extern lv_obj_t * ui_SP2P9HGSP2SText;
+extern lv_obj_t * ui_SP2P9HGSP2SPanel;
+extern lv_obj_t * ui_SP2P9HGSP2SPText;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SP2P9HScorecard
@@ -372,14 +364,6 @@ extern lv_obj_t * ui_SP2P9HScP2SFText;
 void ui_SP3P9HGScreen_screen_init(void);
 extern lv_obj_t * ui_SP3P9HGScreen;
 extern lv_obj_t * ui_SP3P9HGSLogo;
-extern lv_obj_t * ui_SP3P9HGSP1Scoreboard;
-extern lv_obj_t * ui_SP3P9HGSP1SText;
-extern lv_obj_t * ui_SP3P9HGSP1SPanel;
-extern lv_obj_t * ui_SP3P9HGSP1SPText;
-extern lv_obj_t * ui_SP3P9HGSBCounter;
-extern lv_obj_t * ui_SP3P9HGSBCText;
-extern lv_obj_t * ui_SP3P9HGSBCPanel;
-extern lv_obj_t * ui_SP3P9HGSBCPText;
 void ui_event_SP3P9HGSSCButton(lv_event_t * e);
 extern lv_obj_t * ui_SP3P9HGSSCButton;
 void ui_event_SP3P9HGSSCBText(lv_event_t * e);
@@ -388,22 +372,26 @@ void ui_event_SP3P9HGSMMButton(lv_event_t * e);
 extern lv_obj_t * ui_SP3P9HGSMMButton;
 void ui_event_SP3P9HGSMMBText(lv_event_t * e);
 extern lv_obj_t * ui_SP3P9HGSMMBText;
-extern lv_obj_t * ui_SP3P9HGSP2Scoreboard;
-extern lv_obj_t * ui_SP3P9HGSP2SText;
-extern lv_obj_t * ui_SP3P9HGSP2SPanel;
-extern lv_obj_t * ui_SP3P9HGSP2SPText;
 extern lv_obj_t * ui_SP3P9HGSHCounter;
 extern lv_obj_t * ui_SP3P9HGSHCText;
 extern lv_obj_t * ui_SP3P9HGSHCPanel;
 extern lv_obj_t * ui_SP3P9HGSHCPText;
+extern lv_obj_t * ui_SP3P9HGSBCounter;
+extern lv_obj_t * ui_SP3P9HGSBCText;
+extern lv_obj_t * ui_SP3P9HGSBCPanel;
+extern lv_obj_t * ui_SP3P9HGSBCPText;
+extern lv_obj_t * ui_SP3P9HGSP1Scoreboard;
+extern lv_obj_t * ui_SP3P9HGSP1SText;
+extern lv_obj_t * ui_SP3P9HGSP1SPanel;
+extern lv_obj_t * ui_SP3P9HGSP1SPText;
+extern lv_obj_t * ui_SP3P9HGSP2Scoreboard;
+extern lv_obj_t * ui_SP3P9HGSP2SText;
+extern lv_obj_t * ui_SP3P9HGSP2SPanel;
+extern lv_obj_t * ui_SP3P9HGSP2SPText;
 extern lv_obj_t * ui_SP3P9HGSP3Scoreboard;
 extern lv_obj_t * ui_SP3P9HGSP3SText;
 extern lv_obj_t * ui_SP3P9HGSP3SPanel;
 extern lv_obj_t * ui_SP3P9HGSP3SPText;
-extern lv_obj_t * ui_SP3P9HGSHFormat;
-extern lv_obj_t * ui_SP3P9HGSHFText;
-extern lv_obj_t * ui_SP3P9HGSFormat;
-extern lv_obj_t * ui_SP3P9HGSFText;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SP3P9HScorecard
@@ -418,9 +406,10 @@ void ui_event_SP3P9HScBButton(lv_event_t * e);
 extern lv_obj_t * ui_SP3P9HScBButton;
 void ui_event_SP3P9HScBBText(lv_event_t * e);
 extern lv_obj_t * ui_SP3P9HScBBText;
-extern lv_obj_t * ui_SP3P9HScHText;
 extern lv_obj_t * ui_SP3P9HScP1Text;
 extern lv_obj_t * ui_SP3P9HScP2Text;
+extern lv_obj_t * ui_SP3P9HScP3Text;
+extern lv_obj_t * ui_SP3P9HScHText;
 extern lv_obj_t * ui_SP3P9HScHText1;
 extern lv_obj_t * ui_SP3P9HScHText2;
 extern lv_obj_t * ui_SP3P9HScHText3;
@@ -431,7 +420,6 @@ extern lv_obj_t * ui_SP3P9HScHText7;
 extern lv_obj_t * ui_SP3P9HScHText8;
 extern lv_obj_t * ui_SP3P9HScHText9;
 extern lv_obj_t * ui_SP3P9HScHTextF;
-extern lv_obj_t * ui_SP3P9HScP3Text;
 extern lv_obj_t * ui_SP3P9HScP1Spinbox1;
 extern lv_obj_t * ui_SP3P9HScP1S1Text;
 extern lv_obj_t * ui_SP3P9HScP1Spinbox2;
@@ -498,26 +486,6 @@ extern lv_obj_t * ui_SP3P9HScP3SFText;
 void ui_SP4P9HGScreen_screen_init(void);
 extern lv_obj_t * ui_SP4P9HGScreen;
 extern lv_obj_t * ui_SP4P9HGSLogo;
-extern lv_obj_t * ui_SP4P9HGSP1Scoreboard;
-extern lv_obj_t * ui_SP4P9HGSP1SText;
-extern lv_obj_t * ui_SP4P9HGSP1SPanel;
-extern lv_obj_t * ui_SP4P9HGSP1SPText;
-extern lv_obj_t * ui_SP4P9HGSBCounter;
-extern lv_obj_t * ui_SP4P9HGSBCText;
-extern lv_obj_t * ui_SP4P9HGSBCPanel;
-extern lv_obj_t * ui_SP4P9HGSBCPText;
-extern lv_obj_t * ui_SP4P9HGSP2Scoreboard;
-extern lv_obj_t * ui_SP4P9HGSP2SText;
-extern lv_obj_t * ui_SP4P9HGSP2SPanel;
-extern lv_obj_t * ui_SP4P9HGSP2SPText;
-extern lv_obj_t * ui_SP4P9HGSHCounter;
-extern lv_obj_t * ui_SP4P9HGSHCText;
-extern lv_obj_t * ui_SP4P9HGSHCPanel;
-extern lv_obj_t * ui_SP4P9HGSHCPText;
-extern lv_obj_t * ui_SP4P9HGSP3Scoreboard;
-extern lv_obj_t * ui_SP4P9HGSP3SText;
-extern lv_obj_t * ui_SP4P9HGSP3SPanel;
-extern lv_obj_t * ui_SP4P9HGSP3SPText;
 void ui_event_SP4P9HGSMMButton(lv_event_t * e);
 extern lv_obj_t * ui_SP4P9HGSMMButton;
 void ui_event_SP4P9HGSMMBText(lv_event_t * e);
@@ -526,6 +494,26 @@ void ui_event_SP4P9HGSSCButton(lv_event_t * e);
 extern lv_obj_t * ui_SP4P9HGSSCButton;
 void ui_event_SP4P9HGSSCBText(lv_event_t * e);
 extern lv_obj_t * ui_SP4P9HGSSCBText;
+extern lv_obj_t * ui_SP4P9HGSHCounter;
+extern lv_obj_t * ui_SP4P9HGSHCText;
+extern lv_obj_t * ui_SP4P9HGSHCPanel;
+extern lv_obj_t * ui_SP4P9HGSHCPText;
+extern lv_obj_t * ui_SP4P9HGSBCounter;
+extern lv_obj_t * ui_SP4P9HGSBCText;
+extern lv_obj_t * ui_SP4P9HGSBCPanel;
+extern lv_obj_t * ui_SP4P9HGSBCPText;
+extern lv_obj_t * ui_SP4P9HGSP1Scoreboard;
+extern lv_obj_t * ui_SP4P9HGSP1SText;
+extern lv_obj_t * ui_SP4P9HGSP1SPanel;
+extern lv_obj_t * ui_SP4P9HGSP1SPText;
+extern lv_obj_t * ui_SP4P9HGSP2Scoreboard;
+extern lv_obj_t * ui_SP4P9HGSP2SText;
+extern lv_obj_t * ui_SP4P9HGSP2SPanel;
+extern lv_obj_t * ui_SP4P9HGSP2SPText;
+extern lv_obj_t * ui_SP4P9HGSP3Scoreboard;
+extern lv_obj_t * ui_SP4P9HGSP3SText;
+extern lv_obj_t * ui_SP4P9HGSP3SPanel;
+extern lv_obj_t * ui_SP4P9HGSP3SPText;
 extern lv_obj_t * ui_SP4P9HGSP4Scoreboard;
 extern lv_obj_t * ui_SP4P9HGSP4SText;
 extern lv_obj_t * ui_SP4P9HGSP4SPanel;
@@ -536,17 +524,19 @@ extern lv_obj_t * ui_SP4P9HGSP4SPText;
 void ui_SP4P9HScorecard_screen_init(void);
 extern lv_obj_t * ui_SP4P9HScorecard;
 extern lv_obj_t * ui_SP4P9HScLogo;
-void ui_event_SP4P9HScBButton(lv_event_t * e);
-extern lv_obj_t * ui_SP4P9HScBButton;
-void ui_event_SP4P9HScBBText(lv_event_t * e);
-extern lv_obj_t * ui_SP4P9HScBBText;
 void ui_event_SP4P9HScMMButton(lv_event_t * e);
 extern lv_obj_t * ui_SP4P9HScMMButton;
 void ui_event_SP4P9HScMMBText(lv_event_t * e);
 extern lv_obj_t * ui_SP4P9HScMMBText;
+void ui_event_SP4P9HScBButton(lv_event_t * e);
+extern lv_obj_t * ui_SP4P9HScBButton;
+void ui_event_SP4P9HScBBText(lv_event_t * e);
+extern lv_obj_t * ui_SP4P9HScBBText;
 extern lv_obj_t * ui_SP4P9HScHText;
 extern lv_obj_t * ui_SP4P9HScP1Text;
 extern lv_obj_t * ui_SP4P9HScP2Text;
+extern lv_obj_t * ui_SP4P9HScP3Text;
+extern lv_obj_t * ui_SP4P9HScP4Text;
 extern lv_obj_t * ui_SP4P9HScHText1;
 extern lv_obj_t * ui_SP4P9HScHText2;
 extern lv_obj_t * ui_SP4P9HScHText3;
@@ -557,8 +547,6 @@ extern lv_obj_t * ui_SP4P9HScHText7;
 extern lv_obj_t * ui_SP4P9HScHText8;
 extern lv_obj_t * ui_SP4P9HScHText9;
 extern lv_obj_t * ui_SP4P9HScHTextF;
-extern lv_obj_t * ui_SP4P9HScP3Text;
-extern lv_obj_t * ui_SP4P9HScP4Text;
 extern lv_obj_t * ui_SP4P9HScP1Spinbox1;
 extern lv_obj_t * ui_SP4P9HScP1S1Text;
 extern lv_obj_t * ui_SP4P9HScP1Spinbox2;
@@ -645,18 +633,6 @@ extern lv_obj_t * ui_SP4P9HScP4SFText;
 void ui_SP1P18HGScreen_screen_init(void);
 extern lv_obj_t * ui_SP1P18HGScreen;
 extern lv_obj_t * ui_SP1P18HGSLogo;
-extern lv_obj_t * ui_SP1P18HGSPScoreboard;
-extern lv_obj_t * ui_SP1P18HGSPSText;
-extern lv_obj_t * ui_SP1P18HGSPSPanel;
-extern lv_obj_t * ui_SP1P18HGSPSPText;
-extern lv_obj_t * ui_SP1P18HGSHCounter;
-extern lv_obj_t * ui_SP1P18HGSHCText;
-extern lv_obj_t * ui_SP1P18HGSHCPanel;
-extern lv_obj_t * ui_SP1P18HGSHCPText;
-extern lv_obj_t * ui_SP1P18HGSBCounter;
-extern lv_obj_t * ui_SP1P18HGSBCText;
-extern lv_obj_t * ui_SP1P18HGSBCPanel;
-extern lv_obj_t * ui_SP1P18HGSBCPText;
 void ui_event_SP1P18HGSSCButton(lv_event_t * e);
 extern lv_obj_t * ui_SP1P18HGSSCButton;
 void ui_event_SP1P18HGSSCBText(lv_event_t * e);
@@ -665,26 +641,34 @@ void ui_event_SP1P18HGSMMButton(lv_event_t * e);
 extern lv_obj_t * ui_SP1P18HGSMMButton;
 void ui_event_SP1P18HGSMMBText(lv_event_t * e);
 extern lv_obj_t * ui_SP1P18HGSMMBText;
-extern lv_obj_t * ui_SP1P18HGSFormat;
-extern lv_obj_t * ui_SP1P18HGSFText;
-extern lv_obj_t * ui_SP1P18HGSHFormat;
-extern lv_obj_t * ui_SP1P18HGSHFText;
+extern lv_obj_t * ui_SP1P18HGSBCounter;
+extern lv_obj_t * ui_SP1P18HGSBCText;
+extern lv_obj_t * ui_SP1P18HGSBCPanel;
+extern lv_obj_t * ui_SP1P18HGSBCPText;
+extern lv_obj_t * ui_SP1P18HGSHCounter;
+extern lv_obj_t * ui_SP1P18HGSHCText;
+extern lv_obj_t * ui_SP1P18HGSHCPanel;
+extern lv_obj_t * ui_SP1P18HGSHCPText;
+extern lv_obj_t * ui_SP1P18HGSPScoreboard;
+extern lv_obj_t * ui_SP1P18HGSPSText;
+extern lv_obj_t * ui_SP1P18HGSPSPanel;
+extern lv_obj_t * ui_SP1P18HGSPSPText;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SP1P18HScorecard
 void ui_SP1P18HScorecard_screen_init(void);
 extern lv_obj_t * ui_SP1P18HScorecard;
 extern lv_obj_t * ui_SP1P18HScLogo;
-void ui_event_SP1P18HScBButton(lv_event_t * e);
-extern lv_obj_t * ui_SP1P18HScBButton;
-void ui_event_SP1P18HScBBText(lv_event_t * e);
-extern lv_obj_t * ui_SP1P18HScBBText;
 void ui_event_SP1P18HScMMButton(lv_event_t * e);
 extern lv_obj_t * ui_SP1P18HScMMButton;
 void ui_event_SP1P18HScMMBText(lv_event_t * e);
 extern lv_obj_t * ui_SP1P18HScMMBText;
-extern lv_obj_t * ui_SP1P18HScPText;
+void ui_event_SP1P18HScBButton(lv_event_t * e);
+extern lv_obj_t * ui_SP1P18HScBButton;
+void ui_event_SP1P18HScBBText(lv_event_t * e);
+extern lv_obj_t * ui_SP1P18HScBBText;
 extern lv_obj_t * ui_SP1P18HScHText;
+extern lv_obj_t * ui_SP1P18HScPText;
 extern lv_obj_t * ui_SP1P18HScHText1;
 extern lv_obj_t * ui_SP1P18HScHText2;
 extern lv_obj_t * ui_SP1P18HScHText3;
@@ -748,46 +732,36 @@ extern lv_obj_t * ui_SP1P18HScPSText19;
 void ui_SP2P18HGScreen_screen_init(void);
 extern lv_obj_t * ui_SP2P18HGScreen;
 extern lv_obj_t * ui_SP2P18HGSLogo;
-extern lv_obj_t * ui_SP2P18HGSP1Scoreboard;
-extern lv_obj_t * ui_SP2P18HGSP1SText;
-extern lv_obj_t * ui_SP2P18HGSP1SPanel;
-extern lv_obj_t * ui_SP2P18HGSP1SPText;
-extern lv_obj_t * ui_SP2P18HGSBCounter;
-extern lv_obj_t * ui_SP2P18HGSBCText;
-extern lv_obj_t * ui_SP2P18HGSBCPanel;
-extern lv_obj_t * ui_SP2P18HGSBCPText;
-void ui_event_SP2P18HGSSCButton(lv_event_t * e);
-extern lv_obj_t * ui_SP2P18HGSSCButton;
-void ui_event_SP2P18HGSSCBText(lv_event_t * e);
-extern lv_obj_t * ui_SP2P18HGSSCBText;
 void ui_event_SP2P18HGSMMButton(lv_event_t * e);
 extern lv_obj_t * ui_SP2P18HGSMMButton;
 void ui_event_SP2P18HGSMMBText(lv_event_t * e);
 extern lv_obj_t * ui_SP2P18HGSMMBText;
-extern lv_obj_t * ui_SP2P18HGSP2Scoreboard;
-extern lv_obj_t * ui_SP2P18HGSP2SText;
-extern lv_obj_t * ui_SP2P18HGSP2SPanel;
-extern lv_obj_t * ui_SP2P18HGSP2SPText;
+void ui_event_SP2P18HGSSCButton(lv_event_t * e);
+extern lv_obj_t * ui_SP2P18HGSSCButton;
+void ui_event_SP2P18HGSSCBText(lv_event_t * e);
+extern lv_obj_t * ui_SP2P18HGSSCBText;
 extern lv_obj_t * ui_SP2P18HGSHCounter;
 extern lv_obj_t * ui_SP2P18HGSHCText;
 extern lv_obj_t * ui_SP2P18HGSHCPanel;
 extern lv_obj_t * ui_SP2P18HGSHCPText;
-extern lv_obj_t * ui_SP2P18HGSHFormat;
-extern lv_obj_t * ui_SP2P18HGSHFText;
+extern lv_obj_t * ui_SP2P18HGSBCounter;
+extern lv_obj_t * ui_SP2P18HGSBCText;
+extern lv_obj_t * ui_SP2P18HGSBCPanel;
+extern lv_obj_t * ui_SP2P18HGSBCPText;
+extern lv_obj_t * ui_SP2P18HGSP1Scoreboard;
+extern lv_obj_t * ui_SP2P18HGSP1SText;
+extern lv_obj_t * ui_SP2P18HGSP1SPanel;
+extern lv_obj_t * ui_SP2P18HGSP1SPText;
+extern lv_obj_t * ui_SP2P18HGSP2Scoreboard;
+extern lv_obj_t * ui_SP2P18HGSP2SText;
+extern lv_obj_t * ui_SP2P18HGSP2SPanel;
+extern lv_obj_t * ui_SP2P18HGSP2SPText;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SP2P18HScorecard
 void ui_SP2P18HScorecard_screen_init(void);
 extern lv_obj_t * ui_SP2P18HScorecard;
 extern lv_obj_t * ui_SP2P18HScLogo;
-void ui_event_SP2P18HScBButton(lv_event_t * e);
-extern lv_obj_t * ui_SP2P18HScBButton;
-void ui_event_SP2P18HScBBText(lv_event_t * e);
-extern lv_obj_t * ui_SP2P18HScBBText;
-void ui_event_SP2P18HScMMButton(lv_event_t * e);
-extern lv_obj_t * ui_SP2P18HScMMButton;
-void ui_event_SP2P18HScMMBText(lv_event_t * e);
-extern lv_obj_t * ui_SP2P18HScMMBText;
 extern lv_obj_t * ui_SP2P18HScHText;
 extern lv_obj_t * ui_SP2P18HScHText1;
 extern lv_obj_t * ui_SP2P18HScHText2;
@@ -886,6 +860,14 @@ extern lv_obj_t * ui_SP2P18HScP2Spinbox18;
 extern lv_obj_t * ui_SP2P18HScP2SText18;
 extern lv_obj_t * ui_SP2P18HScP2SpinboxF;
 extern lv_obj_t * ui_SP2P18HScP2STextF;
+void ui_event_SP2P18HScMMButton(lv_event_t * e);
+extern lv_obj_t * ui_SP2P18HScMMButton;
+void ui_event_SP2P18HScMMBText(lv_event_t * e);
+extern lv_obj_t * ui_SP2P18HScMMBText;
+void ui_event_SP2P18HScBButton(lv_event_t * e);
+extern lv_obj_t * ui_SP2P18HScBButton;
+void ui_event_SP2P18HScBBText(lv_event_t * e);
+extern lv_obj_t * ui_SP2P18HScBBText;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_SP3P18HGScreen
@@ -938,6 +920,9 @@ void ui_event_SP3P18HScMMButton(lv_event_t * e);
 extern lv_obj_t * ui_SP3P18HScMMButton;
 void ui_event_SP3P18HScMMBText(lv_event_t * e);
 extern lv_obj_t * ui_SP3P18HScMMBText;
+extern lv_obj_t * ui_SP3P18HScP1Text;
+extern lv_obj_t * ui_SP3P18HScP2Text;
+extern lv_obj_t * ui_SP3P18HScP3Text;
 extern lv_obj_t * ui_SP3P18HScHText;
 extern lv_obj_t * ui_SP3P18HScHText1;
 extern lv_obj_t * ui_SP3P18HScHText2;
@@ -958,9 +943,6 @@ extern lv_obj_t * ui_SP3P18HScHText16;
 extern lv_obj_t * ui_SP3P18HScHText17;
 extern lv_obj_t * ui_SP3P18HScHText18;
 extern lv_obj_t * ui_SP3P18HScHTextF;
-extern lv_obj_t * ui_SP3P18HScP1Text;
-extern lv_obj_t * ui_SP3P18HScP2Text;
-extern lv_obj_t * ui_SP3P18HScP3Text;
 extern lv_obj_t * ui_SP3P18HScP1Spinbox1;
 extern lv_obj_t * ui_SP3P18HScP1SText1;
 extern lv_obj_t * ui_SP3P18HScP2Spinbox1;
@@ -1118,6 +1100,19 @@ extern lv_obj_t * ui_SP4P18HGSP4SPText;
 // SCREEN: ui_SP4P18HScorecard
 void ui_SP4P18HScorecard_screen_init(void);
 extern lv_obj_t * ui_SP4P18HScorecard;
+extern lv_obj_t * ui_SP4P18HScLogo;
+void ui_event_SP4P18HScMMButton(lv_event_t * e);
+extern lv_obj_t * ui_SP4P18HScMMButton;
+void ui_event_SP4P18HScMMBText(lv_event_t * e);
+extern lv_obj_t * ui_SP4P18HScMMBText;
+void ui_event_SP4P18HScBButton(lv_event_t * e);
+extern lv_obj_t * ui_SP4P18HScBButton;
+void ui_event_SP4P18HScBBText(lv_event_t * e);
+extern lv_obj_t * ui_SP4P18HScBBText;
+extern lv_obj_t * ui_SP4P18HScP1Text;
+extern lv_obj_t * ui_SP4P18HScP2Text;
+extern lv_obj_t * ui_SP4P18HScP3Text;
+extern lv_obj_t * ui_SP4P18HScP4Text;
 extern lv_obj_t * ui_SP4P18HScHText;
 extern lv_obj_t * ui_SP4P18HScHText1;
 extern lv_obj_t * ui_SP4P18HScHText2;
@@ -1138,19 +1133,6 @@ extern lv_obj_t * ui_SP4P18HScHText16;
 extern lv_obj_t * ui_SP4P18HScHText17;
 extern lv_obj_t * ui_SP4P18HScHText18;
 extern lv_obj_t * ui_SP4P18HScHTextF;
-extern lv_obj_t * ui_SP4P18HScP1Text;
-extern lv_obj_t * ui_SP4P18HScP2Text;
-extern lv_obj_t * ui_SP4P18HScP3Text;
-extern lv_obj_t * ui_SP4P18HScLogo;
-void ui_event_SP4P18HScMMButton(lv_event_t * e);
-extern lv_obj_t * ui_SP4P18HScMMButton;
-void ui_event_SP4P18HScMMBText(lv_event_t * e);
-extern lv_obj_t * ui_SP4P18HScMMBText;
-void ui_event_SP4P18HScBButton(lv_event_t * e);
-extern lv_obj_t * ui_SP4P18HScBButton;
-void ui_event_SP4P18HScBBText(lv_event_t * e);
-extern lv_obj_t * ui_SP4P18HScBBText;
-extern lv_obj_t * ui_SP4P18HScP4Text;
 extern lv_obj_t * ui_SP4P18HScP1Spinbox1;
 extern lv_obj_t * ui_SP4P18HScP1SText1;
 extern lv_obj_t * ui_SP4P18HScP2Spinbox1;
@@ -1646,25 +1628,45 @@ extern lv_obj_t * ui_MP2V29HScHText8;
 extern lv_obj_t * ui_MP2V29HScHText9;
 extern lv_obj_t * ui_MP2V29HScHTextF;
 extern lv_obj_t * ui_MP2V29HScT1Spinbox1;
+extern lv_obj_t * ui_MP2V29HScT1SText1;
 extern lv_obj_t * ui_MP2V29HScT1Spinbox2;
+extern lv_obj_t * ui_MP2V29HScT1SText2;
 extern lv_obj_t * ui_MP2V29HScT1Spinbox3;
+extern lv_obj_t * ui_MP2V29HScT1SText3;
 extern lv_obj_t * ui_MP2V29HScT1Spinbox4;
+extern lv_obj_t * ui_MP2V29HScT1SText4;
 extern lv_obj_t * ui_MP2V29HScT1Spinbox5;
+extern lv_obj_t * ui_MP2V29HScT1SText5;
 extern lv_obj_t * ui_MP2V29HScT1Spinbox6;
+extern lv_obj_t * ui_MP2V29HScT1SText6;
 extern lv_obj_t * ui_MP2V29HScT1Spinbox7;
+extern lv_obj_t * ui_MP2V29HScT1SText7;
 extern lv_obj_t * ui_MP2V29HScT1Spinbox8;
+extern lv_obj_t * ui_MP2V29HScT1SText8;
 extern lv_obj_t * ui_MP2V29HScT1Spinbox9;
+extern lv_obj_t * ui_MP2V29HScT1SText9;
 extern lv_obj_t * ui_MP2V29HScT1SpinboxF;
+extern lv_obj_t * ui_MP2V29HScT1STextF;
 extern lv_obj_t * ui_MP2V29HScT2Spinbox1;
+extern lv_obj_t * ui_MP2V29HScT2SText1;
 extern lv_obj_t * ui_MP2V29HScT2Spinbox2;
+extern lv_obj_t * ui_MP2V29HScT2SText2;
 extern lv_obj_t * ui_MP2V29HScT2Spinbox3;
+extern lv_obj_t * ui_MP2V29HScT2SText3;
 extern lv_obj_t * ui_MP2V29HScT2Spinbox4;
+extern lv_obj_t * ui_MP2V29HScT2SText4;
 extern lv_obj_t * ui_MP2V29HScT2Spinbox5;
+extern lv_obj_t * ui_MP2V29HScT2SText5;
 extern lv_obj_t * ui_MP2V29HScT2Spinbox6;
+extern lv_obj_t * ui_MP2V29HScT2SText6;
 extern lv_obj_t * ui_MP2V29HScT2Spinbox7;
+extern lv_obj_t * ui_MP2V29HScT2SText7;
 extern lv_obj_t * ui_MP2V29HScT2Spinbox8;
+extern lv_obj_t * ui_MP2V29HScT2SText8;
 extern lv_obj_t * ui_MP2V29HScT2Spinbox9;
-extern lv_obj_t * ui_MP2V29HScT2SpinboxF;
+extern lv_obj_t * ui_MP2V29HScT2SText9;
+extern lv_obj_t * ui_MP2V29HScT2Spinbox10;
+extern lv_obj_t * ui_MP2V29HScT2SText10;
 // CUSTOM VARIABLES
 
 // SCREEN: ui_MP2V218HGScreen
@@ -2017,23 +2019,25 @@ extern lv_obj_t * ui____initial_actions0;
 
 // IMAGES AND IMAGE SETS
 LV_IMG_DECLARE(ui_img_venice_18th_2560x720_png);    // assets/Venice 18th 2560x720.png
-LV_IMG_DECLARE(ui_img_studio_go_ball_logo_150x137_png);    // assets/Studio Go Ball Logo 150x137.png
-LV_IMG_DECLARE(ui_img_go_ball_350x319_png);    // assets/Go Ball 350x319.png
-LV_IMG_DECLARE(ui_img_studio_go_ball_logo_200x182_png);    // assets/Studio Go Ball Logo 200x182.png
-LV_IMG_DECLARE(ui_img_go_ball_225x205_png);    // assets/Go Ball 225x205.png
 LV_IMG_DECLARE(ui_img_studio_go_ball_logo_225x205_png);    // assets/Studio Go Ball Logo 225x205.png
+LV_IMG_DECLARE(ui_img_go_ball_450x431_png);    // assets/Go Ball 450x431.png
+LV_IMG_DECLARE(ui_img_go_ball_225x205_png);    // assets/Go Ball 225x205.png
+LV_IMG_DECLARE(ui_img_go_ball_350x319_png);    // assets/Go Ball 350x319.png
 LV_IMG_DECLARE(ui_img_studio_go_ball_logo_350x319_png);    // assets/Studio Go Ball Logo 350x319.png
 LV_IMG_DECLARE(ui_img_go_ball_300x273_png);    // assets/Go Ball 300x273.png
+LV_IMG_DECLARE(ui_img_studio_go_ball_logo_200x182_png);    // assets/Studio Go Ball Logo 200x182.png
 LV_IMG_DECLARE(ui_img_studio_go_ball_logo_300x273_png);    // assets/Studio Go Ball Logo 300x273.png
 LV_IMG_DECLARE(ui_img_go_ball_250x228_png);    // assets/Go Ball 250x228.png
-LV_IMG_DECLARE(ui_img_go_ball_450x431_png);    // assets/Go Ball 450x431.png
+LV_IMG_DECLARE(ui_img_go_ball_390x374_png);    // assets/Go Ball 390x374.png
 LV_IMG_DECLARE(ui_img_go_ball_100x91_png);    // assets/Go Ball 100X91.png
 LV_IMG_DECLARE(ui_img_go_ball_200x182_png);    // assets/Go Ball 200x182.png
-LV_IMG_DECLARE(ui_img_go_ball_390x374_png);    // assets/Go Ball 390x374.png
 LV_IMG_DECLARE(ui_img_studio_go_ball_logo_100x193_png);    // assets/Studio Go Ball Logo 100x193.png
-LV_IMG_DECLARE(ui_img_venice_18th_1600x600_png);    // assets/Venice 18th 1600x600.png
-LV_IMG_DECLARE(ui_img_venice_18th_2047x720_png);    // assets/Venice 18th 2047x720.png
-LV_IMG_DECLARE(ui_img_venice_18th_2560x1170_png);    // assets/Venice 18th 2560x1170.png
+LV_IMG_DECLARE(ui_img_studio_go_ball_logo_150x137_png);    // assets/Studio Go Ball Logo 150x137.png
+
+// FONTS
+LV_FONT_DECLARE(ui_font_Unitblock_48);
+LV_FONT_DECLARE(ui_font_Unitblock_60);
+LV_FONT_DECLARE(ui_font_Unitblock_72);
 
 // UI INIT
 void ui_init(void);

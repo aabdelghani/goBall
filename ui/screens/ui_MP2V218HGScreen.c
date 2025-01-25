@@ -127,7 +127,7 @@ void ui_MP2V218HGScreen_screen_init(void)
     lv_obj_set_width(ui_MP2V218HGSBCPText, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_MP2V218HGSBCPText, LV_SIZE_CONTENT);    /// 1
     lv_obj_set_align(ui_MP2V218HGSBCPText, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_MP2V218HGSBCPText, "2");
+    lv_label_set_text(ui_MP2V218HGSBCPText, "0");
     lv_obj_remove_flag(ui_MP2V218HGSBCPText,
                        LV_OBJ_FLAG_PRESS_LOCK | LV_OBJ_FLAG_CLICK_FOCUSABLE | LV_OBJ_FLAG_GESTURE_BUBBLE | LV_OBJ_FLAG_SNAPPABLE |
                        LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC | LV_OBJ_FLAG_SCROLL_MOMENTUM |
@@ -294,7 +294,7 @@ void ui_MP2V218HGScreen_screen_init(void)
     lv_obj_set_width(ui_MP2V218HGSHCPText, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_MP2V218HGSHCPText, LV_SIZE_CONTENT);    /// 1
     lv_obj_set_align(ui_MP2V218HGSHCPText, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_MP2V218HGSHCPText, "1");
+    lv_label_set_text(ui_MP2V218HGSHCPText, "0");
     lv_obj_remove_flag(ui_MP2V218HGSHCPText,
                        LV_OBJ_FLAG_PRESS_LOCK | LV_OBJ_FLAG_CLICK_FOCUSABLE | LV_OBJ_FLAG_GESTURE_BUBBLE | LV_OBJ_FLAG_SNAPPABLE |
                        LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC | LV_OBJ_FLAG_SCROLL_MOMENTUM |
