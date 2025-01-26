@@ -89,6 +89,57 @@ void ui_SP3P18HScorecard_screen_init(void)
     lv_obj_set_style_text_align(ui_SP3P18HScMMBText, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_SP3P18HScMMBText, &lv_font_montserrat_48, LV_PART_MAIN | LV_STATE_DEFAULT);
 
+    ui_SP3P18HScP1Text = lv_label_create(ui_SP3P18HScorecard);
+    lv_obj_set_width(ui_SP3P18HScP1Text, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_SP3P18HScP1Text, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_SP3P18HScP1Text, -698);
+    lv_obj_set_y(ui_SP3P18HScP1Text, 88);
+    lv_obj_set_align(ui_SP3P18HScP1Text, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_SP3P18HScP1Text, "P1");
+    lv_obj_remove_flag(ui_SP3P18HScP1Text,
+                       LV_OBJ_FLAG_PRESS_LOCK | LV_OBJ_FLAG_CLICK_FOCUSABLE | LV_OBJ_FLAG_GESTURE_BUBBLE | LV_OBJ_FLAG_SNAPPABLE |
+                       LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC | LV_OBJ_FLAG_SCROLL_MOMENTUM |
+                       LV_OBJ_FLAG_SCROLL_CHAIN);     /// Flags
+    lv_obj_set_style_text_color(ui_SP3P18HScP1Text, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui_SP3P18HScP1Text, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui_SP3P18HScP1Text, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui_SP3P18HScP1Text, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui_SP3P18HScP1Text, &lv_font_montserrat_48, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_SP3P18HScP2Text = lv_label_create(ui_SP3P18HScorecard);
+    lv_obj_set_width(ui_SP3P18HScP2Text, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_SP3P18HScP2Text, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_SP3P18HScP2Text, -698);
+    lv_obj_set_y(ui_SP3P18HScP2Text, 158);
+    lv_obj_set_align(ui_SP3P18HScP2Text, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_SP3P18HScP2Text, "P2");
+    lv_obj_remove_flag(ui_SP3P18HScP2Text,
+                       LV_OBJ_FLAG_PRESS_LOCK | LV_OBJ_FLAG_CLICK_FOCUSABLE | LV_OBJ_FLAG_GESTURE_BUBBLE | LV_OBJ_FLAG_SNAPPABLE |
+                       LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC | LV_OBJ_FLAG_SCROLL_MOMENTUM |
+                       LV_OBJ_FLAG_SCROLL_CHAIN);     /// Flags
+    lv_obj_set_style_text_color(ui_SP3P18HScP2Text, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui_SP3P18HScP2Text, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui_SP3P18HScP2Text, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui_SP3P18HScP2Text, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui_SP3P18HScP2Text, &lv_font_montserrat_48, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    ui_SP3P18HScP3Text = lv_label_create(ui_SP3P18HScorecard);
+    lv_obj_set_width(ui_SP3P18HScP3Text, LV_SIZE_CONTENT);   /// 1
+    lv_obj_set_height(ui_SP3P18HScP3Text, LV_SIZE_CONTENT);    /// 1
+    lv_obj_set_x(ui_SP3P18HScP3Text, -698);
+    lv_obj_set_y(ui_SP3P18HScP3Text, 228);
+    lv_obj_set_align(ui_SP3P18HScP3Text, LV_ALIGN_CENTER);
+    lv_label_set_text(ui_SP3P18HScP3Text, "P3");
+    lv_obj_remove_flag(ui_SP3P18HScP3Text,
+                       LV_OBJ_FLAG_PRESS_LOCK | LV_OBJ_FLAG_CLICK_FOCUSABLE | LV_OBJ_FLAG_GESTURE_BUBBLE | LV_OBJ_FLAG_SNAPPABLE |
+                       LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC | LV_OBJ_FLAG_SCROLL_MOMENTUM |
+                       LV_OBJ_FLAG_SCROLL_CHAIN);     /// Flags
+    lv_obj_set_style_text_color(ui_SP3P18HScP3Text, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui_SP3P18HScP3Text, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui_SP3P18HScP3Text, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui_SP3P18HScP3Text, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui_SP3P18HScP3Text, &lv_font_montserrat_48, LV_PART_MAIN | LV_STATE_DEFAULT);
+
     ui_SP3P18HScHText = lv_label_create(ui_SP3P18HScorecard);
     lv_obj_set_width(ui_SP3P18HScHText, LV_SIZE_CONTENT);   /// 1
     lv_obj_set_height(ui_SP3P18HScHText, LV_SIZE_CONTENT);    /// 1
@@ -388,57 +439,6 @@ void ui_SP3P18HScorecard_screen_init(void)
     lv_obj_set_style_text_color(ui_SP3P18HScHTextF, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_SP3P18HScHTextF, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_SP3P18HScHTextF, &lv_font_montserrat_48, LV_PART_MAIN | LV_STATE_DEFAULT);
-
-    ui_SP3P18HScP1Text = lv_label_create(ui_SP3P18HScorecard);
-    lv_obj_set_width(ui_SP3P18HScP1Text, LV_SIZE_CONTENT);   /// 1
-    lv_obj_set_height(ui_SP3P18HScP1Text, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_SP3P18HScP1Text, -698);
-    lv_obj_set_y(ui_SP3P18HScP1Text, 88);
-    lv_obj_set_align(ui_SP3P18HScP1Text, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_SP3P18HScP1Text, "P1");
-    lv_obj_remove_flag(ui_SP3P18HScP1Text,
-                       LV_OBJ_FLAG_PRESS_LOCK | LV_OBJ_FLAG_CLICK_FOCUSABLE | LV_OBJ_FLAG_GESTURE_BUBBLE | LV_OBJ_FLAG_SNAPPABLE |
-                       LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC | LV_OBJ_FLAG_SCROLL_MOMENTUM |
-                       LV_OBJ_FLAG_SCROLL_CHAIN);     /// Flags
-    lv_obj_set_style_text_color(ui_SP3P18HScP1Text, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_SP3P18HScP1Text, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_letter_space(ui_SP3P18HScP1Text, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_line_space(ui_SP3P18HScP1Text, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui_SP3P18HScP1Text, &lv_font_montserrat_48, LV_PART_MAIN | LV_STATE_DEFAULT);
-
-    ui_SP3P18HScP2Text = lv_label_create(ui_SP3P18HScorecard);
-    lv_obj_set_width(ui_SP3P18HScP2Text, LV_SIZE_CONTENT);   /// 1
-    lv_obj_set_height(ui_SP3P18HScP2Text, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_SP3P18HScP2Text, -698);
-    lv_obj_set_y(ui_SP3P18HScP2Text, 158);
-    lv_obj_set_align(ui_SP3P18HScP2Text, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_SP3P18HScP2Text, "P2");
-    lv_obj_remove_flag(ui_SP3P18HScP2Text,
-                       LV_OBJ_FLAG_PRESS_LOCK | LV_OBJ_FLAG_CLICK_FOCUSABLE | LV_OBJ_FLAG_GESTURE_BUBBLE | LV_OBJ_FLAG_SNAPPABLE |
-                       LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC | LV_OBJ_FLAG_SCROLL_MOMENTUM |
-                       LV_OBJ_FLAG_SCROLL_CHAIN);     /// Flags
-    lv_obj_set_style_text_color(ui_SP3P18HScP2Text, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_SP3P18HScP2Text, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_letter_space(ui_SP3P18HScP2Text, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_line_space(ui_SP3P18HScP2Text, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui_SP3P18HScP2Text, &lv_font_montserrat_48, LV_PART_MAIN | LV_STATE_DEFAULT);
-
-    ui_SP3P18HScP3Text = lv_label_create(ui_SP3P18HScorecard);
-    lv_obj_set_width(ui_SP3P18HScP3Text, LV_SIZE_CONTENT);   /// 1
-    lv_obj_set_height(ui_SP3P18HScP3Text, LV_SIZE_CONTENT);    /// 1
-    lv_obj_set_x(ui_SP3P18HScP3Text, -698);
-    lv_obj_set_y(ui_SP3P18HScP3Text, 228);
-    lv_obj_set_align(ui_SP3P18HScP3Text, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_SP3P18HScP3Text, "P3");
-    lv_obj_remove_flag(ui_SP3P18HScP3Text,
-                       LV_OBJ_FLAG_PRESS_LOCK | LV_OBJ_FLAG_CLICK_FOCUSABLE | LV_OBJ_FLAG_GESTURE_BUBBLE | LV_OBJ_FLAG_SNAPPABLE |
-                       LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC | LV_OBJ_FLAG_SCROLL_MOMENTUM |
-                       LV_OBJ_FLAG_SCROLL_CHAIN);     /// Flags
-    lv_obj_set_style_text_color(ui_SP3P18HScP3Text, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui_SP3P18HScP3Text, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_letter_space(ui_SP3P18HScP3Text, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_line_space(ui_SP3P18HScP3Text, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui_SP3P18HScP3Text, &lv_font_montserrat_48, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_SP3P18HScP1Spinbox1 = lv_obj_create(ui_SP3P18HScorecard);
     lv_obj_set_width(ui_SP3P18HScP1Spinbox1, 70);

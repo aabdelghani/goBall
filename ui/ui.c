@@ -21,9 +21,11 @@ void ui_event_HSMPButton(lv_event_t * e);
 lv_obj_t * ui_HSMPButton;
 void ui_event_HSMPBText(lv_event_t * e);
 lv_obj_t * ui_HSMPBText;
-lv_obj_t * ui_HSQVQPButton;
+void ui_event_HSQPButton(lv_event_t * e);
+lv_obj_t * ui_HSQPButton;
 void ui_event_HSQPBText(lv_event_t * e);
 lv_obj_t * ui_HSQPBText;
+lv_obj_t * ui_HSVQPButton;
 lv_obj_t * ui_HSVQPBText;
 // CUSTOM VARIABLES
 
@@ -32,6 +34,12 @@ lv_obj_t * ui_HSVQPBText;
 void ui_SPPSScreen_screen_init(void);
 lv_obj_t * ui_SPPSScreen;
 lv_obj_t * ui_SPPSSLogo;
+lv_obj_t * ui_SPPSFormat;
+lv_obj_t * ui_SPPSFText;
+void ui_event_SPPSBButton(lv_event_t * e);
+lv_obj_t * ui_SPPSBButton;
+void ui_event_SPPSBBText(lv_event_t * e);
+lv_obj_t * ui_SPPSBBText;
 void ui_event_SPPS1PButton(lv_event_t * e);
 lv_obj_t * ui_SPPS1PButton;
 void ui_event_SPPS1PBText(lv_event_t * e);
@@ -48,12 +56,6 @@ void ui_event_SPPS4PButton(lv_event_t * e);
 lv_obj_t * ui_SPPS4PButton;
 void ui_event_SPPS4PBText(lv_event_t * e);
 lv_obj_t * ui_SPPS4PBText;
-void ui_event_SPPSBButton(lv_event_t * e);
-lv_obj_t * ui_SPPSBButton;
-void ui_event_SPPSBBText(lv_event_t * e);
-lv_obj_t * ui_SPPSBBText;
-lv_obj_t * ui_SPPSFormat;
-lv_obj_t * ui_SPPSFText;
 // CUSTOM VARIABLES
 
 
@@ -81,6 +83,13 @@ lv_obj_t * ui_MPPSSLogo;
 // SCREEN: ui_SP1PHSScreen
 void ui_SP1PHSScreen_screen_init(void);
 lv_obj_t * ui_SP1PHSScreen;
+lv_obj_t * ui_SP1PHSSLogo;
+lv_obj_t * ui_SP1PHSF;
+lv_obj_t * ui_SP1PHSFText;
+void ui_event_SP1PHSBB(lv_event_t * e);
+lv_obj_t * ui_SP1PHSBB;
+void ui_event_SP1PHSBBText(lv_event_t * e);
+lv_obj_t * ui_SP1PHSBBText;
 void ui_event_SP1PHS9HButton(lv_event_t * e);
 lv_obj_t * ui_SP1PHS9HButton;
 void ui_event_SP1PHS9HBText(lv_event_t * e);
@@ -89,19 +98,19 @@ void ui_event_SP1PHS18HButton(lv_event_t * e);
 lv_obj_t * ui_SP1PHS18HButton;
 void ui_event_SP1PHS18HBText(lv_event_t * e);
 lv_obj_t * ui_SP1PHS18HBText;
-lv_obj_t * ui_SP1PHSF;
-lv_obj_t * ui_SP1PHSFText;
-void ui_event_SP1PHSBB(lv_event_t * e);
-lv_obj_t * ui_SP1PHSBB;
-void ui_event_SP1PHSBBText(lv_event_t * e);
-lv_obj_t * ui_SP1PHSBBText;
-lv_obj_t * ui_SP1PHSSLogo;
 // CUSTOM VARIABLES
 
 
 // SCREEN: ui_SP2PHSScreen
 void ui_SP2PHSScreen_screen_init(void);
 lv_obj_t * ui_SP2PHSScreen;
+lv_obj_t * ui_SP2PHSSLogo;
+lv_obj_t * ui_SP2PHSF;
+lv_obj_t * ui_SP2PHSFText;
+void ui_event_SP2PHSBButton(lv_event_t * e);
+lv_obj_t * ui_SP2PHSBButton;
+void ui_event_SP2PHSBBText(lv_event_t * e);
+lv_obj_t * ui_SP2PHSBBText;
 void ui_event_SP2PHS9HButton(lv_event_t * e);
 lv_obj_t * ui_SP2PHS9HButton;
 void ui_event_SP2PHS9HBText(lv_event_t * e);
@@ -110,19 +119,19 @@ void ui_event_SP2PHS18HButton(lv_event_t * e);
 lv_obj_t * ui_SP2PHS18HButton;
 void ui_event_SP2PHS18HBText(lv_event_t * e);
 lv_obj_t * ui_SP2PHS18HBText;
-lv_obj_t * ui_SP2PHSF;
-lv_obj_t * ui_SP2PHSFText;
-void ui_event_SP2PHSBButton(lv_event_t * e);
-lv_obj_t * ui_SP2PHSBButton;
-void ui_event_SP2PHSBBText(lv_event_t * e);
-lv_obj_t * ui_SP2PHSBBText;
-lv_obj_t * ui_SP2PHSSLogo;
 // CUSTOM VARIABLES
 
 
 // SCREEN: ui_SP3PHSScreen
 void ui_SP3PHSScreen_screen_init(void);
 lv_obj_t * ui_SP3PHSScreen;
+lv_obj_t * ui_SP3PHSSLogo;
+lv_obj_t * ui_SP3PHSF;
+lv_obj_t * ui_SP3PHSFText;
+void ui_event_SP3PHSBButton(lv_event_t * e);
+lv_obj_t * ui_SP3PHSBButton;
+void ui_event_SP3PHSBBText(lv_event_t * e);
+lv_obj_t * ui_SP3PHSBBText;
 void ui_event_SP3PHS9HButton(lv_event_t * e);
 lv_obj_t * ui_SP3PHS9HButton;
 void ui_event_SP3PHS9HBText(lv_event_t * e);
@@ -131,13 +140,6 @@ void ui_event_SP3PHS18HButton(lv_event_t * e);
 lv_obj_t * ui_SP3PHS18HButton;
 void ui_event_SP3PHS18HBText(lv_event_t * e);
 lv_obj_t * ui_SP3PHS18HBText;
-lv_obj_t * ui_SP3PHSF;
-lv_obj_t * ui_SP3PHSFText;
-void ui_event_SP3PHSBButton(lv_event_t * e);
-lv_obj_t * ui_SP3PHSBButton;
-void ui_event_SP3PHSBBText(lv_event_t * e);
-lv_obj_t * ui_SP3PHSBBText;
-lv_obj_t * ui_SP3PHSSLogo;
 // CUSTOM VARIABLES
 
 
@@ -145,6 +147,12 @@ lv_obj_t * ui_SP3PHSSLogo;
 void ui_SP4PHSScreen_screen_init(void);
 lv_obj_t * ui_SP4PHSScreen;
 lv_obj_t * ui_SP4PHSSLogo;
+lv_obj_t * ui_SP4PHSF;
+lv_obj_t * ui_SP4PHSFText;
+void ui_event_SP4PHSBButton(lv_event_t * e);
+lv_obj_t * ui_SP4PHSBButton;
+void ui_event_SP4PHSBBText(lv_event_t * e);
+lv_obj_t * ui_SP4PHSBBText;
 void ui_event_SP4PHS9HButton(lv_event_t * e);
 lv_obj_t * ui_SP4PHS9HButton;
 void ui_event_SP4PHS9HBText(lv_event_t * e);
@@ -153,12 +161,6 @@ void ui_event_SP4PHS18HButton(lv_event_t * e);
 lv_obj_t * ui_SP4PHS18HButton;
 void ui_event_SP4PHS18HBText(lv_event_t * e);
 lv_obj_t * ui_SP4PHS18HBText;
-lv_obj_t * ui_SP4PHSF;
-lv_obj_t * ui_SP4PHSFText;
-void ui_event_SP4PHSBButton(lv_event_t * e);
-lv_obj_t * ui_SP4PHSBButton;
-void ui_event_SP4PHSBBText(lv_event_t * e);
-lv_obj_t * ui_SP4PHSBBText;
 // CUSTOM VARIABLES
 
 
@@ -166,31 +168,26 @@ lv_obj_t * ui_SP4PHSBBText;
 void ui_SP1P9HGScreen_screen_init(void);
 lv_obj_t * ui_SP1P9HGScreen;
 lv_obj_t * ui_SP1P9HGSLogo;
-lv_obj_t * ui_SP1P9HGSPScoreboard;
-lv_obj_t * ui_SP1P9HGSPSText;
-lv_obj_t * ui_SP1P9HGSPSPanel;
-void ui_event_SP1P9HGSPSPText(lv_event_t * e);
-lv_obj_t * ui_SP1P9HGSPSPText;
-lv_obj_t * ui_SP1P9HGSHCounter;
-lv_obj_t * ui_SP1P9HGSHCText;
-lv_obj_t * ui_SP1P9HGSHCPanel;
-lv_obj_t * ui_SP1P9HGSHCPText;
 lv_obj_t * ui_SP1P9HGSBCounter;
 lv_obj_t * ui_SP1P9HGSBCText;
 lv_obj_t * ui_SP1P9HGSBCPanel;
 lv_obj_t * ui_SP1P9HGSBCPText;
-void ui_event_SP1P9HGSSCButton(lv_event_t * e);
-lv_obj_t * ui_SP1P9HGSSCButton;
-void ui_event_SP1P9HGSSCBText(lv_event_t * e);
-lv_obj_t * ui_SP1P9HGSSCBText;
+lv_obj_t * ui_SP1P9HGSHCounter;
+lv_obj_t * ui_SP1P9HGSHCText;
+lv_obj_t * ui_SP1P9HGSHCPanel;
+lv_obj_t * ui_SP1P9HGSHCPText;
 void ui_event_SP1P9HGSMMButton(lv_event_t * e);
 lv_obj_t * ui_SP1P9HGSMMButton;
 void ui_event_SP1P9HGSMMBText(lv_event_t * e);
 lv_obj_t * ui_SP1P9HGSMMBText;
-lv_obj_t * ui_SP1P9HGSFormat;
-lv_obj_t * ui_SP1P9HGSFText;
-lv_obj_t * ui_SP1P9HGSHFormat;
-lv_obj_t * ui_SP1P9HGSHFText;
+void ui_event_SP1P9HGSSCButton(lv_event_t * e);
+lv_obj_t * ui_SP1P9HGSSCButton;
+void ui_event_SP1P9HGSSCBText(lv_event_t * e);
+lv_obj_t * ui_SP1P9HGSSCBText;
+lv_obj_t * ui_SP1P9HGSPScoreboard;
+lv_obj_t * ui_SP1P9HGSPSText;
+lv_obj_t * ui_SP1P9HGSPSPanel;
+lv_obj_t * ui_SP1P9HGSPSPText;
 // CUSTOM VARIABLES
 
 
@@ -198,14 +195,14 @@ lv_obj_t * ui_SP1P9HGSHFText;
 void ui_SP1P9HScorecard_screen_init(void);
 lv_obj_t * ui_SP1P9HScorecard;
 lv_obj_t * ui_SP1P9HScLogo;
-void ui_event_SP1P9HScBButton(lv_event_t * e);
-lv_obj_t * ui_SP1P9HScBButton;
-void ui_event_SP1P9HScBBText(lv_event_t * e);
-lv_obj_t * ui_SP1P9HScBBText;
 void ui_event_SP1P9HScMMButton(lv_event_t * e);
 lv_obj_t * ui_SP1P9HScMMButton;
 void ui_event_SP1P9HScMMBText(lv_event_t * e);
 lv_obj_t * ui_SP1P9HScMMBText;
+void ui_event_SP1P9HScBButton(lv_event_t * e);
+lv_obj_t * ui_SP1P9HScBButton;
+void ui_event_SP1P9HScBBText(lv_event_t * e);
+lv_obj_t * ui_SP1P9HScBBText;
 lv_obj_t * ui_SP19HPScPText;
 lv_obj_t * ui_SP1P9HScHText;
 lv_obj_t * ui_SP1P9HScHText1;
@@ -245,14 +242,6 @@ lv_obj_t * ui_SP1P9HScPSFText;
 void ui_SP2P9HGScreen_screen_init(void);
 lv_obj_t * ui_SP2P9HGScreen;
 lv_obj_t * ui_SP2P9HGSLogo;
-lv_obj_t * ui_SP2P9HGSP1Scoreboard;
-lv_obj_t * ui_SP2P9HGSP1SText;
-lv_obj_t * ui_SP2P9HGSP1SPanel;
-lv_obj_t * ui_SP2P9HGSP1SPText;
-lv_obj_t * ui_SP2P9HGSBCounter;
-lv_obj_t * ui_SP2P9HGSBCText;
-lv_obj_t * ui_SP2P9HGSBCPanel;
-lv_obj_t * ui_SP2P9HGSBCPText;
 void ui_event_SP2P9HGSSCButton(lv_event_t * e);
 lv_obj_t * ui_SP2P9HGSSCButton;
 void ui_event_SP2P9HGSSCBText(lv_event_t * e);
@@ -261,16 +250,22 @@ void ui_event_SP2P9HGSMMButton(lv_event_t * e);
 lv_obj_t * ui_SP2P9HGSMMButton;
 void ui_event_SP2P9HGSMMBText(lv_event_t * e);
 lv_obj_t * ui_SP2P9HGSMMBText;
-lv_obj_t * ui_SP2P9HGSP2Scoreboard;
-lv_obj_t * ui_SP2P9HGSP2SText;
-lv_obj_t * ui_SP2P9HGSP2SPanel;
-lv_obj_t * ui_SP2P9HGSP2SPText;
+lv_obj_t * ui_SP2P9HGSBCounter;
+lv_obj_t * ui_SP2P9HGSBCText;
+lv_obj_t * ui_SP2P9HGSBCPanel;
+lv_obj_t * ui_SP2P9HGSBCPText;
 lv_obj_t * ui_SP2P9HGSHCounter;
 lv_obj_t * ui_SP2P9HGSHCText;
 lv_obj_t * ui_SP2P9HGSHCPanel;
 lv_obj_t * ui_SP2P9HGSHCPText;
-lv_obj_t * ui_SP2P9HGSHFormat;
-lv_obj_t * ui_SP2P9HGSHFText;
+lv_obj_t * ui_SP2P9HGSP1Scoreboard;
+lv_obj_t * ui_SP2P9HGSP1SText;
+lv_obj_t * ui_SP2P9HGSP1SPanel;
+lv_obj_t * ui_SP2P9HGSP1SPText;
+lv_obj_t * ui_SP2P9HGSP2Scoreboard;
+lv_obj_t * ui_SP2P9HGSP2SText;
+lv_obj_t * ui_SP2P9HGSP2SPanel;
+lv_obj_t * ui_SP2P9HGSP2SPText;
 // CUSTOM VARIABLES
 
 
@@ -346,14 +341,6 @@ lv_obj_t * ui_SP2P9HScP2SFText;
 void ui_SP3P9HGScreen_screen_init(void);
 lv_obj_t * ui_SP3P9HGScreen;
 lv_obj_t * ui_SP3P9HGSLogo;
-lv_obj_t * ui_SP3P9HGSP1Scoreboard;
-lv_obj_t * ui_SP3P9HGSP1SText;
-lv_obj_t * ui_SP3P9HGSP1SPanel;
-lv_obj_t * ui_SP3P9HGSP1SPText;
-lv_obj_t * ui_SP3P9HGSBCounter;
-lv_obj_t * ui_SP3P9HGSBCText;
-lv_obj_t * ui_SP3P9HGSBCPanel;
-lv_obj_t * ui_SP3P9HGSBCPText;
 void ui_event_SP3P9HGSSCButton(lv_event_t * e);
 lv_obj_t * ui_SP3P9HGSSCButton;
 void ui_event_SP3P9HGSSCBText(lv_event_t * e);
@@ -362,22 +349,26 @@ void ui_event_SP3P9HGSMMButton(lv_event_t * e);
 lv_obj_t * ui_SP3P9HGSMMButton;
 void ui_event_SP3P9HGSMMBText(lv_event_t * e);
 lv_obj_t * ui_SP3P9HGSMMBText;
-lv_obj_t * ui_SP3P9HGSP2Scoreboard;
-lv_obj_t * ui_SP3P9HGSP2SText;
-lv_obj_t * ui_SP3P9HGSP2SPanel;
-lv_obj_t * ui_SP3P9HGSP2SPText;
 lv_obj_t * ui_SP3P9HGSHCounter;
 lv_obj_t * ui_SP3P9HGSHCText;
 lv_obj_t * ui_SP3P9HGSHCPanel;
 lv_obj_t * ui_SP3P9HGSHCPText;
+lv_obj_t * ui_SP3P9HGSBCounter;
+lv_obj_t * ui_SP3P9HGSBCText;
+lv_obj_t * ui_SP3P9HGSBCPanel;
+lv_obj_t * ui_SP3P9HGSBCPText;
+lv_obj_t * ui_SP3P9HGSP1Scoreboard;
+lv_obj_t * ui_SP3P9HGSP1SText;
+lv_obj_t * ui_SP3P9HGSP1SPanel;
+lv_obj_t * ui_SP3P9HGSP1SPText;
+lv_obj_t * ui_SP3P9HGSP2Scoreboard;
+lv_obj_t * ui_SP3P9HGSP2SText;
+lv_obj_t * ui_SP3P9HGSP2SPanel;
+lv_obj_t * ui_SP3P9HGSP2SPText;
 lv_obj_t * ui_SP3P9HGSP3Scoreboard;
 lv_obj_t * ui_SP3P9HGSP3SText;
 lv_obj_t * ui_SP3P9HGSP3SPanel;
 lv_obj_t * ui_SP3P9HGSP3SPText;
-lv_obj_t * ui_SP3P9HGSHFormat;
-lv_obj_t * ui_SP3P9HGSHFText;
-lv_obj_t * ui_SP3P9HGSFormat;
-lv_obj_t * ui_SP3P9HGSFText;
 // CUSTOM VARIABLES
 
 
@@ -393,9 +384,10 @@ void ui_event_SP3P9HScBButton(lv_event_t * e);
 lv_obj_t * ui_SP3P9HScBButton;
 void ui_event_SP3P9HScBBText(lv_event_t * e);
 lv_obj_t * ui_SP3P9HScBBText;
-lv_obj_t * ui_SP3P9HScHText;
 lv_obj_t * ui_SP3P9HScP1Text;
 lv_obj_t * ui_SP3P9HScP2Text;
+lv_obj_t * ui_SP3P9HScP3Text;
+lv_obj_t * ui_SP3P9HScHText;
 lv_obj_t * ui_SP3P9HScHText1;
 lv_obj_t * ui_SP3P9HScHText2;
 lv_obj_t * ui_SP3P9HScHText3;
@@ -406,7 +398,6 @@ lv_obj_t * ui_SP3P9HScHText7;
 lv_obj_t * ui_SP3P9HScHText8;
 lv_obj_t * ui_SP3P9HScHText9;
 lv_obj_t * ui_SP3P9HScHTextF;
-lv_obj_t * ui_SP3P9HScP3Text;
 lv_obj_t * ui_SP3P9HScP1Spinbox1;
 lv_obj_t * ui_SP3P9HScP1S1Text;
 lv_obj_t * ui_SP3P9HScP1Spinbox2;
@@ -474,26 +465,6 @@ lv_obj_t * ui_SP3P9HScP3SFText;
 void ui_SP4P9HGScreen_screen_init(void);
 lv_obj_t * ui_SP4P9HGScreen;
 lv_obj_t * ui_SP4P9HGSLogo;
-lv_obj_t * ui_SP4P9HGSP1Scoreboard;
-lv_obj_t * ui_SP4P9HGSP1SText;
-lv_obj_t * ui_SP4P9HGSP1SPanel;
-lv_obj_t * ui_SP4P9HGSP1SPText;
-lv_obj_t * ui_SP4P9HGSBCounter;
-lv_obj_t * ui_SP4P9HGSBCText;
-lv_obj_t * ui_SP4P9HGSBCPanel;
-lv_obj_t * ui_SP4P9HGSBCPText;
-lv_obj_t * ui_SP4P9HGSP2Scoreboard;
-lv_obj_t * ui_SP4P9HGSP2SText;
-lv_obj_t * ui_SP4P9HGSP2SPanel;
-lv_obj_t * ui_SP4P9HGSP2SPText;
-lv_obj_t * ui_SP4P9HGSHCounter;
-lv_obj_t * ui_SP4P9HGSHCText;
-lv_obj_t * ui_SP4P9HGSHCPanel;
-lv_obj_t * ui_SP4P9HGSHCPText;
-lv_obj_t * ui_SP4P9HGSP3Scoreboard;
-lv_obj_t * ui_SP4P9HGSP3SText;
-lv_obj_t * ui_SP4P9HGSP3SPanel;
-lv_obj_t * ui_SP4P9HGSP3SPText;
 void ui_event_SP4P9HGSMMButton(lv_event_t * e);
 lv_obj_t * ui_SP4P9HGSMMButton;
 void ui_event_SP4P9HGSMMBText(lv_event_t * e);
@@ -502,6 +473,26 @@ void ui_event_SP4P9HGSSCButton(lv_event_t * e);
 lv_obj_t * ui_SP4P9HGSSCButton;
 void ui_event_SP4P9HGSSCBText(lv_event_t * e);
 lv_obj_t * ui_SP4P9HGSSCBText;
+lv_obj_t * ui_SP4P9HGSHCounter;
+lv_obj_t * ui_SP4P9HGSHCText;
+lv_obj_t * ui_SP4P9HGSHCPanel;
+lv_obj_t * ui_SP4P9HGSHCPText;
+lv_obj_t * ui_SP4P9HGSBCounter;
+lv_obj_t * ui_SP4P9HGSBCText;
+lv_obj_t * ui_SP4P9HGSBCPanel;
+lv_obj_t * ui_SP4P9HGSBCPText;
+lv_obj_t * ui_SP4P9HGSP1Scoreboard;
+lv_obj_t * ui_SP4P9HGSP1SText;
+lv_obj_t * ui_SP4P9HGSP1SPanel;
+lv_obj_t * ui_SP4P9HGSP1SPText;
+lv_obj_t * ui_SP4P9HGSP2Scoreboard;
+lv_obj_t * ui_SP4P9HGSP2SText;
+lv_obj_t * ui_SP4P9HGSP2SPanel;
+lv_obj_t * ui_SP4P9HGSP2SPText;
+lv_obj_t * ui_SP4P9HGSP3Scoreboard;
+lv_obj_t * ui_SP4P9HGSP3SText;
+lv_obj_t * ui_SP4P9HGSP3SPanel;
+lv_obj_t * ui_SP4P9HGSP3SPText;
 lv_obj_t * ui_SP4P9HGSP4Scoreboard;
 lv_obj_t * ui_SP4P9HGSP4SText;
 lv_obj_t * ui_SP4P9HGSP4SPanel;
@@ -513,17 +504,19 @@ lv_obj_t * ui_SP4P9HGSP4SPText;
 void ui_SP4P9HScorecard_screen_init(void);
 lv_obj_t * ui_SP4P9HScorecard;
 lv_obj_t * ui_SP4P9HScLogo;
-void ui_event_SP4P9HScBButton(lv_event_t * e);
-lv_obj_t * ui_SP4P9HScBButton;
-void ui_event_SP4P9HScBBText(lv_event_t * e);
-lv_obj_t * ui_SP4P9HScBBText;
 void ui_event_SP4P9HScMMButton(lv_event_t * e);
 lv_obj_t * ui_SP4P9HScMMButton;
 void ui_event_SP4P9HScMMBText(lv_event_t * e);
 lv_obj_t * ui_SP4P9HScMMBText;
+void ui_event_SP4P9HScBButton(lv_event_t * e);
+lv_obj_t * ui_SP4P9HScBButton;
+void ui_event_SP4P9HScBBText(lv_event_t * e);
+lv_obj_t * ui_SP4P9HScBBText;
 lv_obj_t * ui_SP4P9HScHText;
 lv_obj_t * ui_SP4P9HScP1Text;
 lv_obj_t * ui_SP4P9HScP2Text;
+lv_obj_t * ui_SP4P9HScP3Text;
+lv_obj_t * ui_SP4P9HScP4Text;
 lv_obj_t * ui_SP4P9HScHText1;
 lv_obj_t * ui_SP4P9HScHText2;
 lv_obj_t * ui_SP4P9HScHText3;
@@ -534,8 +527,6 @@ lv_obj_t * ui_SP4P9HScHText7;
 lv_obj_t * ui_SP4P9HScHText8;
 lv_obj_t * ui_SP4P9HScHText9;
 lv_obj_t * ui_SP4P9HScHTextF;
-lv_obj_t * ui_SP4P9HScP3Text;
-lv_obj_t * ui_SP4P9HScP4Text;
 lv_obj_t * ui_SP4P9HScP1Spinbox1;
 lv_obj_t * ui_SP4P9HScP1S1Text;
 lv_obj_t * ui_SP4P9HScP1Spinbox2;
@@ -623,18 +614,6 @@ lv_obj_t * ui_SP4P9HScP4SFText;
 void ui_SP1P18HGScreen_screen_init(void);
 lv_obj_t * ui_SP1P18HGScreen;
 lv_obj_t * ui_SP1P18HGSLogo;
-lv_obj_t * ui_SP1P18HGSPScoreboard;
-lv_obj_t * ui_SP1P18HGSPSText;
-lv_obj_t * ui_SP1P18HGSPSPanel;
-lv_obj_t * ui_SP1P18HGSPSPText;
-lv_obj_t * ui_SP1P18HGSHCounter;
-lv_obj_t * ui_SP1P18HGSHCText;
-lv_obj_t * ui_SP1P18HGSHCPanel;
-lv_obj_t * ui_SP1P18HGSHCPText;
-lv_obj_t * ui_SP1P18HGSBCounter;
-lv_obj_t * ui_SP1P18HGSBCText;
-lv_obj_t * ui_SP1P18HGSBCPanel;
-lv_obj_t * ui_SP1P18HGSBCPText;
 void ui_event_SP1P18HGSSCButton(lv_event_t * e);
 lv_obj_t * ui_SP1P18HGSSCButton;
 void ui_event_SP1P18HGSSCBText(lv_event_t * e);
@@ -643,10 +622,18 @@ void ui_event_SP1P18HGSMMButton(lv_event_t * e);
 lv_obj_t * ui_SP1P18HGSMMButton;
 void ui_event_SP1P18HGSMMBText(lv_event_t * e);
 lv_obj_t * ui_SP1P18HGSMMBText;
-lv_obj_t * ui_SP1P18HGSFormat;
-lv_obj_t * ui_SP1P18HGSFText;
-lv_obj_t * ui_SP1P18HGSHFormat;
-lv_obj_t * ui_SP1P18HGSHFText;
+lv_obj_t * ui_SP1P18HGSBCounter;
+lv_obj_t * ui_SP1P18HGSBCText;
+lv_obj_t * ui_SP1P18HGSBCPanel;
+lv_obj_t * ui_SP1P18HGSBCPText;
+lv_obj_t * ui_SP1P18HGSHCounter;
+lv_obj_t * ui_SP1P18HGSHCText;
+lv_obj_t * ui_SP1P18HGSHCPanel;
+lv_obj_t * ui_SP1P18HGSHCPText;
+lv_obj_t * ui_SP1P18HGSPScoreboard;
+lv_obj_t * ui_SP1P18HGSPSText;
+lv_obj_t * ui_SP1P18HGSPSPanel;
+lv_obj_t * ui_SP1P18HGSPSPText;
 // CUSTOM VARIABLES
 
 
@@ -654,16 +641,16 @@ lv_obj_t * ui_SP1P18HGSHFText;
 void ui_SP1P18HScorecard_screen_init(void);
 lv_obj_t * ui_SP1P18HScorecard;
 lv_obj_t * ui_SP1P18HScLogo;
-void ui_event_SP1P18HScBButton(lv_event_t * e);
-lv_obj_t * ui_SP1P18HScBButton;
-void ui_event_SP1P18HScBBText(lv_event_t * e);
-lv_obj_t * ui_SP1P18HScBBText;
 void ui_event_SP1P18HScMMButton(lv_event_t * e);
 lv_obj_t * ui_SP1P18HScMMButton;
 void ui_event_SP1P18HScMMBText(lv_event_t * e);
 lv_obj_t * ui_SP1P18HScMMBText;
-lv_obj_t * ui_SP1P18HScPText;
+void ui_event_SP1P18HScBButton(lv_event_t * e);
+lv_obj_t * ui_SP1P18HScBButton;
+void ui_event_SP1P18HScBBText(lv_event_t * e);
+lv_obj_t * ui_SP1P18HScBBText;
 lv_obj_t * ui_SP1P18HScHText;
+lv_obj_t * ui_SP1P18HScPText;
 lv_obj_t * ui_SP1P18HScHText1;
 lv_obj_t * ui_SP1P18HScHText2;
 lv_obj_t * ui_SP1P18HScHText3;
@@ -728,32 +715,30 @@ lv_obj_t * ui_SP1P18HScPSText19;
 void ui_SP2P18HGScreen_screen_init(void);
 lv_obj_t * ui_SP2P18HGScreen;
 lv_obj_t * ui_SP2P18HGSLogo;
-lv_obj_t * ui_SP2P18HGSP1Scoreboard;
-lv_obj_t * ui_SP2P18HGSP1SText;
-lv_obj_t * ui_SP2P18HGSP1SPanel;
-lv_obj_t * ui_SP2P18HGSP1SPText;
-lv_obj_t * ui_SP2P18HGSBCounter;
-lv_obj_t * ui_SP2P18HGSBCText;
-lv_obj_t * ui_SP2P18HGSBCPanel;
-lv_obj_t * ui_SP2P18HGSBCPText;
-void ui_event_SP2P18HGSSCButton(lv_event_t * e);
-lv_obj_t * ui_SP2P18HGSSCButton;
-void ui_event_SP2P18HGSSCBText(lv_event_t * e);
-lv_obj_t * ui_SP2P18HGSSCBText;
 void ui_event_SP2P18HGSMMButton(lv_event_t * e);
 lv_obj_t * ui_SP2P18HGSMMButton;
 void ui_event_SP2P18HGSMMBText(lv_event_t * e);
 lv_obj_t * ui_SP2P18HGSMMBText;
-lv_obj_t * ui_SP2P18HGSP2Scoreboard;
-lv_obj_t * ui_SP2P18HGSP2SText;
-lv_obj_t * ui_SP2P18HGSP2SPanel;
-lv_obj_t * ui_SP2P18HGSP2SPText;
+void ui_event_SP2P18HGSSCButton(lv_event_t * e);
+lv_obj_t * ui_SP2P18HGSSCButton;
+void ui_event_SP2P18HGSSCBText(lv_event_t * e);
+lv_obj_t * ui_SP2P18HGSSCBText;
 lv_obj_t * ui_SP2P18HGSHCounter;
 lv_obj_t * ui_SP2P18HGSHCText;
 lv_obj_t * ui_SP2P18HGSHCPanel;
 lv_obj_t * ui_SP2P18HGSHCPText;
-lv_obj_t * ui_SP2P18HGSHFormat;
-lv_obj_t * ui_SP2P18HGSHFText;
+lv_obj_t * ui_SP2P18HGSBCounter;
+lv_obj_t * ui_SP2P18HGSBCText;
+lv_obj_t * ui_SP2P18HGSBCPanel;
+lv_obj_t * ui_SP2P18HGSBCPText;
+lv_obj_t * ui_SP2P18HGSP1Scoreboard;
+lv_obj_t * ui_SP2P18HGSP1SText;
+lv_obj_t * ui_SP2P18HGSP1SPanel;
+lv_obj_t * ui_SP2P18HGSP1SPText;
+lv_obj_t * ui_SP2P18HGSP2Scoreboard;
+lv_obj_t * ui_SP2P18HGSP2SText;
+lv_obj_t * ui_SP2P18HGSP2SPanel;
+lv_obj_t * ui_SP2P18HGSP2SPText;
 // CUSTOM VARIABLES
 
 
@@ -761,14 +746,6 @@ lv_obj_t * ui_SP2P18HGSHFText;
 void ui_SP2P18HScorecard_screen_init(void);
 lv_obj_t * ui_SP2P18HScorecard;
 lv_obj_t * ui_SP2P18HScLogo;
-void ui_event_SP2P18HScBButton(lv_event_t * e);
-lv_obj_t * ui_SP2P18HScBButton;
-void ui_event_SP2P18HScBBText(lv_event_t * e);
-lv_obj_t * ui_SP2P18HScBBText;
-void ui_event_SP2P18HScMMButton(lv_event_t * e);
-lv_obj_t * ui_SP2P18HScMMButton;
-void ui_event_SP2P18HScMMBText(lv_event_t * e);
-lv_obj_t * ui_SP2P18HScMMBText;
 lv_obj_t * ui_SP2P18HScHText;
 lv_obj_t * ui_SP2P18HScHText1;
 lv_obj_t * ui_SP2P18HScHText2;
@@ -867,6 +844,14 @@ lv_obj_t * ui_SP2P18HScP2Spinbox18;
 lv_obj_t * ui_SP2P18HScP2SText18;
 lv_obj_t * ui_SP2P18HScP2SpinboxF;
 lv_obj_t * ui_SP2P18HScP2STextF;
+void ui_event_SP2P18HScMMButton(lv_event_t * e);
+lv_obj_t * ui_SP2P18HScMMButton;
+void ui_event_SP2P18HScMMBText(lv_event_t * e);
+lv_obj_t * ui_SP2P18HScMMBText;
+void ui_event_SP2P18HScBButton(lv_event_t * e);
+lv_obj_t * ui_SP2P18HScBButton;
+void ui_event_SP2P18HScBBText(lv_event_t * e);
+lv_obj_t * ui_SP2P18HScBBText;
 // CUSTOM VARIABLES
 
 
@@ -921,6 +906,9 @@ void ui_event_SP3P18HScMMButton(lv_event_t * e);
 lv_obj_t * ui_SP3P18HScMMButton;
 void ui_event_SP3P18HScMMBText(lv_event_t * e);
 lv_obj_t * ui_SP3P18HScMMBText;
+lv_obj_t * ui_SP3P18HScP1Text;
+lv_obj_t * ui_SP3P18HScP2Text;
+lv_obj_t * ui_SP3P18HScP3Text;
 lv_obj_t * ui_SP3P18HScHText;
 lv_obj_t * ui_SP3P18HScHText1;
 lv_obj_t * ui_SP3P18HScHText2;
@@ -941,9 +929,6 @@ lv_obj_t * ui_SP3P18HScHText16;
 lv_obj_t * ui_SP3P18HScHText17;
 lv_obj_t * ui_SP3P18HScHText18;
 lv_obj_t * ui_SP3P18HScHTextF;
-lv_obj_t * ui_SP3P18HScP1Text;
-lv_obj_t * ui_SP3P18HScP2Text;
-lv_obj_t * ui_SP3P18HScP3Text;
 lv_obj_t * ui_SP3P18HScP1Spinbox1;
 lv_obj_t * ui_SP3P18HScP1SText1;
 lv_obj_t * ui_SP3P18HScP2Spinbox1;
@@ -1103,6 +1088,19 @@ lv_obj_t * ui_SP4P18HGSP4SPText;
 // SCREEN: ui_SP4P18HScorecard
 void ui_SP4P18HScorecard_screen_init(void);
 lv_obj_t * ui_SP4P18HScorecard;
+lv_obj_t * ui_SP4P18HScLogo;
+void ui_event_SP4P18HScMMButton(lv_event_t * e);
+lv_obj_t * ui_SP4P18HScMMButton;
+void ui_event_SP4P18HScMMBText(lv_event_t * e);
+lv_obj_t * ui_SP4P18HScMMBText;
+void ui_event_SP4P18HScBButton(lv_event_t * e);
+lv_obj_t * ui_SP4P18HScBButton;
+void ui_event_SP4P18HScBBText(lv_event_t * e);
+lv_obj_t * ui_SP4P18HScBBText;
+lv_obj_t * ui_SP4P18HScP1Text;
+lv_obj_t * ui_SP4P18HScP2Text;
+lv_obj_t * ui_SP4P18HScP3Text;
+lv_obj_t * ui_SP4P18HScP4Text;
 lv_obj_t * ui_SP4P18HScHText;
 lv_obj_t * ui_SP4P18HScHText1;
 lv_obj_t * ui_SP4P18HScHText2;
@@ -1123,19 +1121,6 @@ lv_obj_t * ui_SP4P18HScHText16;
 lv_obj_t * ui_SP4P18HScHText17;
 lv_obj_t * ui_SP4P18HScHText18;
 lv_obj_t * ui_SP4P18HScHTextF;
-lv_obj_t * ui_SP4P18HScP1Text;
-lv_obj_t * ui_SP4P18HScP2Text;
-lv_obj_t * ui_SP4P18HScP3Text;
-lv_obj_t * ui_SP4P18HScLogo;
-void ui_event_SP4P18HScMMButton(lv_event_t * e);
-lv_obj_t * ui_SP4P18HScMMButton;
-void ui_event_SP4P18HScMMBText(lv_event_t * e);
-lv_obj_t * ui_SP4P18HScMMBText;
-void ui_event_SP4P18HScBButton(lv_event_t * e);
-lv_obj_t * ui_SP4P18HScBButton;
-void ui_event_SP4P18HScBBText(lv_event_t * e);
-lv_obj_t * ui_SP4P18HScBBText;
-lv_obj_t * ui_SP4P18HScP4Text;
 lv_obj_t * ui_SP4P18HScP1Spinbox1;
 lv_obj_t * ui_SP4P18HScP1SText1;
 lv_obj_t * ui_SP4P18HScP2Spinbox1;
@@ -1639,25 +1624,45 @@ lv_obj_t * ui_MP2V29HScHText8;
 lv_obj_t * ui_MP2V29HScHText9;
 lv_obj_t * ui_MP2V29HScHTextF;
 lv_obj_t * ui_MP2V29HScT1Spinbox1;
+lv_obj_t * ui_MP2V29HScT1SText1;
 lv_obj_t * ui_MP2V29HScT1Spinbox2;
+lv_obj_t * ui_MP2V29HScT1SText2;
 lv_obj_t * ui_MP2V29HScT1Spinbox3;
+lv_obj_t * ui_MP2V29HScT1SText3;
 lv_obj_t * ui_MP2V29HScT1Spinbox4;
+lv_obj_t * ui_MP2V29HScT1SText4;
 lv_obj_t * ui_MP2V29HScT1Spinbox5;
+lv_obj_t * ui_MP2V29HScT1SText5;
 lv_obj_t * ui_MP2V29HScT1Spinbox6;
+lv_obj_t * ui_MP2V29HScT1SText6;
 lv_obj_t * ui_MP2V29HScT1Spinbox7;
+lv_obj_t * ui_MP2V29HScT1SText7;
 lv_obj_t * ui_MP2V29HScT1Spinbox8;
+lv_obj_t * ui_MP2V29HScT1SText8;
 lv_obj_t * ui_MP2V29HScT1Spinbox9;
+lv_obj_t * ui_MP2V29HScT1SText9;
 lv_obj_t * ui_MP2V29HScT1SpinboxF;
+lv_obj_t * ui_MP2V29HScT1STextF;
 lv_obj_t * ui_MP2V29HScT2Spinbox1;
+lv_obj_t * ui_MP2V29HScT2SText1;
 lv_obj_t * ui_MP2V29HScT2Spinbox2;
+lv_obj_t * ui_MP2V29HScT2SText2;
 lv_obj_t * ui_MP2V29HScT2Spinbox3;
+lv_obj_t * ui_MP2V29HScT2SText3;
 lv_obj_t * ui_MP2V29HScT2Spinbox4;
+lv_obj_t * ui_MP2V29HScT2SText4;
 lv_obj_t * ui_MP2V29HScT2Spinbox5;
+lv_obj_t * ui_MP2V29HScT2SText5;
 lv_obj_t * ui_MP2V29HScT2Spinbox6;
+lv_obj_t * ui_MP2V29HScT2SText6;
 lv_obj_t * ui_MP2V29HScT2Spinbox7;
+lv_obj_t * ui_MP2V29HScT2SText7;
 lv_obj_t * ui_MP2V29HScT2Spinbox8;
+lv_obj_t * ui_MP2V29HScT2SText8;
 lv_obj_t * ui_MP2V29HScT2Spinbox9;
-lv_obj_t * ui_MP2V29HScT2SpinboxF;
+lv_obj_t * ui_MP2V29HScT2SText9;
+lv_obj_t * ui_MP2V29HScT2Spinbox10;
+lv_obj_t * ui_MP2V29HScT2SText10;
 // CUSTOM VARIABLES
 
 
@@ -2034,9 +2039,7 @@ const lv_image_dsc_t * ui_imgset_studio_go_ball_logo_200x[1] = {&ui_img_studio_g
 const lv_image_dsc_t * ui_imgset_studio_go_ball_logo_225x[1] = {&ui_img_studio_go_ball_logo_225x205_png};
 const lv_image_dsc_t * ui_imgset_studio_go_ball_logo_300x[1] = {&ui_img_studio_go_ball_logo_300x273_png};
 const lv_image_dsc_t * ui_imgset_studio_go_ball_logo_350x[1] = {&ui_img_studio_go_ball_logo_350x319_png};
-const lv_image_dsc_t * ui_imgset_venice_18th_1x[1] = {&ui_img_venice_18th_1600x600_png};
-const lv_image_dsc_t * ui_imgset_venice_18th_2047x[1] = {&ui_img_venice_18th_2047x720_png};
-const lv_image_dsc_t * ui_imgset_venice_18th_2560x[2] = {&ui_img_venice_18th_2560x1170_png, &ui_img_venice_18th_2560x720_png};
+const lv_image_dsc_t * ui_imgset_venice_18th_2560x[1] = {&ui_img_venice_18th_2560x720_png};
 
 ///////////////////// TEST LVGL SETTINGS ////////////////////
 #if LV_COLOR_DEPTH != 32
@@ -2282,6 +2285,16 @@ void ui_event_HSMPBText(lv_event_t * e)
     }
 }
 
+void ui_event_HSQPButton(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_QPSScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_QPSScreen_screen_init);
+        _ui_screen_delete(&ui_HScreen);
+    }
+}
+
 void ui_event_HSQPBText(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
@@ -2289,6 +2302,26 @@ void ui_event_HSQPBText(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_QPSScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_QPSScreen_screen_init);
         _ui_screen_delete(&ui_HScreen);
+    }
+}
+
+void ui_event_SPPSBButton(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
+        _ui_screen_delete(&ui_SPPSScreen);
+    }
+}
+
+void ui_event_SPPSBBText(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
+        _ui_screen_delete(&ui_SPPSScreen);
     }
 }
 
@@ -2372,26 +2405,6 @@ void ui_event_SPPS4PBText(lv_event_t * e)
     }
 }
 
-void ui_event_SPPSBButton(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
-        _ui_screen_delete(&ui_SPPSScreen);
-    }
-}
-
-void ui_event_SPPSBBText(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
-        _ui_screen_delete(&ui_SPPSScreen);
-    }
-}
-
 void ui_event_MPPS1V1Button(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
@@ -2449,6 +2462,26 @@ void ui_event_MPPSBBText(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
         _ui_screen_delete(&ui_MPPSScreen);
+    }
+}
+
+void ui_event_SP1PHSBB(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_SPPSScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SPPSScreen_screen_init);
+        _ui_screen_delete(&ui_SP1PHSScreen);
+    }
+}
+
+void ui_event_SP1PHSBBText(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_SPPSScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SPPSScreen_screen_init);
+        _ui_screen_delete(&ui_SP1PHSScreen);
     }
 }
 // ui_event_SP1PHS9HButton
@@ -2512,23 +2545,23 @@ void ui_event_SP1PHS18HBText(lv_event_t * e)
     }
 }
 
-void ui_event_SP1PHSBB(lv_event_t * e)
+void ui_event_SP2PHSBButton(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SPPSScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SPPSScreen_screen_init);
-        _ui_screen_delete(&ui_SP1PHSScreen);
+        _ui_screen_delete(&ui_SP2PHSScreen);
     }
 }
 
-void ui_event_SP1PHSBBText(lv_event_t * e)
+void ui_event_SP2PHSBBText(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SPPSScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SPPSScreen_screen_init);
-        _ui_screen_delete(&ui_SP1PHSScreen);
+        _ui_screen_delete(&ui_SP2PHSScreen);
     }
 }
 
@@ -2593,23 +2626,23 @@ void ui_event_SP2PHS18HBText(lv_event_t * e)
     }
 }
 
-void ui_event_SP2PHSBButton(lv_event_t * e)
+void ui_event_SP3PHSBButton(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SPPSScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SPPSScreen_screen_init);
-        _ui_screen_delete(&ui_SP2PHSScreen);
+        _ui_screen_delete(&ui_SP3PHSScreen);
     }
 }
 
-void ui_event_SP2PHSBBText(lv_event_t * e)
+void ui_event_SP3PHSBBText(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SPPSScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SPPSScreen_screen_init);
-        _ui_screen_delete(&ui_SP2PHSScreen);
+        _ui_screen_delete(&ui_SP3PHSScreen);
     }
 }
 // ui_event_SP3PHS9HButton
@@ -2672,23 +2705,23 @@ void ui_event_SP3PHS18HBText(lv_event_t * e)
     }
 }
 
-void ui_event_SP3PHSBButton(lv_event_t * e)
+void ui_event_SP4PHSBButton(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SPPSScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SPPSScreen_screen_init);
-        _ui_screen_delete(&ui_SP3PHSScreen);
+        _ui_screen_delete(&ui_SP4PHSScreen);
     }
 }
 
-void ui_event_SP3PHSBBText(lv_event_t * e)
+void ui_event_SP4PHSBBText(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SPPSScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SPPSScreen_screen_init);
-        _ui_screen_delete(&ui_SP3PHSScreen);
+        _ui_screen_delete(&ui_SP4PHSScreen);
     }
 }
 
@@ -2738,33 +2771,23 @@ void ui_event_SP4PHS18HBText(lv_event_t * e)
     }
 }
 
-void ui_event_SP4PHSBButton(lv_event_t * e)
+void ui_event_SP1P9HGSMMButton(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_SPPSScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SPPSScreen_screen_init);
-        _ui_screen_delete(&ui_SP4PHSScreen);
+        _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
+        _ui_screen_delete(&ui_SP1P9HGScreen);
     }
 }
 
-void ui_event_SP4PHSBBText(lv_event_t * e)
+void ui_event_SP1P9HGSMMBText(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_SPPSScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SPPSScreen_screen_init);
-        _ui_screen_delete(&ui_SP4PHSScreen);
-    }
-}
-
-void ui_event_SP1P9HGSPSPText(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-    lv_obj_t * target = lv_event_get_target(e);
-
-    if(event_code == LV_EVENT_VALUE_CHANGED) {
-        _ui_checked_set_text_value(ui_SP1P9HGSPSPText, target, "100", "");
+        _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
+        _ui_screen_delete(&ui_SP1P9HGScreen);
     }
 }
 
@@ -2785,32 +2808,19 @@ void ui_event_SP1P9HGSSCBText(lv_event_t * e)
         _ui_screen_change(&ui_SP1P9HScorecard, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP1P9HScorecard_screen_init);
     }
 }
-// ui_event_SP1P9HGSMMButton
-/*
- * Stroke play
- * 1 player
- * Hole Select
- * 9 Hole Game Screen Main Menu Button
- */
-void ui_event_SP1P9HGSMMButton(lv_event_t * e)
+
+void ui_event_SP1P9HScMMButton(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
-        _ui_screen_delete(&ui_SP1P9HGScreen);
+        _ui_screen_delete(&ui_SP1P9HScorecard);
         reset_scores();
     }
 }
 
-// ui_event_SP1P9HGSMMBText
-/*
- * Stroke play
- * 1 player
- * Hole Select
- * 9 Hole Game Screen Main Menu Button Text
- */
-void ui_event_SP1P9HGSMMBText(lv_event_t * e)
+void ui_event_SP1P9HScMMBText(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
@@ -2827,6 +2837,7 @@ void ui_event_SP1P9HScBButton(lv_event_t * e)
 
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SP1P9HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP1P9HGScreen_screen_init);
+        _ui_screen_delete(&ui_SP1P9HScorecard);
     }
 }
 
@@ -2836,26 +2847,6 @@ void ui_event_SP1P9HScBBText(lv_event_t * e)
 
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SP1P9HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP1P9HGScreen_screen_init);
-    }
-}
-
-void ui_event_SP1P9HScMMButton(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
-        _ui_screen_delete(&ui_SP1P9HScorecard);
-    }
-}
-
-void ui_event_SP1P9HScMMBText(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
-        _ui_screen_delete(&ui_SP1P9HScorecard);
     }
 }
 
@@ -2917,7 +2908,7 @@ void ui_event_SP2P9HScMMButton(lv_event_t * e)
 
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
-        _ui_screen_delete(&ui_SP2P9HScorecard);
+        _ui_screen_delete(&ui_SP2P9HGScreen);
     }
 }
 
@@ -3067,24 +3058,6 @@ void ui_event_SP4P9HGSSCBText(lv_event_t * e)
     }
 }
 
-void ui_event_SP4P9HScBButton(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_SP4P9HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP4P9HGScreen_screen_init);
-    }
-}
-
-void ui_event_SP4P9HScBBText(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_SP4P9HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP4P9HGScreen_screen_init);
-    }
-}
-
 void ui_event_SP4P9HScMMButton(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
@@ -3102,6 +3075,24 @@ void ui_event_SP4P9HScMMBText(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
         _ui_screen_delete(&ui_SP4P9HScorecard);
+    }
+}
+
+void ui_event_SP4P9HScBButton(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_SP4P9HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP4P9HGScreen_screen_init);
+    }
+}
+
+void ui_event_SP4P9HScBBText(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_SP4P9HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP4P9HGScreen_screen_init);
     }
 }
 
@@ -3143,24 +3134,6 @@ void ui_event_SP1P18HGSMMBText(lv_event_t * e)
     }
 }
 
-void ui_event_SP1P18HScBButton(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_SP1P18HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP1P18HGScreen_screen_init);
-    }
-}
-
-void ui_event_SP1P18HScBBText(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-
-    if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_SP1P18HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP1P18HGScreen_screen_init);
-    }
-}
-
 void ui_event_SP1P18HScMMButton(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
@@ -3181,21 +3154,21 @@ void ui_event_SP1P18HScMMBText(lv_event_t * e)
     }
 }
 
-void ui_event_SP2P18HGSSCButton(lv_event_t * e)
+void ui_event_SP1P18HScBButton(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_SP2P18HScorecard, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP2P18HScorecard_screen_init);
+        _ui_screen_change(&ui_SP1P18HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP1P18HGScreen_screen_init);
     }
 }
 
-void ui_event_SP2P18HGSSCBText(lv_event_t * e)
+void ui_event_SP1P18HScBBText(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_SP2P18HScorecard, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP2P18HScorecard_screen_init);
+        _ui_screen_change(&ui_SP1P18HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP1P18HGScreen_screen_init);
     }
 }
 
@@ -3219,21 +3192,21 @@ void ui_event_SP2P18HGSMMBText(lv_event_t * e)
     }
 }
 
-void ui_event_SP2P18HScBButton(lv_event_t * e)
+void ui_event_SP2P18HGSSCButton(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_SP2P18HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP2P18HGScreen_screen_init);
+        _ui_screen_change(&ui_SP2P18HScorecard, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP2P18HScorecard_screen_init);
     }
 }
 
-void ui_event_SP2P18HScBBText(lv_event_t * e)
+void ui_event_SP2P18HGSSCBText(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
     if(event_code == LV_EVENT_CLICKED) {
-        _ui_screen_change(&ui_SP2P18HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP2P18HGScreen_screen_init);
+        _ui_screen_change(&ui_SP2P18HScorecard, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP2P18HScorecard_screen_init);
     }
 }
 
@@ -3254,6 +3227,24 @@ void ui_event_SP2P18HScMMBText(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_HScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_HScreen_screen_init);
         _ui_screen_delete(&ui_SP2P18HScorecard);
+    }
+}
+
+void ui_event_SP2P18HScBButton(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_SP2P18HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP2P18HGScreen_screen_init);
+    }
+}
+
+void ui_event_SP2P18HScBBText(lv_event_t * e)
+{
+    lv_event_code_t event_code = lv_event_get_code(e);
+
+    if(event_code == LV_EVENT_CLICKED) {
+        _ui_screen_change(&ui_SP2P18HGScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SP2P18HGScreen_screen_init);
     }
 }
 
@@ -4237,8 +4228,6 @@ void ui_event_Q3P18HGSMMBText(lv_event_t * e)
 
 void ui_init(void)
 {
-    LV_EVENT_GET_COMP_CHILD = lv_event_register_id();
-
     lv_disp_t * dispp = lv_display_get_default();
     lv_theme_t * theme = lv_theme_default_init(dispp, lv_palette_main(LV_PALETTE_BLUE), lv_palette_main(LV_PALETTE_RED),
                                                false, LV_FONT_DEFAULT);
