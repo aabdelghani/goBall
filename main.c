@@ -11,13 +11,19 @@
 #include <unistd.h>
 #include "lvgl/lvgl.h"
 #include "ui/ui.h"
+#include "piolib.h"
+#include "utils/piolib/examples/ws2812.pio.h"
 #include <wiringPi.h>
+#include <stdint.h>
 #include <time.h>
 #include <unistd.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
+#include <gpiod.h>  // Include libgpiod
 /*********************
  *      DEFINES
  *********************/
-#define DEBOUNCE_TIME 3  // Time to prevent multiple sensor readings
+#define DEBOUNCE_TIME 3 // Time to prevent multiple sensor readings
 #define NUM_PLAYERS 1
 #define MAX_HOLES 8
 #define SENSORS_PER_TURN 2
@@ -53,39 +59,45 @@ static lv_display_t * hal_init(int32_t w, int32_t h);
 /**********************
  *      VARIABLES
  **********************/
-char update_flag = 0;
+uint8_t update_flag = 0;
  // Define sensor pins
  // 26 -> #1
  // 19 -> #2
  // 20 -> #4
-char sensor_pins[] = {17, 26, 27, 24};
+uint8_t sensor_pins[] = {17, 26, 27, 24};
 
 Player players[MAX_PLAYERS];
-char current_player_index = 0;
+uint8_t current_player_index = 0;
 time_t last_activation_times[4];
-char num_players = 1; // Default to 1 player
+uint8_t num_players = 1; // Default to 1 player
 /**********************
  *  STATIC PROTOTYPES
  **********************/
-
+struct gpiod_chip *chip;
+struct gpiod_line *sensor_lines[NUM_SENSORS];
 /**********************
  *   GLOBAL FUNCTIONS
  **********************/
-char prev_scores[MAX_PLAYERS][9] = {0};      // Previous cumulative scores for each hole for all players
-char individual_scores[MAX_PLAYERS][10] = {0}; // Individual scores for each hole for all players
-char final_scores[MAX_PLAYERS] = {0};         // Final cumulative scores for all players
+uint8_t prev_scores[MAX_PLAYERS][9] = {0};      // Previous cumulative scores for each hole for all players
+uint8_t individual_scores[MAX_PLAYERS][10] = {0}; // Individual scores for each hole for all players
+uint8_t final_scores[MAX_PLAYERS] = {0};         // Final cumulative scores for all players
 
 void cleanup_gpio(void) {
-    for (int i = 0; i < 4; i++) {
+    for (uint8_t i = 0; i < 4; i++) {
         pinMode(sensor_pins[i], INPUT); // Set as input
         pullUpDnControl(sensor_pins[i], PUD_DOWN); // Disable pull-up/down resistors
     }
     printf("GPIO pins have been reset and released.\n");
 }
 
+void busy_wait(double seconds) {
+    clock_t start = clock();
+    while ((double)(clock() - start) / CLOCKS_PER_SEC < seconds);
+}
+
 void check_all_players_completed(void) {
-    int all_players_completed = 1;
-    for (int i = 0; i < num_players; i++) {
+    uint8_t all_players_completed = 1;
+    for (uint8_t i = 0; i < num_players; i++) {
         if (players[i].current_hole <= MAX_HOLES) {
             all_players_completed = 0;
             break;
@@ -97,15 +109,15 @@ void check_all_players_completed(void) {
     }
 }
 
-void update_scoreCard(int player_index, int cumulative_score, int current_hole) {
+void update_scoreCard(uint8_t player_index, uint8_t cumulative_score, uint8_t current_hole) {
     // Check current_hole bounds
-    if (current_hole < 0 || current_hole >= 9) {
+    if (current_hole <= 0 || current_hole >= 9) {
         printf("Invalid hole number: %d\n", current_hole);
         return;
     }
     // Calculate the individual score for the current hole
     printf("Calculating the individual score for the current hole...\n");
-    int individual_score;
+    uint8_t individual_score;
     if (current_hole == 0) {
         // For the first hole, the previous score is 0
         printf("For the first hole, the previous score is 0\n");
@@ -568,7 +580,7 @@ void update_scoreCard(int player_index, int cumulative_score, int current_hole) 
         final_scores[player_index] = 0;
         printf("Resetting Final Score !!! Player %d Final Score: %d\n", player_index + 1, final_scores[player_index]);
     
-        for (int i = 0; i < 9; i++) {
+        for (uint8_t i = 0; i < 9; i++) {
             printf("Final Score for iteration %d - Player %d Final Score: %d\nIndividual scores at player_index %d and iteration %d is: %d\n", 
                                             i, player_index + 1, final_scores[player_index], player_index, i, individual_scores[player_index][i]);
             final_scores[player_index] += individual_scores[player_index][i];
@@ -605,9 +617,9 @@ void update_scoreCard(int player_index, int cumulative_score, int current_hole) 
         }
     }
 
-void update_label_text(int player_index, int current_hole, int score, int detection_count) {
+void update_label_text(uint8_t player_index, uint8_t current_hole, uint8_t score, uint8_t detection_count) {
     printf("Updating labels for Player %d, Hole %d, Score: %d, Detection Count: %d\n", player_index + 1, current_hole + 1, score, detection_count);
-
+    busy_wait(0.2); //pause system for half second beteween eachc reading, so it doesn't throw an error because of reading and updating ui too fast
     if (num_players == 1) {
         // Single-player labels
         printf("Updating UI for Single Player Mode - Player %d\n", player_index + 1);
@@ -735,9 +747,9 @@ void update_label_text(int player_index, int current_hole, int score, int detect
 
 void sensor_callback(void) {
     time_t current_time = time(NULL);
-    int pin = 0;
+    uint8_t pin = 0;
 
-    for (int i = 0; i < 4; i++) {
+    for (uint8_t i = 0; i < 4; i++) {
         if (digitalRead(sensor_pins[i]) == LOW) {
             pin = sensor_pins[i];
             break;
@@ -758,7 +770,7 @@ void sensor_callback(void) {
             } else if (pin == sensor_pins[3]) {
                 player->score += 0;
             }
-
+            busy_wait(0.3);
             player->detection_count++;
             update_label_text(current_player_index, player->current_hole, player->score, player->detection_count);
 
@@ -778,6 +790,63 @@ void sensor_callback(void) {
 
 int main(int argc, char **argv)
 {
+        PIO pio;
+    uint8_t sm1, sm2;
+    uint offset;
+    uint gpio1 = 3;  // LED strip on pin 3
+    uint gpio2 = 2;  // LED strip on pin 2
+    uint8_t databuf1[PIXELS * 4];
+    uint8_t databuf2[PIXELS * 4];
+    uint8_t train_positions[NUM_TRAINS];
+
+    if (argc == 2)
+        gpio1 = (uint)strtoul(argv[1], NULL, 0);
+
+    // Initialize PIO and SMs
+    pio = pio0;
+    sm1 = pio_claim_unused_sm(pio, true);
+    sm2 = pio_claim_unused_sm(pio, true);
+    pio_sm_config_xfer(pio, sm1, PIO_DIR_TO_SM, 256, 1);
+    pio_sm_config_xfer(pio, sm2, PIO_DIR_TO_SM, 256, 1);
+
+    offset = pio_add_program(pio, &ws2812_program);
+    printf("Loaded program at %d, using sm %d and sm %d, gpio %d and gpio %d\n", offset, sm1, sm2, gpio1, gpio2);
+
+    pio_sm_clear_fifos(pio, sm1);
+    pio_sm_clear_fifos(pio, sm2);
+    pio_sm_set_clkdiv(pio, sm1, 1.0);
+    pio_sm_set_clkdiv(pio, sm2, 1.0);
+    ws2812_program_init(pio, sm1, offset, gpio1, 800000.0, false);
+    ws2812_program_init(pio, sm2, offset, gpio2, 800000.0, false);
+
+    // Initialize train positions
+    initialize_train_positions(train_positions, NUM_TRAINS, PIXELS);
+    // Open the GPIO chip
+    chip = gpiod_chip_open_by_name("gpiochip0");
+    if (!chip) {
+        perror("Failed to open GPIO chip");
+        return 1;
+    }
+    // Initialize SDL and SDL_mixer
+    if (SDL_Init(SDL_INIT_AUDIO) < 0) {
+        printf("SDL_Init Error: %s\n", SDL_GetError());
+        return 1;
+    }
+
+    // Print the current audio driver
+    const char* audioDriver = SDL_GetCurrentAudioDriver();
+    if (audioDriver) {
+        printf("Current SDL audio driver: %s\n", audioDriver);
+    } else {
+        printf("No audio driver is currently in use.\n");
+    }
+
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
+        printf("Mix_OpenAudio Error: %s\n", Mix_GetError());
+        return 1;
+    }
+
+
   (void)argc; /*Unused*/
   (void)argv; /*Unused*/
 
@@ -792,27 +861,43 @@ int main(int argc, char **argv)
 
   ui_init();
   wiringPiSetupGpio();
-  for (int i = 0; i < 4; i++) {
+  for (uint8_t i = 0; i < 4; i++) {
       pinMode(sensor_pins[i], INPUT);
       pullUpDnControl(sensor_pins[i], PUD_DOWN);
       last_activation_times[i] = 0;
   }
 
   // Setup sensor interrupts
-  for (int i = 0; i < 4; i++) {
+  for (uint8_t i = 0; i < 4; i++) {
       wiringPiISR(sensor_pins[i], INT_EDGE_FALLING, &sensor_callback);
   }
 
 
   while(1) {
+              // Update the LED strips with the current train positions and white background
+        update_led_strip(databuf1, train_positions, NUM_TRAINS, TRAIN_LENGTH, PIXELS);
+        update_led_strip(databuf2, train_positions, NUM_TRAINS, TRAIN_LENGTH, PIXELS);
+
+        // Send the updated LED data to the strips
+        pio_sm_xfer_data(pio, sm1, PIO_DIR_TO_SM, sizeof(databuf1), databuf1);
+        pio_sm_xfer_data(pio, sm2, PIO_DIR_TO_SM, sizeof(databuf2), databuf2);
+
+        // Move the trains forward
+        for (uint8_t t = 0; t < NUM_TRAINS; t++) {
+            train_positions[t] = (train_positions[t] + 1) % PIXELS;  // Wrap around if needed
+        }
       /* Periodically call the lv_task handler.
        * It could be done in a timer interrupt or an OS task too.*/
       lv_timer_handler();
 
-      usleep(5 * 1000);
   }
 
-  lv_deinit();
+    lv_deinit();
+      // Cleanup
+    //Mix_FreeChunk(sound);
+    Mix_CloseAudio();
+    SDL_Quit();
+
   return 0;
 }
 

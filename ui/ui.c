@@ -2049,16 +2049,97 @@ const lv_image_dsc_t * ui_imgset_venice_18th_2560x[1] = {&ui_img_venice_18th_256
 ///////////////////// ANIMATIONS ////////////////////
 
 ///////////////////// FUNCTIONS ////////////////////
-void set_num_players(int new_num_players) {
+#define NUM_TRAINS 5       // Number of trains
+#define TRAIN_LENGTH 10    // Length of each train in LEDs
+#define PIXELS 144         // Total number of LEDs in the strip
+
+// Define a brightness variable (0 to 255)
+uint8_t brightness = 10;  // Half brightness (can be adjusted)
+
+void set_brightness(uint8_t value) {
+    brightness = value;
+}
+
+// Function to scale color values based on brightness
+uint8_t scale_brightness(uint8_t color, uint8_t brightness) {
+    return (color * brightness) / 255;
+}
+
+// Function to initialize the train positions
+void initialize_train_positions(uint8_t train_positions[], uint8_t num_trains, uint8_t pixels) {
+    for (uint8_t i = 0; i < num_trains; i++) {
+        train_positions[i] = (i * pixels) / num_trains;  // Space trains evenly
+    }
+}
+
+// Function to update the LED strip with multiple trains and a white background
+void update_led_strip(uint8_t databuf[], uint8_t train_positions[], uint8_t num_trains, uint8_t train_length, uint8_t pixels) {
+    // Set the background color to white for all LEDs, with adjustable brightness
+    for (uint8_t i = 0; i < pixels; i++) {
+        databuf[4 * i + 0] = scale_brightness(0xFF, brightness);  // White (W)
+        databuf[4 * i + 1] = scale_brightness(0xFF, brightness);  // Blue (B)
+        databuf[4 * i + 2] = scale_brightness(0xFF, brightness);  // Red (R)
+        databuf[4 * i + 3] = scale_brightness(0xFF, brightness);  // Green (G)
+    }
+
+    // Draw each train on top of the background, with adjustable brightness
+    for (uint8_t t = 0; t < num_trains; t++) {
+        for (uint8_t l = 0; l < train_length; l++) {
+            int led_pos = (train_positions[t] + l) % pixels;  // Wrap around if needed
+
+            // Set the color for the train (0x087200 in RGBW format), with adjustable brightness
+            databuf[4 * led_pos + 0] = scale_brightness(0x00, brightness);  // White (W)
+            databuf[4 * led_pos + 1] = scale_brightness(0x00, brightness);  // Blue (B)
+            databuf[4 * led_pos + 2] = scale_brightness(0x08, brightness);  // Red (R)
+            databuf[4 * led_pos + 3] = scale_brightness(0x65, brightness);  // Green (G)
+        }
+    }
+}
+
+ // Construct the path to the WAV file
+// Function to play a WAV file
+void playWavVoice(const char* fileName) {
+    // Construct the full path to the WAV file
+    char wavPath[2048];
+    strcpy(wavPath, VOICES_DIR); // Set the directory
+    strcat(wavPath, fileName);   // Append the file name
+
+    printf("Looking for file: %s\n", wavPath);
+
+    // Load the WAV file
+    Mix_Chunk *sound = Mix_LoadWAV(wavPath);
+    if (!sound) {
+        printf("Failed to load sound: %s\n", Mix_GetError());
+        printf("Looking for file: %s\n", wavPath);
+        return;
+    } else {
+        printf("Sound loaded successfully!\n");
+    }
+
+    // Play the sound
+    if (sound) {
+        printf("Playing sound: %s\n", fileName);
+        Mix_PlayChannel(-1, sound, 0);
+
+        // Wait for the sound to finish playing
+        while (Mix_Playing(-1)) {
+            SDL_Delay(100);
+        }
+
+        // Free the sound
+        Mix_FreeChunk(sound);
+    }
+}
+void set_num_players(uint8_t new_num_players) {
     if (new_num_players < 1 || new_num_players > MAX_PLAYERS) {
         printf("Invalid number of players. Please select between 1 and %d.\n", MAX_PLAYERS);
         return;
     }
     num_players = new_num_players;
     printf("Number of players set to: %d\n", num_players);
-    for (int i = 0; i < num_players; i++) {
+    for (uint8_t i = 0; i < num_players; i++) {
         final_scores[i] = 0;
-    for (int j = 0; j < MAX_HOLES; j++) {
+    for (uint8_t j = 0; j < MAX_HOLES; j++) {
         individual_scores[i][j] = 0;
     }
 }
@@ -2067,14 +2148,14 @@ void set_num_players(int new_num_players) {
 
 void reset_scores(void) {
     // Reset all players' data
-    for (int i = 0; i < MAX_PLAYERS; i++) {
+    for (uint8_t i = 0; i < MAX_PLAYERS; i++) {
         players[i].score = 0;
         players[i].current_hole = 0;
         players[i].detection_count = 0;
         final_scores[i] = 0;
 
         // Reset score arrays
-        for (int j = 0; j < 9; j++) {
+        for (uint8_t j = 0; j < 9; j++) {
             individual_scores[i][j] = 0;
             prev_scores[i][j] = 0;
         }
@@ -2252,6 +2333,10 @@ void ui_event_HSSPButton(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SPPSScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SPPSScreen_screen_init);
         _ui_screen_delete(&ui_HScreen);
+        
+        // Load WAV file
+        playWavVoice(STROKE_PLAY_VOICE);
+
     }
 }
 
@@ -2262,7 +2347,11 @@ void ui_event_HSSPBText(lv_event_t * e)
     if(event_code == LV_EVENT_CLICKED) {
         _ui_screen_change(&ui_SPPSScreen, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_SPPSScreen_screen_init);
         _ui_screen_delete(&ui_HScreen);
+        // Load WAV file
+        playWavVoice(STROKE_PLAY_VOICE);
+
     }
+
 }
 
 void ui_event_HSMPButton(lv_event_t * e)

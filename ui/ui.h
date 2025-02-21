@@ -19,28 +19,57 @@ extern "C" {
 #include <time.h>
 #include <stdio.h>
 #include <wiringPi.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
+#include <unistd.h> // For getcwd()
+#include <gpiod.h>  // Include libgpiod
+#include "piolib.h"
+#include <string.h> // For strcat() and strcpy()
+
 // Shared variables
 #define MAX_PLAYERS 4
 #define MAX_HOLES 8
 #define SENSORS_PER_TURN 2
 
+// Define directory and file name separately
+#define VOICES_DIR "../assets/voices/"
+#define STROKE_PLAY_VOICE "strokePlay.wav"
+
+/****LED STRUPS ****/
+#define NUM_TRAINS 5       // Number of trains
+#define TRAIN_LENGTH 10    // Length of each train in LEDs
+#define PIXELS 144         // Total number of LEDs in the strip
+#define NUM_SENSORS 4  // Number of sensor pins
+
+
+// GPIO chip and line handles
+extern struct gpiod_chip *chip;
+extern struct gpiod_line *sensor_lines[NUM_SENSORS];
+
 // Define the Player structure before using it
 typedef struct {
-    char score;
-    char current_hole;
-    char detection_count;
+    uint8_t score;
+    uint8_t current_hole;
+    uint8_t detection_count;
 } Player;
 
 // Declare shared variables
-extern char update_flag;
-extern char sensor_pins[4];
+extern uint8_t update_flag;
+extern uint8_t sensor_pins[4];
 extern Player players[MAX_PLAYERS];
-extern char current_player_index;
+extern uint8_t current_player_index;
 extern time_t last_activation_times[4];
-extern char num_players; // Default to 1 player
-extern char prev_scores[MAX_PLAYERS][9];       // Previous cumulative scores for each hole for each player
-extern char individual_scores[MAX_PLAYERS][10]; // Individual scores for each hole for each player
-extern char final_scores[MAX_PLAYERS];         // Final cumulative scores for each player
+extern uint8_t num_players; // Default to 1 player
+extern uint8_t prev_scores[MAX_PLAYERS][9];       // Previous cumulative scores for each hole for each player
+extern uint8_t individual_scores[MAX_PLAYERS][10]; // Individual scores for each hole for each player
+extern uint8_t final_scores[MAX_PLAYERS];         // Final cumulative scores for each player
+void set_brightness(uint8_t value);
+uint8_t scale_brightness(uint8_t color, uint8_t brightness);
+
+void initialize_train_positions(uint8_t train_positions[], uint8_t num_trains, uint8_t pixels);
+void update_led_strip(uint8_t databuf[], uint8_t train_positions[], uint8_t num_trains, uint8_t train_length, uint8_t pixels);
+
+
 // SCREEN: ui_HScreen
 void ui_HScreen_screen_init(void);
 extern lv_obj_t * ui_HScreen;

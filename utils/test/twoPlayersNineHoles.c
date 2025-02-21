@@ -10,7 +10,7 @@
 #define SENSORS_PER_TURN 2
 
 // Define sensor pins - RPI 5 -
-int sensor_pins[] = {17, 26, 27, 23};
+int sensor_pins[] = {17, 26, 27, 24};
 
 // Player data
 typedef struct {
